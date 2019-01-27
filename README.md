@@ -24,9 +24,9 @@
 |name|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |description|string|null: false|
-|category1_id|string|null: false, foreign_key: true|
-|category2_id|string|null: false, foreign_key: true|
-|category3_id|string|null: false, foreign_key: true|
+|category_large_id|string|null: false, foreign_key: true|
+|category_middle_id|string|null: false, foreign_key: true|
+|category_small_id|string|null: false, foreign_key: true|
 |brand_id|string|null: false, foreign_key: true|
 |size|string|null: false|
 |status|string|null: false|
@@ -44,62 +44,62 @@
 - belongs_to :user
 - belongs_to :brand
 - belongs_to :purchase
-- belongs_to :category1
-- belongs_to :category2
-- belongs_to :category3
+- belongs_to :category_large
+- belongs_to :category_middle
+- belongs_to :category_small
 
-## category1テーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-### Association
-- has_many :category1-2s
-- belongs_to :product
-
-## category2テーブル
+## category_largeテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 
 ### Association
-- has_many :category1-2s
-- has_many :category2-3s
+- has_many :category_large_middles
 - belongs_to :product
 
-## category3テーブル
+## category_middleテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 
 ### Association
-- has_many :category2-3s
+- has_many :category_large_middles
+- has_many :category_middle_smalls
 - belongs_to :product
 
-## category1-2テーブル
+## category_smallテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|category1_id|integer|null: false, foreign_key: true|
-|category2_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
 
 ### Association
-- belongs_to :category1
-- belongs_to :category2
+- has_many :category_middle_smalls
+- belongs_to :product
 
-## category2-3テーブル
+## category_large_middleテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|category2_id|integer|null: false, foreign_key: true|
-|category3_id|integer|null: false, foreign_key: true|
+|category_large_id|integer|null: false, foreign_key: true|
+|category_middle_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :category2
-- belongs_to :category3
+- belongs_to :category_large
+- belongs_to :category_middle
+
+## category_middle_smallテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|category_middle_id|integer|null: false, foreign_key: true|
+|category_small_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :category_middle
+- belongs_to :category_small
 
 ## brandテーブル
 
