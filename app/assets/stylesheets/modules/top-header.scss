@@ -2,3 +2,9 @@ body{
   width: 100%;
 }
 
+.clearfix::after {
+    content : " ";
+    display : block;
+    clear : both;
+}
+
