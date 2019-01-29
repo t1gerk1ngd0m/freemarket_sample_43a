@@ -1,0 +1,61 @@
+.product{
+  background-color: white;
+  width: 215px;
+  height: 320px;
+  font-size: 15px;
+  font-weight: normal;
+  display: inline-block;
+  margin: 0 5px;
+  position: relative;
+  &__image{
+    width: 215px;
+    height: 220px;
+  }
+  &__title{
+    overflow: hidden;
+    padding: 5px 10px;
+    white: 215px;
+    height: 45px;
+  }
+  &__name{
+    position: relative;
+  }
+  &__name--fade-out{
+    float: right;
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    background: linear-gradient(to right , #00000000, white);
+    bottom: 45px;
+    right: 10px;
+  }
+  &__price{
+    float: left;
+    .price__yen{
+      font-weight: bold;
+      line-height: 10px;
+      position: absolute;
+      bottom: 22px;
+      left: 10px;
+    }
+    .price__tax{
+      font-size: 10px;
+      position: absolute;
+      bottom: 5px;
+      left: 10px;
+    }
+  }
+  &__like{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    .like__heart{
+      color: #CCCCCC;
+      display: inline-block;
+    }
+    .like__number{
+      font-size: 13px;
+      display: inline-block;
+    }
+  }
+}
