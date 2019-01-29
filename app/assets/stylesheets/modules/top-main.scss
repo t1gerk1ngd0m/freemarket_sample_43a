@@ -28,14 +28,8 @@
   font-weight: bold;
   width: 925px;
   margin: 0 auto;
-  &__title{
-  }
-  &__category{
-  }
   &__category-name{
     margin: 25px 0 15px;
-  }
-  &____product-list{
   }
   &__all-product-link{
     font-size: 14px;
@@ -46,7 +40,7 @@
 }
 
 .top__app-introduction{
-  background-color: #212121;;
+  background-color: #212121;
   &__image{
     width:100%; height:260px;
     object-fit:cover;
