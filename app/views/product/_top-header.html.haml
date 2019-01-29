@@ -1,7 +1,6 @@
-.top-header
-  .clearfix
-    = image_tag("logo.svg", class: :"top-header__logo")
-    .top-header__form
-      = form_tag(root_path, method: :get)
-      = text_field_tag :text, '', placeholder: 'キーワードから探す', class: 'form__input'
-      = button_tag '', class: "form__button fas fa-search", value: "&#xf002"
+.clearfix
+  = image_tag("logo.svg", class: :"top-header__logo")
+  .top-header__form
+    = form_tag(root_path, method: :get)
+    = text_field_tag :text, '', placeholder: 'キーワードから探す', class: 'form__input'
+    = button_tag '', class: "form__button fas fa-search", value: "&#xf002"
