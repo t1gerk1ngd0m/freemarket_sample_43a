@@ -16,12 +16,5 @@
           = render "product"
       .top-main__all-product-link すべての商品を見る
 
-  .top__app-introduction
-    = image_tag "app-introduction.png", class: :"top__app-introduction__image"
-
   = render "top-footer"
-
-  = link_to root_path, class: 'top-button' do
-    .top-button__icon
-      .top-button__name 出品
-      .top-button__camera.fas.fa-camera
+  = render "top-button"
