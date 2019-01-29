@@ -2,12 +2,19 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
-|profile|string|null: false|
-|address|string|null: false|
-|payment_method|string|null: false|
+|profile|string||
+|zip|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|block|string|null: false|
+|building|string||
+|payment_method|string||
 |birthday|date|null: false|
 |tell|string|null: false|
 
