@@ -1,5 +1,6 @@
 .top-wrap{
   width: 100%;
+  position: relative;
 }
 
 .clearfix::after {
@@ -44,5 +45,28 @@
   &__image{
     width:100%; height:260px;
     object-fit:cover;
+  }
+}
+
+.top-button{
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  background-color: #D84638;
+  color: white;
+  &__icon{
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    text-align: center;
+  }
+  &__name{
+    font-size: 22px;
+  }
+  &__camera{
+    font-size: 65px;
   }
 }
