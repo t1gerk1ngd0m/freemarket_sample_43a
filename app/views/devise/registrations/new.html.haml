@@ -1,21 +1,38 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.signup-container
+  %header.signup-header
+    %h1
+      %a{ href: "" }
+        %img{ src: "", alt: "mercari"}
+  %main.signup-main
+    %section.l-signup-container
+      %h2.l-signup-head 新規会員登録
+      .l-signup-inner
+        .l-signup-content
+          %a.btn-default.btn-mail
+            メールアドレスで登録
+            %i.btn-mail.far.fa-envelope
+          %a
+            %btn.btn-default.btn-sns.btn-sns-facebook
+              Facebookで登録
+              %i.icon-facebook.fab.fa-facebook-f
+          %a
+            %btn.btn-default.btn-sns.btn-sns-google
+              Googleで登録
+              %i.icon-google-plus.fab.fa-google-plus-g
+  %footer.signup-footer
+    %nav
+      %ul.clearfix
+        %li
+          %a{ href: "" }
+            プライバシーポリシー
+        %li
+          %a{ href: "" }
+            メルカリ利用規約
+        %li
+          %a{ href: "" }
+            特定商取引に関する表記
+    %a.signup-footer__logo{ href: "" }
+      %img{ alt: "mercari", height: "65", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?4136293187", width: "80"}
+    %p
+      %small
+        © 2019 Mercari
