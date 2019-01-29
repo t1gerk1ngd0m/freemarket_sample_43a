@@ -33,5 +33,21 @@
   &__country{
     display: inline-block;
     vertical-align: top;
+    position: relative;
+  }
+  &__icon{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 5px;
+    right: 5px;
+  }
+  &__name{
+    display: inline-block;
+    line-height: 40px;
+  }
+  &__logo{
+    margin-top: 60px;
   }
 }
