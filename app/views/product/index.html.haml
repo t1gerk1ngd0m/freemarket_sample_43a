@@ -1,1 +1,22 @@
-.header TEST
+.top-wrap
+  = render "top-header"
+
+  .top-banner
+    = image_tag("banner-featured-hobby.jpg", class: :"top-banner__image")
+
+  .top-main__wrap
+    .top-main
+      .top-main__title ピックアップカテゴリー
+      .top-main__category
+        .top-main__category-name 商品一覧
+        .top-main__product-list
+          = render "product"
+          = render "product"
+          = render "product"
+          = render "product"
+      .top-main__all-product-link すべての商品を見る
+
+  .top__app-introduction
+    = image_tag("app-introduction", class: :"top__app-introduction__image")
+
+  = render "top-footer"
