@@ -5,9 +5,13 @@
 |name|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
-|profile|string|null: false|
-|address|string|null: false|
-|payment_method|string|null: false|
+|profile|string||
+|zip|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|block|string|null: false|
+|building|string||
+|payment_method|string||
 |birthday|date|null: false|
 |tell|string|null: false|
 
