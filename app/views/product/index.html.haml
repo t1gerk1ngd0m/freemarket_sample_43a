@@ -1,20 +1,4 @@
-.top-header
-  = render "top-header"
-
-  .clearfix
-    .top-header__search-link
-      .search-link--category カテゴリから探す
-      .search-link--brand ブランドから探す
-    .top-header__user-info
-      .user-info__mypage
-        = image_tag("member_photo_noimage_thumb.png", class: :"mypage__image", value: "マイページ")
-        .mypage__title マイページ
-      .user-info__notice
-        .far.fa-bell
-        .notice__text お知らせ
-      .user-info__todo
-        .fas.fa-check
-        .todo__text やることリスト
+= render "top-header"
 
 .top-banner
   = image_tag("banner-featured-hobby.jpg", class: :"top-banner__image")

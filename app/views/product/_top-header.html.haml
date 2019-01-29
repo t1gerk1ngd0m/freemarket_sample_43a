@@ -1,6 +1,21 @@
-.clearfix
-  = image_tag("logo.svg", class: :"top-header__logo")
-  .top-header__form
-    = form_tag(root_path, method: :get)
-    = text_field_tag :text, '', placeholder: 'キーワードから探す', class: 'form__input'
-    = button_tag '', class: "form__button fas fa-search", value: "&#xf002"
+.top-header
+  .clearfix
+    = image_tag("logo.svg", class: :"top-header__logo")
+    .top-header__form
+      = form_tag(root_path, method: :get)
+      = text_field_tag :text, '', placeholder: 'キーワードから探す', class: 'form__input'
+      = button_tag '', class: "form__button fas fa-search", value: "&#xf002"
+  .clearfix
+    .top-header__search-link
+      .search-link--category カテゴリから探す
+      .search-link--brand ブランドから探す
+    .top-header__user-info
+      .user-info__mypage
+        = image_tag("member_photo_noimage_thumb.png", class: :"mypage__image", value: "マイページ")
+        .mypage__title マイページ
+      .user-info__notice
+        .far.fa-bell
+        .notice__text お知らせ
+      .user-info__todo
+        .fas.fa-check
+        .todo__text やることリスト
