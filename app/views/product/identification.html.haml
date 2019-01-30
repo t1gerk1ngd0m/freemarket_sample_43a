@@ -1,0 +1,71 @@
+= render "top-header"
+
+.gray-background
+  .user-page
+    .user-page__content
+      .identification
+        .identification__title 本人情報の登録
+        .identification__message お客さまのあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております。
+        .identification__item
+          .identification__name お名前
+          .identification__icon 必須
+          .identification__form
+            = text_field_tag :text, '', placeholder: '例）ピコ', class: 'identification__input'
+          .identification__form
+            = text_field_tag :text, '', placeholder: '例）太郎', class: 'identification__input'
+        .identification__item
+          .identification__name お名前カナ
+          .identification__icon 必須
+          .identification__form
+            = text_field_tag :text, '', placeholder: '例）ピコ', class: 'identification__input'
+          .identification__form
+            = text_field_tag :text, '', placeholder: '例）タロウ', class: 'identification__input'
+        .identification__item
+          .identification__name 郵便番号
+          .identification__icon.identification__icon--gray 任意
+          .identification__form
+            = text_field_tag :text, '', placeholder: '例）1234567', class: 'identification__input'
+        .identification__item
+          .identification__name 都道府県
+          .identification__icon 必須
+          .identification__form
+            = select_tag 'note', options_for_select(["--", "東京都", "大阪府", "三重県", "福岡県", "熊本県"]), class: 'identification__city'
+            .identification__chevron-down.identification__chevron-down--city.fas.fa-chevron-down
+        .identification__item
+          .identification__name 市区町村
+          .identification__icon 必須
+          .identification__form
+            = text_field_tag :text, '', placeholder: '例）渋谷区代々木', class: 'identification__input'
+        .identification__item
+          .identification__name 番地
+          .identification__icon 必須
+          .identification__form
+            = text_field_tag :text, '', placeholder: '例）42-3-120005', class: 'identification__input'
+        .identification__item
+          .identification__name 建物名
+          .identification__icon.identification__icon--gray 任意
+          .identification__form
+            = text_field_tag :text, '', placeholder: '例）ハイパーハイブリッドハイスコアマンション第32号棟', class: 'identification__input'
+        .identification__item
+          .identification__name 生年月日
+          .identification__icon 必須
+          .identification__form-wrap
+            .identification__form
+              = date_select :birth, :date, {start_year: 1900, use_month_numbers: true}, {class: 'identification__birth'}
+              .identification__chevron-down.identification__chevron-down--year
+                .fas.fa-chevron-down
+                .identification__date-separation 年
+              .identification__chevron-down.identification__chevron-down--month
+
+                .fas.fa-chevron-down
+                .identification__date-separation 月
+              .identification__chevron-down.identification__chevron-down--day
+                .fas.fa-chevron-down
+                .identification__date-separation 日
+        .identification__note ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
+        .identification__entry
+        = link_to "登録する",root_path, class: 'identification__button'
+        .identification__overview-link 本人情報の登録について>
+    = render "side-bar"
+= render "top-footer"
+= render "top-button"
