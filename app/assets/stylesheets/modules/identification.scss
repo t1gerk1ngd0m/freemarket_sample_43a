@@ -11,13 +11,13 @@
   &__message{
     font-size: 14px;
     text-align: center;
-    margin: 10px;
+    margin: 10px 0 40px;
   }
   &__name{
     font-size: 14px;
     font-weight: bold;
     display: inline-block;
-    margin-top: 30px;
+    margin: 20px 0 5px;
   }
   &__icon{
     background-color: #D84638;
@@ -32,7 +32,23 @@
     }
   }
   &__form{
-    margin: 10px 0;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  &__city{
+    width: 580px;
+    height: 50px;
+    border-radius: 5px;
+    border:  1px solid #CCCCCC;
+    background-color: white;
+    padding: 0 20px;
+  }
+  &__chevron-down{
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    color: #888888;
   }
   &__input{
     width: 540px;
@@ -40,6 +56,19 @@
     border-radius: 5px;
     border:  1px solid #CCCCCC;
     padding: 0 20px;
+  }
+
+  &__birth{
+    width: 140px;
+    height: 50px;
+    border-radius: 5px;
+    border:  1px solid #CCCCCC;
+    background-color: white;
+    padding: 0 20px;
+  }
+  &__date-tag{
+    display: inline-block;
+    margin: 0 10px;
   }
   &__note{
     color: #888888;
