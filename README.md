@@ -17,24 +17,68 @@
 |payment_method|string||
 |birthday|date|null: false|
 |tell|string|null: false|
+|nickname|string|null: false|
 
 ### Association
 - has_many :products
 - has_many :likes
 - has_many :purchases
 - belongs_to :image
+- belongs_to :tell
+- belongs_to :user_detail
+- belongs_to :creditcard
+
+## tellsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|foreign_key: true|
+|tell_number|string|null: false, default: ""|
+
+### Association
+- belongs_to :user
+
+## user_detailsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|foreign_key: true|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
+|zip|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|block|string|null: false|
+|building|string||
+
+### Association
+- belongs_to :user
+
+## creditcardsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|foreign_key: true|
+|card_number|string|null: false|
+|expiration_date|integer|null: false|
+|security_code|string|null: false|
+
+### Association
+- belongs_to :user
 
 ## productsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
 |description|string|null: false|
-|category_large_id|string|null: false, foreign_key: true|
-|category_middle_id|string|null: false, foreign_key: true|
-|category_small_id|string|null: false, foreign_key: true|
-|brand_id|string|null: false, foreign_key: true|
+|category_large_id|references|foreign_key: true|
+|category_middle_id|references|foreign_key: true|
+|category_small_id|string|references|foreign_key: true|
+|brand_id|references|foreign_key: true|
 |size|string|null: false|
 |status|string|null: false|
 |shipping_charges_burden|string|null: false|
@@ -90,8 +134,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|category_large_id|integer|null: false, foreign_key: true|
-|category_middle_id|integer|null: false, foreign_key: true|
+|category_large_id|references|foreign_key: true|
+|category_middle_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :category_large
@@ -101,8 +145,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|category_middle_id|integer|null: false, foreign_key: true|
-|category_small_id|integer|null: false, foreign_key: true|
+|category_middle_id|references|foreign_key: true|
+|category_small_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :category_middle
@@ -122,8 +166,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|user_id|integer|foreign_key: true|
-|product_id|integer|foreign_key: true|
+|user_id|references|foreign_key: true|
+|product_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -133,8 +177,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|product_id|integer|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
+|product_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -144,7 +188,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|purchase_id|integer|null: false, foreign_key: true|
+|purchase_id|references|foreign_key: true|
 |lank|string|null: false|
 
 ### Association
@@ -154,8 +198,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|product_id|integer|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
+|product_id|references|foreign_key: true|
 |price_pay|integer|null: false|
 |shipping_address|string|null: false|
 |payment_method|string|null: false|
