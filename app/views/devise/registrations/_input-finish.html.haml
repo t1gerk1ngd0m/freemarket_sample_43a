@@ -1,0 +1,42 @@
+.signup-container
+  %header.signup-header
+    %h1
+      %a{ href: "" }
+        = image_tag("logo_signup_top", alt: :"mercari" ,class: "signup-header__logo")
+      .signup-header__progress
+        .progress
+          .progress__item
+            .progress__title.progress--done 会員情報
+            .progress__dot.progress--done
+              .fas.fa-circle
+              .progress__line.progress--done
+          .progress__item
+            .progress__title.progress--done 電話番号確証
+            .progress__dot.progress--done
+              .fas.fa-circle
+              .progress__line.progress--done
+          .progress__item
+            .progress__title.progress--done 住所入力
+            .progress__dot.progress--done
+              .fas.fa-circle
+              .progress__line.progress--done
+          .progress__item
+            .progress__title.progress--done 支払い方法
+            .progress__dot.progress--done
+              .fas.fa-circle
+              .progress__line.progress--done
+          .progress__item
+            .progress__title.progress--done 完了
+            .progress__dot.progress--done
+              .fas.fa-circle
+  %main.signup-main
+    %section.l-signup-container
+      .signup-main
+        .signup-main__title 会員登録完了
+        .signup-main__wrap
+          .identification__note ありがとうございます
+          .identification__note 会員登録が完了しました
+          .actions
+            = button_tag "メルカリをはじめる", class: "signup_button"
+  %footer.signup-footer
+    = render "signup-footer"
