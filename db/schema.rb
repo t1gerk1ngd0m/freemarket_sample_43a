@@ -13,10 +13,12 @@
 ActiveRecord::Schema.define(version: 20190131062643) do
 
   create_table "creditcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "user_id"
-    t.string  "card_number",     null: false
-    t.integer "expiration_date", null: false
-    t.string  "security_code",   null: false
+    t.integer  "user_id"
+    t.string   "card_number",     null: false
+    t.integer  "expiration_date", null: false
+    t.string   "security_code",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["user_id"], name: "index_creditcards_on_user_id", using: :btree
   end
 
