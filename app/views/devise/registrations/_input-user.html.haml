@@ -1,0 +1,62 @@
+.signup-container
+  %header.signup-header
+    %h1
+      %a{ href: "" }
+        = image_tag("logo_signup_top", alt: :"mercari" ,class: "signup-header__logo")
+      .signup-header__progress
+        .progress
+          .progress__item
+            .progress__title.progress--done 会員情報
+            .progress__dot.progress--done
+              .fas.fa-circle
+              .progress__line
+          .progress__item
+            .progress__title 電話番号確証
+            .progress__dot
+              .fas.fa-circle
+              .progress__line
+          .progress__item
+            .progress__title 住所入力
+            .progress__dot
+              .fas.fa-circle
+              .progress__line
+          .progress__item
+            .progress__title 支払い方法
+            .progress__dot
+              .fas.fa-circle
+              .progress__line
+          .progress__item
+            .progress__title 完了
+            .progress__dot
+              .fas.fa-circle
+  %main.signup-main
+    %section.l-signup-container
+      .signup-main
+        .signup-main__title 会員情報入力
+        .signup-main__wrap
+          = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+            = devise_error_messages!
+            .field
+              .input-form__name ニックネーム
+              .input-form__icon 必須
+              %br/
+              = f.text_field :first_name, autofocus: true, autocomplete: "name", placeholder: '例）ピコ太郎', class: "signup_input"
+            .field
+              .input-form__name メールアドレス
+              .input-form__icon 必須
+              %br/
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'PC・携帯どちらでも可', class: "signup_input"
+            .field
+              .input-form__name パスワード
+              .input-form__icon 必須
+              %br/
+              = f.password_field :password, autocomplete: "new-password", placeholder: '6文字以上', class: "signup_input"
+            .field
+              .input-form__name パスワード（確認）
+              .input-form__icon 必須
+              %br/
+              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '6文字以上', class: "signup_input"
+            .actions
+              = f.submit "次へ進む", class: "signup_button"
+  %footer.signup-footer
+    = render "signup-footer"
