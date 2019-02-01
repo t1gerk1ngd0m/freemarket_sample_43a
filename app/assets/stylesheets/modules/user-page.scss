@@ -1,0 +1,56 @@
+.user-profile {
+  background-color: white;
+  &__title {
+    text-align: center;
+    font-weight: bold;
+      &__text {
+        font-size: 24px;
+        font-weight: bold;
+      }
+  }
+  &__background {
+    background-image: url("myprofile-image.jpg");
+    width: 100%;
+    height: 150px;
+    &__image {
+      text-align: center;
+      padding: 50px;
+      }
+        &__image--photo {
+          border-radius: 50%;
+          width: 60px;
+          display: inline-block;
+          position: relative;
+          top: 20px;
+          right: 10px;
+        }
+        &__image--var {
+          display: inline-block;
+          height: 40px;
+          width: 200px;
+        }
+  }
+  &__text {
+    margin-top: 40px;
+    text-align: center;
+    &--area {
+      width: 650px;
+      height: 200px;
+    }
+  }
+  &__btn {
+    padding: 10px 10px 30px;
+    text-align: center;
+    &--change {
+      background: red;
+      color: white;
+      width: 650px;
+      margin: auto;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      display: inline-block;
+      font-size: 14px;
+    }
+  }
+}
