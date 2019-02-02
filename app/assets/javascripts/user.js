@@ -19,11 +19,6 @@ $(function() {
     $('.progress__address').addClass('progress--done');
     $('.input-field__address').removeClass('active');
   });
-  $('.signup_button--peymethod').on('click',function(){
-    $('.input-field__finish').addClass('active');
-    $('.progress__peymethod').addClass('progress--done');
-    $('.input-field__peymethod').removeClass('active');
-  });
 });
 
 
