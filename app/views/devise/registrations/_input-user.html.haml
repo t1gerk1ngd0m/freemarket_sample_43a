@@ -1,7 +1,7 @@
-.signup-container
+.signup-container.hidden.signup-container__user
   %header.signup-header
     %h1
-      %a{ href: "" }
+      %a{ href: "/" }
         = image_tag("logo_signup_top", alt: :"mercari" ,class: "signup-header__logo")
       .signup-header__progress
         .progress
@@ -9,54 +9,136 @@
             .progress__title.progress--done 会員情報
             .progress__dot.progress--done
               .fas.fa-circle
-              .progress__line
+              .progress__line.progress__user
           .progress__item
-            .progress__title 電話番号確証
-            .progress__dot
+            .progress__title.progress__user 電話番号確証
+            .progress__dot.progress__user
               .fas.fa-circle
-              .progress__line
+              .progress__line.progress__tel
           .progress__item
-            .progress__title 住所入力
-            .progress__dot
+            .progress__title.progress__tel 住所入力
+            .progress__dot.progress__tel
               .fas.fa-circle
-              .progress__line
+              .progress__line.progress__address
           .progress__item
-            .progress__title 支払い方法
-            .progress__dot
+            .progress__title.progress__address 支払い方法
+            .progress__dot.progress__address
               .fas.fa-circle
-              .progress__line
+              .progress__line.progress__peymethod
           .progress__item
-            .progress__title 完了
-            .progress__dot
+            .progress__title.progress__peymethod 完了
+            .progress__dot.progress__peymethod
               .fas.fa-circle
   %main.signup-main
     %section.l-signup-container
       .signup-main
-        .signup-main__title 会員情報入力
+        .signup-main__title.hidden.input-field__main.active 会員情報入力
+        .signup-main__title.hidden.input-field__tel 電話番号認証
+        .signup-main__title.hidden.input-field__address 住所入力
+        .signup-main__title.hidden.input-field__peymethod 支払い方法
+        .signup-main__title.hidden.input-field__finish  会員登録完了
         .signup-main__wrap
           = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
             = devise_error_messages!
-            .field
-              .input-form__name ニックネーム
-              .input-form__icon 必須
-              %br/
-              = f.text_field :first_name, autofocus: true, autocomplete: "name", placeholder: '例）ピコ太郎', class: "signup_input"
-            .field
-              .input-form__name メールアドレス
-              .input-form__icon 必須
-              %br/
-              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'PC・携帯どちらでも可', class: "signup_input"
-            .field
-              .input-form__name パスワード
-              .input-form__icon 必須
-              %br/
-              = f.password_field :password, autocomplete: "new-password", placeholder: '6文字以上', class: "signup_input"
-            .field
-              .input-form__name パスワード（確認）
-              .input-form__icon 必須
-              %br/
-              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '6文字以上', class: "signup_input"
-            .actions
+            .input-field__main.hidden.active
+              .field
+                .input-form__name ニックネーム
+                .input-form__icon 必須
+                %br/
+                = f.text_field :nickname, autofocus: true, autocomplete: "name", placeholder: '例）ピコ太郎', class: "signup_input"
+              .field
+                .input-form__name メールアドレス
+                .input-form__icon 必須
+                %br/
+                = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'PC・携帯どちらでも可', class: "signup_input"
+              .field
+                .input-form__name パスワード
+                .input-form__icon 必須
+                %br/
+                = f.password_field :password, autocomplete: "new-password", placeholder: '6文字以上', class: "signup_input"
+              .field
+                .input-form__name パスワード（確認）
+                .input-form__icon 必須
+                %br/
+                = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '6文字以上', class: "signup_input"
+              .signup_button.signup_button--user 次へ進む
+            .input-field__tel.hidden
+              .field
+                .input-form__name 携帯電話の番号
+                %br/
+                = f.text_field :tel_confirmation, placeholder: '携帯電話の番号を入力', class: "signup_input"
+                .identification__note 本人確認のため、携帯電話のSMS（ショートメッセージサービス）を利用して認証を行っています。
+              .signup_button.signup_button--tel 次へ進む
+              .identification__note ※電話番号は本人確認や不正利用を防ぐために利用します。他のユーザーに公開されることはございません。
+            .input-field__address.hidden
+              .field
+                .input-form__name お名前
+                .input-form__icon 必須
+                %br/
+                = f.text_field :first_name, placeholder: '例）ピコ', class: "signup_input"
+                %br/
+                = f.text_field :last_name, placeholder: '例）太郎', class: "signup_input"
+              .field
+                .input-form__name お名前カナ
+                .input-form__icon 必須
+                %br/
+                = f.text_field :first_name_kana, placeholder: '例）ピコ', class: "signup_input"
+                %br/
+                = f.text_field :last_name_kana, placeholder: '例）タロウ', class: "signup_input"
+              .field
+                .input-form__name 郵便番号
+                .input-form__icon 必須
+                %br/
+                = f.text_field :zip, placeholder: '例）123-4567', class: "signup_input"
+              .field
+                .input-form__name 都道府県
+                .input-form__icon 必須
+                %br/
+                = f.text_field :prefecture, placeholder: '例）東京都', class: "signup_input"
+              .field
+                .input-form__name 市区町村
+                .input-form__icon 必須
+                %br/
+                = f.text_field :city, placeholder: '例）渋谷区代々木', class: "signup_input"
+              .field
+                .input-form__name 番地
+                .input-form__icon 必須
+                %br/
+                = f.text_field :block, placeholder: '例）12-45-90909', class: "signup_input"
+              .field
+                .input-form__name 建物名
+                .input-form__icon.input-form__icon--gray 任意
+                %br/
+                = f.text_field :building, placeholder: '例）ピコピコピコマンション', class: "signup_input"
+              .field
+                .input-form__name 電話
+                .input-form__icon.input-form__icon--gray 任意
+                %br/
+                = f.text_field :tel, placeholder: '例）080-1122-3322', class: "signup_input"
+              .signup_button.signup_button--address 次へ進む
+            .input-field__peymethod.hidden
+              .field
+                .input-form__name カード情報
+                .input-form__icon 必須
+                %br/
+                = f.text_field :card_number, placeholder: '半角数字のみ', class: "signup_input"
+              .field
+                .input-form__name 有効期限
+                .input-form__icon 必須
+                %br/
+                = f.text_field :expiration_month, placeholder: '月', class: "signup_input"
+                %br/
+                = f.text_field :expiration_year, placeholder: '年', class: "signup_input"
+              .field
+                .input-form__name セキュリティコード
+                .input-form__icon 必須
+                %br/
+                = f.text_field :security_code, placeholder: 'カード背面4桁もしくは3桁の', class: "signup_input"
+              .signup_button.signup_button--peymethod 次へ進む
+            .input-field__finish.hidden
+              .finish__note ありがとうございます
+              .finish__note 会員登録が完了しました
+              .actions
               = f.submit "次へ進む", class: "signup_button"
-  %footer.signup-footer
-    = render "signup-footer"
+        %footer.signup-footer
+          = render "signup-footer"

@@ -7,7 +7,6 @@
   position: relative;
   min-height: 100%;
   line-height: 1;
-  display: block;
   .signup-header{
     text-align: center;
     height: 128px;
@@ -219,4 +218,11 @@
   &--done{
     color: #D84638;
   }
+}
+
+.finish__note{
+  color: #806E7B;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 10px;
 }

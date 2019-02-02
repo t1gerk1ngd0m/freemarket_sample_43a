@@ -2,71 +2,32 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|nickname|string|null: false|
+|email|string|null: false|
+|encrypted_password|string|null: false|
+|tel_confirmation|string|null: false|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
 |last_name_kana|string|null: false|
-|email|string|null: false|
-|password|string|null: false|
-|profile|string||
 |zip|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
 |block|string|null: false|
 |building|string||
-|payment_method|string||
+|phone_number|string||
+|card_number|string|null: false|
+|expiration_month|string|null: false|
+|expiration_year|string|null: false|
+|security_code|string|null: false|
+|profile|string||
 |birthday|date|null: false|
-|tell|string|null: false|
-|nickname|string|null: false|
 
 ### Association
 - has_many :products
 - has_many :likes
 - has_many :purchases
 - belongs_to :image
-- belongs_to :tell
-- belongs_to :user_detail
-- belongs_to :creditcard
-
-## tellsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|foreign_key: true|
-|tell_number|string|null: false, default: ""|
-
-### Association
-- belongs_to :user
-
-## user_detailsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|foreign_key: true|
-|first_name|string|null: false|
-|last_name|string|null: false|
-|first_name_kana|string|null: false|
-|last_name_kana|string|null: false|
-|zip|string|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|block|string|null: false|
-|building|string||
-
-### Association
-- belongs_to :user
-
-## creditcardsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|foreign_key: true|
-|card_number|string|null: false|
-|expiration_date|integer|null: false|
-|security_code|string|null: false|
-
-### Association
-- belongs_to :user
 
 ## productsテーブル
 
