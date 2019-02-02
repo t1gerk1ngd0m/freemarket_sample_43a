@@ -60,6 +60,7 @@
                 .input-form__icon 必須
                 %br/
                 = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '6文字以上', class: "signup_input"
+                = recaptcha_tags
               .signup_button.signup_button--user 次へ進む
             .input-field__tel.hidden
               .field
