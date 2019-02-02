@@ -189,6 +189,15 @@
   color: white;
   padding: 15px 148px;
   margin-top: 40px;
+  &--finish{
+  background-color: #D84638;
+  color: white;
+  width: 100%;
+  padding: 15px 0;
+  margin-top: 40px;
+  text-align: center;
+  display: block;
+  }
 }
 
 .progress{
