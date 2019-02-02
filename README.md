@@ -15,7 +15,7 @@
 |city|string|null: false|
 |block|string|null: false|
 |building|string||
-|tel|string||
+|phone_number|string||
 |card_number|string|null: false|
 |expiration_month|string|null: false|
 |expiration_year|string|null: false|

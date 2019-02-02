@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20190129023755) do
     t.string   "city",                   default: "",           null: false
     t.string   "block",                  default: "",           null: false
     t.string   "building",               default: ""
-    t.string   "tel",                    default: ""
+    t.string   "phone_number",           default: ""
     t.string   "card_number",            default: "",           null: false
     t.string   "expiration_month",       default: "",           null: false
     t.string   "expiration_year",        default: "",           null: false

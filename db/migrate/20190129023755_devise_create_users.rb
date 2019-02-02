@@ -17,7 +17,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :city,               null: false, default: ""
       t.string :block,              null: false, default: ""
       t.string :building,           default: ""
-      t.string :tel,               default: ""
+      t.string :phone_number,               default: ""
       t.string :card_number,     null: false, default: ""
       t.string :expiration_month,     null: false, default: ""
       t.string :expiration_year,     null: false, default: ""
