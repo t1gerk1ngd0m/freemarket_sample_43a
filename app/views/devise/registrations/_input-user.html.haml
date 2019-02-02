@@ -36,7 +36,6 @@
         .signup-main__title.hidden.input-field__tel 電話番号認証
         .signup-main__title.hidden.input-field__address 住所入力
         .signup-main__title.hidden.input-field__peymethod 支払い方法
-        .signup-main__title.hidden.input-field__finish  会員登録完了
         .signup-main__wrap
           = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
             = devise_error_messages!
@@ -134,11 +133,6 @@
                 .input-form__icon 必須
                 %br/
                 = f.text_field :security_code, placeholder: 'カード背面4桁もしくは3桁の', class: "signup_input"
-              .signup_button.signup_button--peymethod 次へ進む
-            .input-field__finish.hidden
-              .finish__note ありがとうございます
-              .finish__note 会員登録が完了しました
-              .actions
               = f.submit "次へ進む", class: "signup_button"
         %footer.signup-footer
           = render "signup-footer"
