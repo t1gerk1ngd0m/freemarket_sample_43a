@@ -10,14 +10,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :tel_confirmation, :first_name, :last_name, :first_name_kana, :last_name_kana, :zip, :prefecture, :city, :block, :building, :phone_number, :card_number, :expiration_month, :expiration_year, :security_code, :profile, :birthday])
   end
 
-  def after_sign_up_path_for(resource)
-    admin_user_mail_sent_message_path
-  end
-
-  def after_inactive_sign_up_path_for(resource)
-    admin_user_mail_sent_message_path
-  end
-
   private
 
   def production?
