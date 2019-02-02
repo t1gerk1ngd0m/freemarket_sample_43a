@@ -1,0 +1,42 @@
+.signup-container.signup-container__user
+  %header.signup-header
+    %h1
+      %a{ href: "/" }
+        = image_tag("logo_signup_top", alt: :"mercari" ,class: "signup-header__logo")
+      .signup-header__progress
+        .progress
+          .progress__item
+            .progress__title.progress--done 会員情報
+            .progress__dot.progress--done
+              .fas.fa-circle
+              .progress__line.progress__user.progress--done
+          .progress__item
+            .progress__title.progress__user.progress--done  電話番号確証
+            .progress__dot.progress__user.progress--done
+              .fas.fa-circle
+              .progress__line.progress__tel.progress--done
+          .progress__item
+            .progress__title.progress__tel.progress--done  住所入力
+            .progress__dot.progress__tel.progress--done
+              .fas.fa-circle
+              .progress__line.progress__address.progress--done
+          .progress__item
+            .progress__title.progress__address.progress--done  支払い方法
+            .progress__dot.progress__address.progress--done
+              .fas.fa-circle
+              .progress__line.progress__peymethod.progress--done
+          .progress__item
+            .progress__title.progress__peymethod.progress--done  完了
+            .progress__dot.progress__peymethod.progress--done
+              .fas.fa-circle
+  %main.signup-main
+    %section.l-signup-container
+      .signup-main
+        .signup-main__title 会員登録完了
+        .signup-main__wrap
+          .input-field__finish
+            .finish__note ありがとうございます
+            .finish__note 会員登録が完了しました
+          = link_to "メルカリを始める", root_path ,class: "signup_button--finish"
+        %footer.signup-footer
+          = render "signup-footer"
