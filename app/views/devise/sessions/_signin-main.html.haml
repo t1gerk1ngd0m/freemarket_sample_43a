@@ -16,6 +16,7 @@
         %input{ type: "email", name: "email", placeholder: "メールアドレス", class: "signin__input-text input__default"}
       .form-group
         %input{ type: "password", name: "password", placeholder: "パスワード", class: "signin__input-text input__default"}
+      = recaptcha_tags
       .form-group
         .g-recaptcha.signin__captcha
       %button.signin__submit.btn-default.btn-red
