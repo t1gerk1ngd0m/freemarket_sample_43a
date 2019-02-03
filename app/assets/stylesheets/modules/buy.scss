@@ -22,8 +22,11 @@
       font-weight: 600;
     }
     form,&__buy-form{
+      margin: 0 auto;
       p,&__item-price{
+        margin: 8px 0 0;
         font-size: 28px;
+        line-height: 1.5;
         span,&__sipping-fee{
           display: inline-block;
           margin: 0 0 0 8px;
@@ -36,7 +39,6 @@
         background-color: #ccc;
         &-toggle{
           content: center;
-          align: center;
           height: 48px;
           cursor: pointer;
           line-height: 48px;
