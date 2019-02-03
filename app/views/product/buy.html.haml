@@ -1,0 +1,57 @@
+.signup-container.signup-container__main
+  %header.signup-header
+    = render "devise/registrations/signup-header"
+  %main.signup-main
+    %section.l-signup-container
+      %h2.l-signup-head
+        購入を確定しますか？
+      .buy-content
+        .buy-content__inner
+          .buy-content__inner__item-image
+            = image_tag "supream.jpg", alt: "写真", class:"item-photo"
+          %p.buy-content__inner__item-name
+            Supreamステッカー
+          %form.buy-content__inner__buy-form
+            %p.buy-content__inner__buy-form__item-price
+              ¥2,800
+              %span.buy-content__inner__buy-form__item-price__shipping-fee
+                送料込み
+            .buy-content__inner__buy-form__accordion
+              .buy-content__inner__buy-form__accordion-toggle
+                ポイントはありません
+            .buy-content__inner__buy-form__buy-price-box
+              .buy-content__inner__buy-form__buy-price-box-text
+                支払い金額
+              .buy-content__inner__buy-form__buy-price-box-price
+                ¥2,800
+          %button.btn-default{type: "submit"}
+            購入する
+      .buy-user-info
+        .buy-user-info-container
+          %h3
+            配送先
+          %addles
+            .buy-user-info-container-text
+              〒373-0032<br>
+              群馬県太田市新野町123<br>
+              田中太郎
+          .buy-user-info-container__angle-right
+            =link_to "#", class: "angle-right" do
+              変更する
+              =fa_icon "angle-right"
+      .buy-user-info
+        .buy-user-info-container
+          %h3
+            支払い方法
+          .buy-user-info-container-text
+            ************4019
+            %br
+            04 / 20
+          .buy-user-info-container-visa
+            = image_tag "visa.svg", alt: "写真", class:"visa"
+          .buy-user-info-container__angle-right
+            =link_to "#", class: "angle-right" do
+              変更する
+              =fa_icon "angle-right"
+  %footer.signup-footer
+    = render "devise/registrations/signup-footer"
