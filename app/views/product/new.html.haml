@@ -98,6 +98,32 @@
                     %i.icon-arrow-bottom
               .form-group
                 %label
+                  サイズ
+                  %span.form-require
+                    必須
+                .select-wrap
+                  %select.select-default
+                    %option{ value: "" } ---
+                    %option{ value: "1" } XXXS以下
+                    %option{ value: "2" } XXS(SS)
+                    %option{ value: "3" } S
+                    %option{ value: "4" } M
+                    %option{ value: "5" } L
+                    %option{ value: "6" } XL(LL)
+                    %option{ value: "7" } 2XL(3L)
+                    %option{ value: "8" } 3XL(4L)
+                    %option{ value: "9" } 4XL(5L)以上
+                    %option{ value: "10" } FREE SIZE
+                  %i.icon-arrow-bottom
+              .form-group.form-suggest-container
+                %label
+                  ブランド
+                  %span.form-arbitrary
+                    任意
+                %div
+                  %input.input-default{ placeholder: "例)シャネル"}
+              .form-group
+                %label
                   商品の状態
                   %span.form-require
                     必須
@@ -115,6 +141,7 @@
             %h3.new-main__content__sub-head
               配送について
             %a{ href: "", target: "_blank", class: "form-question"}
+              ?
             .new-main__content__form-box
               .form-group
                 %label
@@ -200,6 +227,7 @@
             %h3.new-main__content__sub-head
               販売価格(300〜9,999,999)
             %a{ href: "", target: "_blank", class: "form-question"}
+              ?
             .new-main__content__form-box
               %ul.sell-price
                 %li.form-group
@@ -209,8 +237,9 @@
                       %span.form-require
                         必須
                     .l-right.sell-price__input
-                      ¥
-                      %div
+                      .sell-price__input__block
+                        ¥
+                      .sell-price__input__block
                         %input{class: "input-default", placeholder: "例)300"}
                 %li.clearfix
                   .l-left

@@ -128,7 +128,7 @@ a{
   }
 }
 
-.form-require{
+.form-require, .form-arbitrary{
   background: #ea352d;
   margin: 0 0 0 8px;
   padding: 2px 4px;
@@ -136,6 +136,14 @@ a{
   font-size: 12px;
   color: #fff;
   vertical-align:top;
+}
+
+.form-arbitrary{
+  background: #ccc;
+}
+
+.form-suggest-container {
+  position: relative;
 }
 
 .new-main__content{
@@ -191,6 +199,12 @@ label{
   }
   select{
     width: 100%;
+  }
+}
+
+.form-suggest-container{
+  .input-default{
+    width: 366px;
   }
 }
 
@@ -259,6 +273,32 @@ textarea{
   }
 }
 
+.sell-price__input{
+  text-align: right;
+  &__block{
+    display: inline-block;
+  }
+  &__block:first-child{
+    margin: 0 5px 0 0;
+  }
+  .input-default{
+    margin: 0;
+    text-align: right;
+  }
+}
+
 .bold{
   font-weight: 600;
+}
+
+.form-question{
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0099e8;
+  color: #fff;
+  line-height: 14px;
+  font-size: 12px;
+  text-align: center;
 }
