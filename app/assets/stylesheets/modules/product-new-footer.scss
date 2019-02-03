@@ -9,7 +9,6 @@
   line-height: 1;
   display: block;
   .new-footer{
-    // position: absolute;
     right: 0;
     bottom: 0;
     left: 0;
@@ -28,7 +27,6 @@
         margin: 0;
       }
       li{
-        margin: 16px 0 0;
         font-size: 12px;
         position: relative;
         display: inline-block;
@@ -58,5 +56,12 @@
         font-size: 12px;
       }
     }
+  }
+}
+
+.new-footer__logo{
+  img{
+    height: 65px;
+    width: 80px;
   }
 }
