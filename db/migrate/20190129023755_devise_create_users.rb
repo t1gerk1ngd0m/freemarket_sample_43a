@@ -13,14 +13,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :first_name_kana,    null: false, default: ""
       t.string :last_name_kana,     null: false, default: ""
       t.string :zip,                null: false, default: ""
-      t.string :prefecture,         null: false, default: ""
+      t.integer :prefecture,         null: false, default: "13"
       t.string :city,               null: false, default: ""
       t.string :block,              null: false, default: ""
       t.string :building,           default: ""
       t.string :phone_number,               default: ""
       t.string :card_number,     null: false, default: ""
-      t.string :expiration_month,     null: false, default: ""
-      t.string :expiration_year,     null: false, default: ""
+      t.integer :expiration_month,     null: false
+      t.integer :expiration_year,     null: false
       t.string :security_code,     null: false, default: ""
       t.string :profile,            default: ""
       t.date :birthday,             null: false, default: "1900/01/01"
