@@ -45,28 +45,37 @@
                 .input-form__icon 必須
                 %br/
                 = f.text_field :nickname, autofocus: true, autocomplete: "name", placeholder: '例）ピコ太郎', class: "signup_input"
+                .error.error--nickname.hidden ニックネームを入力してください
               .field
                 .input-form__name メールアドレス
                 .input-form__icon 必須
                 %br/
                 = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'PC・携帯どちらでも可', class: "signup_input"
+                .error.error--email-nil.hidden メールアドレスが入力されていません
+                .error.error--email-address.hidden フォーマットが不適切です
               .field
                 .input-form__name パスワード
                 .input-form__icon 必須
                 %br/
                 = f.password_field :password, autocomplete: "new-password", placeholder: '6文字以上', class: "signup_input"
+                .error.error--password-nil.hidden パスワードを入力してください
+                .error.error--password-count.hidden パスワードは6文字以上128文字以下で入力してください
               .field
                 .input-form__name パスワード（確認）
                 .input-form__icon 必須
                 %br/
                 = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '6文字以上', class: "signup_input"
+                .error.error--password_confirmation.hidden パスワード (確認) を入力してください
+                .error.error--password_confirmation-match.hidden パスワードとパスワード (確認) が一致しません
                 = recaptcha_tags
+                .error.error--recaptcha.hidden 選択してください
               .signup_button.signup_button--user 次へ進む
             .input-field__tel.hidden
               .field
                 .input-form__name 携帯電話の番号
                 %br/
                 = f.text_field :tel_confirmation, placeholder: '携帯電話の番号を入力', class: "signup_input"
+                .error.error--tel_confirmation.hidden 電話番号が正しくありません
                 .identification__note 本人確認のため、携帯電話のSMS（ショートメッセージサービス）を利用して認証を行っています。
               .signup_button.signup_button--tel 次へ進む
               .identification__note ※電話番号は本人確認や不正利用を防ぐために利用します。他のユーザーに公開されることはございません。
@@ -76,15 +85,19 @@
                 .input-form__icon 必須
                 %br/
                 = f.text_field :first_name, placeholder: '例）ピコ', class: "signup_input"
+                .error.error--first_name お名前を入力してください
                 %br/
                 = f.text_field :last_name, placeholder: '例）太郎', class: "signup_input"
+                .error.error--last_name お名前を入力してください
               .field
                 .input-form__name お名前カナ
                 .input-form__icon 必須
                 %br/
                 = f.text_field :first_name_kana, placeholder: '例）ピコ', class: "signup_input"
+                .error.error--first_name_kana お名前を入力してください
                 %br/
                 = f.text_field :last_name_kana, placeholder: '例）タロウ', class: "signup_input"
+                .error.error--last_name_kana お名前を入力してください
               .field
                 .input-form__name 郵便番号
                 .input-form__icon 必須
@@ -94,7 +107,9 @@
                 .input-form__name 都道府県
                 .input-form__icon 必須
                 %br/
-                = f.text_field :prefecture, placeholder: '例）東京都', class: "signup_input"
+                .input-form__form
+                  = f.select :prefecture, User.prefectures.keys, {prompt: '選択してください'}, class: 'signup_input signup_input--prefecture'
+                  .input-form__chevron-down.input-form__chevron-down--city-signup.fas.fa-chevron-down
               .field
                 .input-form__name 市区町村
                 .input-form__icon 必須
@@ -126,9 +141,18 @@
                 .input-form__name 有効期限
                 .input-form__icon 必須
                 %br/
-                = f.text_field :expiration_month, placeholder: '月', class: "signup_input"
+                .input-form__form
+                  = f.date_select :expiration_month ,{use_month_numbers: true, discard_day: true, discard_year: true}, {class: 'input-form__birth'}
+                  .input-form__chevron-down.input-form__chevron-down--year
+                    .fas.fa-chevron-down
+                    .input-form__date-separation 月
                 %br/
-                = f.text_field :expiration_year, placeholder: '年', class: "signup_input"
+                .input-form__form
+                  = date_select :expiration_year, :date,{use_month_numbers: true, discard_day: true, discard_month: true}, {class: 'input-form__birth'}
+                  .input-form__chevron-down.input-form__chevron-down--year
+                    .fas.fa-chevron-down
+                    .input-form__date-separation 年
+                %br/
               .field
                 .input-form__name セキュリティコード
                 .input-form__icon 必須
