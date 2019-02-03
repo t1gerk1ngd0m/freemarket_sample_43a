@@ -1,0 +1,92 @@
+.input-form{
+  &__name{
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 20px 0 5px;
+  }
+  &__icon{
+    background-color: #D84638;
+    color: white;
+    display: inline-block;
+    font-size: 12px;
+    padding: 0 5px;
+    border-radius: 2px;
+    margin-left: 10px;
+    &--gray{
+      background-color: #CCCCCC;
+    }
+  }
+  &__form{
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  &__city{
+    width: 580px;
+    height: 50px;
+    border-radius: 5px;
+    border:  1px solid #CCCCCC;
+    background-color: white;
+    padding: 0 20px;
+  }
+  &__chevron-down{
+    color: #888888;
+    &--city{
+    position: absolute;
+    top: 18px;
+    left: 550px;
+    }
+    &--year{
+    position: absolute;
+    top: 18px;
+    left: 110px;
+    }
+    &--month
+{
+    position: absolute;
+    top: 18px;
+    left: 285px;
+    }
+    &--day{
+    position: absolute;
+    top: 18px;
+    left: 460px;
+    }
+  }
+  &__date-separation{
+    position: absolute;
+    top: 0px;
+    left: 40px;
+    font-size: 14px;
+    color: black;
+  }
+  &__input{
+    width: 540px;
+    height: 45px;
+    border-radius: 5px;
+    border:  1px solid #CCCCCC;
+    padding: 0 20px;
+  }
+
+  &__birth{
+    width: 140px;
+    height: 50px;
+    border-radius: 5px;
+    border:  1px solid #CCCCCC;
+    background-color: white;
+    padding: 0 20px;
+    margin-right: 30px;
+  }
+  &__button{
+    background-color: #D84638;
+    color: white;
+    padding: 15px 255px;
+  }
+  &__overview-link{
+    color: #4298E2;
+    text-align: right;
+    margin-top: 50px;
+    font-size: 14px;
+  }
+}
