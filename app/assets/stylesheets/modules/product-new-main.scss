@@ -1,3 +1,7 @@
+ul, ol{
+  list-style: none;
+}
+
 .new-wrap{
   padding:0 0 250px;
   background-color: whitesmoke;
@@ -111,6 +115,27 @@
   border-top: 1px solid #eee;
 }
 
+label{
+  display: inline-block;
+}
+
+.textarea-default{
+  display: block;
+  width: 598px;
+  max-width: 598px;
+  min-height: 104px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.select-wrap{
+  position: relative;
+  background: #fff;
+}
+
 .form-group{
   margin: 40px 0 0;
   label{
@@ -135,10 +160,6 @@
   margin: 0;
 }
 
-label{
-  display: inline-block;
-}
-
 .input-default{
   height: 28px;
   padding: 10px 16px 8px;
@@ -147,18 +168,6 @@ label{
   background: #fff;
   line-height: 1.5;
   font-size: 16px;
-}
-
-.textarea-default{
-  display: block;
-  width: 598px;
-  max-width: 598px;
-  min-height: 104px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  background: #fff;
-  font-size: 16px;
-  line-height: 1.5;
 }
 
 textarea{
@@ -178,11 +187,6 @@ textarea{
   margin: 0;
 }
 
-.select-wrap{
-  position: relative;
-  background: #fff;
-}
-
 .select-default{
   position: relative;
   z-index: 2;
@@ -196,18 +200,22 @@ textarea{
   cursor: pointer;
 }
 
-ul, ol{
-  list-style: none;
+.l-left{
+  float: left;
+}
+
+.l-right{
+  float: right;
 }
 
 .sell-price{
-  li:first-child{
-    padding: 0 0 24px;
-    border: 0;
-  }
   li{
     padding: 24px 0;
     border-top: 1px solid #ccc;
+  }
+  li:first-child{
+    padding: 0 0 24px;
+    border: 0;
   }
   .form-group{
     .l-left{
@@ -221,33 +229,12 @@ ul, ol{
       width: 126px;
     }
   }
-
-}
-
-.l-left{
-  float: left;
-}
-
-.l-right{
-  float: right;
 }
 
 .bold{
   font-weight: 600;
 }
 
-.sell-price__input{
-  text-align: right;
-  div{
-    display: inline-block;
-    width: 80%;
-    margin: 0 0 0 5%;
-  }
-  .input-default{
-    margin: 0;
-    text-align: right;
-  }
-}
 
 .new-main__btn-box{
   p{
