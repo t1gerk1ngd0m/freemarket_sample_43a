@@ -1,3 +1,10 @@
+.new-footer__logo{
+  img{
+    height: 65px;
+    width: 80px;
+  }
+}
+
 .new-wrap{
   padding:0 0 250px;
   background-color: whitesmoke;
@@ -16,15 +23,16 @@
     height: 250px;
     padding: 40px 0;
     text-align: center;
+    a{
+      display: block;
+      color: #333;
+    }
     ul{
       font-style: none;
       .clearfix:after{
         content: '';
         display: block;
         clear: both;
-      }
-      li:first-child{
-        margin: 0;
       }
       li{
         font-size: 12px;
@@ -37,10 +45,9 @@
           text-decoration: none;
         }
       }
-    }
-    a{
-      display: block;
-      color: #333;
+      li:first-child{
+        margin: 0;
+      }
     }
     .new-footer__logo{
       width: 80px;
@@ -56,12 +63,5 @@
         font-size: 12px;
       }
     }
-  }
-}
-
-.new-footer__logo{
-  img{
-    height: 65px;
-    width: 80px;
   }
 }
