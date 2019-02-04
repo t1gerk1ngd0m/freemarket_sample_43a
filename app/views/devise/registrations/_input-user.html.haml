@@ -85,51 +85,57 @@
                 .input-form__icon 必須
                 %br/
                 = f.text_field :first_name, placeholder: '例）ピコ', class: "signup_input"
-                .error.error--first_name お名前を入力してください
+                .error.error--first_name.hidden 姓を入力してください
                 %br/
                 = f.text_field :last_name, placeholder: '例）太郎', class: "signup_input"
-                .error.error--last_name お名前を入力してください
+                .error.error--last_name.hidden 名を入力してください
               .field
                 .input-form__name お名前カナ
                 .input-form__icon 必須
                 %br/
                 = f.text_field :first_name_kana, placeholder: '例）ピコ', class: "signup_input"
-                .error.error--first_name_kana お名前を入力してください
+                .error.error--first_name_kana.hidden 姓（カナ）を入力してください
                 %br/
                 = f.text_field :last_name_kana, placeholder: '例）タロウ', class: "signup_input"
-                .error.error--last_name_kana お名前を入力してください
+                .error.error--last_name_kana.hidden 名（カナ）を入力してください
               .field
                 .input-form__name 郵便番号
                 .input-form__icon 必須
                 %br/
                 = f.text_field :zip, placeholder: '例）123-4567', class: "signup_input"
+                .error.error--zip.hidden 郵便番号を入力してください
               .field
                 .input-form__name 都道府県
                 .input-form__icon 必須
                 %br/
                 .input-form__form
                   = f.select :prefecture, User.prefectures.keys, {prompt: '選択してください'}, class: 'signup_input signup_input--prefecture'
+                  .error.error--prefecture.hidden 住所を選択してください
                   .input-form__chevron-down.input-form__chevron-down--city-signup.fas.fa-chevron-down
               .field
                 .input-form__name 市区町村
                 .input-form__icon 必須
                 %br/
                 = f.text_field :city, placeholder: '例）渋谷区代々木', class: "signup_input"
+                .error.error--city.hidden 市区町村を入力してください
               .field
                 .input-form__name 番地
                 .input-form__icon 必須
                 %br/
                 = f.text_field :block, placeholder: '例）12-45-90909', class: "signup_input"
+                .error.error--block.hidden 番地を入力してください
               .field
                 .input-form__name 建物名
                 .input-form__icon.input-form__icon--gray 任意
                 %br/
                 = f.text_field :building, placeholder: '例）ピコピコピコマンション', class: "signup_input"
+                .error.error--building.hidden 建物名を入力してください
               .field
                 .input-form__name 電話
                 .input-form__icon.input-form__icon--gray 任意
                 %br/
                 = f.text_field :phone_number, placeholder: '例）080-1122-3322', class: "signup_input"
+                .error.error--phone_number.hidden 建物名を入力してください
               .signup_button.signup_button--address 次へ進む
             .input-field__peymethod.hidden
               .field
@@ -158,6 +164,6 @@
                 .input-form__icon 必須
                 %br/
                 = f.text_field :security_code, placeholder: 'カード背面4桁もしくは3桁の', class: "signup_input"
-              = f.submit "次へ進む", class: "signup_button"
+              = f.submit "次へ進む", class: "signup_button.signup_button--card"
         %footer.signup-footer
           = render "signup-footer"
