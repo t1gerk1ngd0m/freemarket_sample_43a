@@ -7,7 +7,7 @@
       .new-main__container
         %h2.new-main__title
           商品の情報を入力
-        %form.new-main__sell
+        = form_for @product, :url => {:new => :create}, html: {class: "new-main__sell"} do |f|
           .new-main__image
             %h3.new-main__image-head
               出品画像
@@ -19,26 +19,29 @@
               .image-upload-items__container
                 .image-upload-items.have-item-0
                   %ul
+              / = f.file_field :image, class: 'image-upload-dropbox have-item-0 hidden'
               .image-upload-dropbox.have-item-0
                 %input{ class: 'image-upload-dropfile', type: 'file', style: 'display: none;'}
+                = f.file_field :image, class: 'image-upload-dropbox have-item-0 hidden'
                 %pre.visible-pc
                   ドラッグアンドドロップ<br />またはクリックしてファイルをアップロード
                 %i.icon-camera
 
           .new-main__content
             .form-group
+              / = f.label :商品名
               %label
                 商品名
                 %span.form-require
                   必須
               %div
-                %input.input-default{ placeholder: "商品名(必須 40文字まで)"}
+                = f.text_field :name, class: 'input-default', placeholder: "商品名(必須 40文字まで)"
             .form-group
               %label
                 商品の説明
                 %span.form-require
                   必須
-              %textarea{ class: "textarea-default", row: "5", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+              = f.text_area :description, class: 'textarea-default', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
           .new-main__content.clearfix
             %h3.new-main__content__sub-head
               商品の詳細
