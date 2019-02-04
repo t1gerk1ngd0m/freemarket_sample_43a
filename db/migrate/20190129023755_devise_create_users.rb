@@ -13,7 +13,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :first_name_kana,    null: false, default: ""
       t.string :last_name_kana,     null: false, default: ""
       t.string :zip,                null: false, default: ""
-      t.integer :prefecture,         null: false, default: "13"
+      t.integer :prefecture,         null: false, default: "0"
       t.string :city,               null: false, default: ""
       t.string :block,              null: false, default: ""
       t.string :building,           default: ""
