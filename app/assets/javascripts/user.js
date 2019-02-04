@@ -2,8 +2,8 @@ $(function(){
   var not_nill = new RegExp('\\S');
   var mail_address = new RegExp("([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)");
   var alphanumeric_6characters = new RegExp('[a-zA-Z0-9]{6,}');
-  var kana = new RegExp("");
   var intger = new RegExp('[0-9]');
+  var kana = new RegExp("");
   var intger_3or4_characters = new RegExp('[0-9]{3,4}');
   $('.signup-main__botton').on('click',function(){
     $('.signup-container__user').addClass('active');
@@ -63,9 +63,9 @@ $(function(){
     $('.input-field__main').removeClass('active');
     }
   });
-  $('.signup_button--tel').on('click',function(){
-    e.preventDefault();
-    var tel_confirmation = document.getElementById('tel_confirmation').value;
+  $('.signup_button--tel').on('click',function(e){
+    e.preventDefault(e);
+    var tel_confirmation = document.getElementById('user_tel_confirmation').value;
     if( intger.test(tel_confirmation) ){
       $('.input-field__address').addClass('active');
       $('.progress__tel').addClass('progress--done');
@@ -74,7 +74,8 @@ $(function(){
       $('.error--tel_confirmation').addClass('active');
     }
   });
-  $('.signup_button--address').on('click',function(){
+  $('.signup_button--address').on('click',function(e){
+    e.preventDefault(e);
     $('.input-field__peymethod').addClass('active');
     $('.progress__address').addClass('progress--done');
     $('.input-field__address').removeClass('active');
