@@ -1,0 +1,43 @@
+.table {
+  width: 300px;
+  border: 1px solid #f5f5f5;
+  margin-left: 20px;
+  &__box{
+    display: flex;
+    text-align: left;
+    &__title{
+      background-color: #fafafa;
+      width: 40%;
+      float: left;
+      font-size: 14px;
+      line-height: 50px;
+    }
+    &__item{
+      background-color: white;
+      width: 60%;
+      float: right;
+      margin: 10px 10px 10px 5px;
+      font-size: 14px;
+      &__detail--text {
+        color: #0099e8;
+      }
+      &__ratings--icon-good {
+        color: #ef5185;
+      }
+      &__ratings--icon-normal {
+        color: #fba933;
+      }
+      &__ratings--icon-sad {
+        color: #6ab5d8;
+        }
+      &__detail {
+        font-size: 13px;
+        color: #0099e8;
+        text-align: left;
+        }
+      &__blue-text {
+        color: #0099e8;
+      }
+     }
+    }
+}
