@@ -1,0 +1,74 @@
+= render "top-header"
+
+.gray-background
+  .user-page
+    .user-page__content
+      .my-profile
+        .my-profile__wrap
+          .my-profile__wrap-top
+            = image_tag "member_photo_noimage_thumb.png", class: :"my-profile__image"
+            .h2#name 名前
+            .my-profile__wrap-number
+              .h2#grade 評価数
+              %span.num 0
+              .h2#exhibit 出品数
+              %span.num 0
+      .my-profile-container
+        %ul.my-profile-container__tab
+          %li.my-profile-container__tab__notice
+            %h3
+              お知らせ
+          %li.my-profile-container__tab__list
+            %h3
+              やることリスト
+      .my-profile-information
+        %ul.my-profile-information__data
+          %li.my-profile-information__data__list
+            %a{href: "",class: "my-profile-information__data__list--message"}
+              = image_tag "mercari_rogo.png", class: :"my-profile-information__data__list--logo"
+              .my-profile-information__data__list__detail
+                .my-profile-information__data__list__detail--text 明日、500Pの有効期限が切れます。
+                .my-profile-information__data__list__detail--time
+                  %i.icon-time.far.fa-clock.fa-1x
+                  %span 4日前
+              %i.icon-var.fas.fa-chevron-right
+          %li.my-profile-information__data__list
+            %a{href: "",class: "my-profile-information__data__list--message"}
+              = image_tag "mercari_rogo.png", class: :"my-profile-information__data__list--logo"
+              .my-profile-information__data__list__detail
+                .my-profile-information__data__list__detail--text 対象商品売れたら必ずもらえるキャンペーン
+                .my-profile-information__data__list__detail--time
+                  %i.icon-time.far.fa-clock.fa-1x
+                  %span 4日前
+              %i.icon-var.fas.fa-chevron-right
+          %li.my-profile-information__data__list
+            %a{href: "",class: "my-profile-information__data__list--message"}
+              = image_tag "mercari_rogo.png", class: :"my-profile-information__data__list--logo"
+              .my-profile-information__data__list__detail
+                .my-profile-information__data__list__detail--text メルカリからのお知らせ
+                .my-profile-information__data__list__detail--time
+                  %i.icon-time.far.fa-clock.fa-1x
+                  %span 4日前
+              %i.icon-var.fas.fa-chevron-right
+          %li.my-profile-information__data__get
+            %a{href: "",class: "my-profile-information__data__get--list"} 一覧を見る
+      .my-profile-purchase
+        %h2.my-profile-purchase__title 購入した商品
+        %ul.my-profile-purchase__transacation
+          %li.my-profile-purchase__transacation__now
+            %a{href: "",class: "my-profile-purchase__transacation__now--list"} 取引中
+          %li.my-profile-purchase__transacation__past
+            %a{href: "",class: "my-profile-purchase__transacation__past--list"} 過去の取引
+        .my-profile-purchase__content
+          %ul.my-profile-purchase__content__data
+            %li.my-profile-purchase__content__data--detail 取引中の商品がございません
+    = render "side-bar"
+= render "top-footer"
+= render "top-button"
+
+
+
+
+
+
+
