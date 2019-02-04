@@ -7,21 +7,21 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :nickname,         null: false, default: ""
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-      t.string :tel_confirmation,  null: false, default: ""
-      t.string :first_name,         null: false, default: ""
-      t.string :last_name,          null: false, default: ""
-      t.string :first_name_kana,    null: false, default: ""
-      t.string :last_name_kana,     null: false, default: ""
-      t.string :zip,                null: false, default: ""
+      t.string :tel_confirmation,  null: false
+      t.string :first_name,         null: false
+      t.string :last_name,          null: false
+      t.string :first_name_kana,    null: false
+      t.string :last_name_kana,     null: false
+      t.string :zip,                null: false
       t.integer :prefecture,         null: false, default: "0"
-      t.string :city,               null: false, default: ""
-      t.string :block,              null: false, default: ""
+      t.string :city,               null: false
+      t.string :block,              null: false
       t.string :building,           default: ""
       t.string :phone_number,               default: ""
-      t.string :card_number,     null: false, default: ""
-      t.integer :expiration_month,     null: false
-      t.integer :expiration_year,     null: false
-      t.string :security_code,     null: false, default: ""
+      t.string :card_number,     null: false
+      t.date :expiration_month,     null: false, default: "1900/01/01"
+      t.date :expiration_year,     null: false, default: "1900/01/01"
+      t.string :security_code,     null: false
       t.string :profile,            default: ""
       t.date :birthday,             null: false, default: "1900/01/01"
 
