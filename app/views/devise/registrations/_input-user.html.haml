@@ -52,20 +52,20 @@
                 %br/
                 = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'PC・携帯どちらでも可', class: "signup_input"
                 .error.error--email-nil.hidden メールアドレスが入力されていません
-                .error.error--email-address.hidden フォーマットが不適切です
+                .error.error--email-fomart.hidden フォーマットが不適切です
               .field
                 .input-form__name パスワード
                 .input-form__icon 必須
                 %br/
                 = f.password_field :password, autocomplete: "new-password", placeholder: '6文字以上', class: "signup_input"
                 .error.error--password-nil.hidden パスワードを入力してください
-                .error.error--password-count.hidden パスワードは6文字以上128文字以下で入力してください
+                .error.error--password-fomart.hidden パスワードは6文字以上の英数字で入力してください
               .field
                 .input-form__name パスワード（確認）
                 .input-form__icon 必須
                 %br/
                 = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '6文字以上', class: "signup_input"
-                .error.error--password_confirmation.hidden パスワード (確認) を入力してください
+                .error.error--password_confirmation-nil.hidden パスワード (確認) を入力してください
                 .error.error--password_confirmation-match.hidden パスワードとパスワード (確認) が一致しません
                 = recaptcha_tags
                 .error.error--recaptcha.hidden 選択してください
@@ -75,7 +75,8 @@
                 .input-form__name 携帯電話の番号
                 %br/
                 = f.text_field :tel_confirmation, placeholder: '携帯電話の番号を入力', class: "signup_input"
-                .error.error--tel_confirmation.hidden 電話番号が正しくありません
+                .error.error--tel_confirmation-nil.hidden 電話番号を入力してください
+                .error.error--tel_confirmation-fomart.hidden 電話番号が正しくありません
                 .identification__note 本人確認のため、携帯電話のSMS（ショートメッセージサービス）を利用して認証を行っています。
               .signup_button.signup_button--tel 次へ進む
               .identification__note ※電話番号は本人確認や不正利用を防ぐために利用します。他のユーザーに公開されることはございません。
@@ -103,7 +104,7 @@
                 .input-form__icon 必須
                 %br/
                 = f.text_field :zip, placeholder: '例）123-4567', class: "signup_input"
-                .error.error--zip.hidden 郵便番号を入力してください
+                .error.error--zip.hidden 郵便番号を数字(7桁)で入力してください
               .field
                 .input-form__name 都道府県
                 .input-form__icon 必須
@@ -129,13 +130,11 @@
                 .input-form__icon.input-form__icon--gray 任意
                 %br/
                 = f.text_field :building, placeholder: '例）ピコピコピコマンション', class: "signup_input"
-                .error.error--building.hidden 建物名を入力してください
               .field
                 .input-form__name 電話
                 .input-form__icon.input-form__icon--gray 任意
                 %br/
                 = f.text_field :phone_number, placeholder: '例）080-1122-3322', class: "signup_input"
-                .error.error--phone_number.hidden 建物名を入力してください
               .signup_button.signup_button--address 次へ進む
             .input-field__peymethod.hidden
               .field
