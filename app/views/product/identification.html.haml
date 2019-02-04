@@ -29,7 +29,7 @@
           .input-form__name 都道府県
           .input-form__icon 必須
           .input-form__form
-            = select_tag 'note', options_for_select(["--", "東京都", "大阪府", "三重県", "福岡県", "熊本県"]), class: 'input-form__city'
+            = f.select :prefecture, User.prefectures.keys, {prompt: '選択してください'}, class: 'input-form__city'
             .input-form__chevron-down.input-form__chevron-down--city.fas.fa-chevron-down
         .input-form__item
           .input-form__name 市区町村
