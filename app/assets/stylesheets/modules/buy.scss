@@ -15,30 +15,35 @@
         height: 148px;
       }
     }
-    p,&__item-name{
+    &__item-name{
       margin: 8px 0 0;
       font-size: 16px;
       line-height: 1.5;
       font-weight: 600;
     }
-    form,&__buy-form{
-      margin: 0 auto;
-      p,&__item-price{
-        margin: 8px 0 0;
-        font-size: 28px;
-        line-height: 1.5;
-        span,&__sipping-fee{
-          display: inline-block;
-          margin: 0 0 0 8px;
+    &__buy-form{
+      margin-top: 10px;
+      h4{
+        margin: 0 auto;
+        width: 150px;
+        display: -webkit-flex;
+        justify-content: space-between;
+        align-items: baseline;
+        overflow: hidden;
+      }
+        &__item-price{
+          font-size: 28px;
+        }
+        &__sipping-fee{
           font-size: 14px;
           font-weight: 400;
         }
-      }
       &__accordion{
         margin: 16px 0 0;
         background-color: #ccc;
         &-toggle{
           content: center;
+          align: center;
           height: 48px;
           cursor: pointer;
           line-height: 48px;
@@ -85,7 +90,7 @@
       margin: 0;
       padding: 0;
       width: 49px;
-      height: 15px
+      height: 15;
     }
     &__angle-right{
       margin: 8px 0 0 auto;

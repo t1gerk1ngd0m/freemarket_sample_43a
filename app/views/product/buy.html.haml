@@ -9,12 +9,13 @@
         .buy-content__inner
           .buy-content__inner__item-image
             = image_tag "supream.jpg", alt: "写真", class:"item-photo"
-          %p.buy-content__inner__item-name
+          .buy-content__inner__item-name
             Supreamステッカー
-          %form.buy-content__inner__buy-form
-            %p.buy-content__inner__buy-form__item-price
-              ¥2,800
-              %span.buy-content__inner__buy-form__item-price__shipping-fee
+          .buy-content__inner__buy-form
+            %h4
+              .buy-content__inner__buy-form__item-price
+                ¥2,800
+              .buy-content__inner__buy-form__shipping-fee
                 送料込み
             .buy-content__inner__buy-form__accordion
               .buy-content__inner__buy-form__accordion-toggle
