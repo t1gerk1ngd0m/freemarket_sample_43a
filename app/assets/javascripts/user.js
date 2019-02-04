@@ -37,42 +37,42 @@ $(function(){
       $('.error--email-nil').removeClass('active');
     }else{
       $('.error--email-nil').addClass('active');
-    }
+    };
     if( test_fomart_email ){
       $('.error--email-fomart').removeClass('active');
     }else{
       $('.error--email-fomart').addClass('active');
-    }
+    };
     if( test_nil_password ){
       $('.error--password-nil').removeClass('active');
     }else{
       $('.error--password-nil').addClass('active');
-    }
+    };
     if( test_fomart_password ){
       $('.error--password-fomart').removeClass('active');
     }else{
       $('.error--password-fomart').addClass('active');
-    }
+    };
     if( test_nil_password_confirmation ){
       $('.error--password_confirmation-nil').removeClass('active');
     }else{
       $('.error--password_confirmation-nil').addClass('active');
-    }
+    };
     if( test_match_password_confirmation ){
       $('.error--password_confirmation-match').removeClass('active');
     }else{
       $('.error--password_confirmation-match').addClass('active');
-    }
+    };
     if( test_checked_recaptcha ){
       $('.error--recaptcha').removeClass('active');
     }else{
       $('.error--recaptcha').addClass('active');
-    }
+    };
     if( test_all_member_information ){
     $('.input-field__tel').addClass('active');
     $('.progress__user').addClass('progress--done');
     $('.input-field__main').removeClass('active');
-    }
+    };
   });
   $('.signup_button--tel').on('click',function(e){
     e.preventDefault(e);
@@ -103,8 +103,6 @@ $(function(){
     var prefecture = document.getElementById('user_prefecture').value;
     var city = document.getElementById('user_city').value;
     var block = document.getElementById('user_block').value;
-    var building = document.getElementById('user_building').value;
-    var phone_number = document.getElementById('user_phone_number').value;
     var test_nil_first_name = reg_not_nil.test(first_name);
     var test_nil_last_name = reg_not_nil.test(last_name);
     var test_nil_first_name_kana = reg_only_kana.test(first_name_kana);
@@ -118,49 +116,85 @@ $(function(){
       $('.error--first_name').removeClass('active');
     }else{
       $('.error--first_name').addClass('active');
-    }
+    };
     if( test_nil_last_name ){
       $('.error--last_name').removeClass('active');
     }else{
       $('.error--last_name').addClass('active');
-    }
+    };
     if( test_nil_first_name_kana ){
       $('.error--first_name_kana').removeClass('active');
     }else{
       $('.error--first_name_kana').addClass('active');
-    }
+    };
     if( test_nil_last_name_kana ){
       $('.error--last_name_kana').removeClass('active');
     }else{
       $('.error--last_name_kana').addClass('active');
-    }
+    };
     if( test_nil_zip ){
       $('.error--zip').removeClass('active');
     }else{
       $('.error--zip').addClass('active');
-    }
+    };
     if( test_nil_prefecture ){
       $('.error--prefecture').removeClass('active');
     }else{
       $('.error--prefecture').addClass('active');
-    }
+    };
     if( test_nil_city ){
       $('.error--city').removeClass('active');
     }else{
       $('.error--city').addClass('active');
-    }
+    };
     if( test_nil_block ){
       $('.error--block').removeClass('active');
     }else{
       $('.error--block').addClass('active');
-    }
+    };
     if ( test_nil_all_address ){
       $('.input-field__peymethod').addClass('active');
       $('.progress__address').addClass('progress--done');
       $('.input-field__address').removeClass('active');
-    }
-  $('.signup_button--card').on('click',function(e){
+    };
+  $('.signup_button--card').submit(function(e){
     e.preventDefault(e);
+    var card_number = document.getElementById('user_card_number').value;
+    var expiration_month = document.getElementById('user_expiration_month').value;
+    var expiration_year = document.getElementById('user_expiration_year').value;
+    var security_code = document.getElementById('user_security_code').value;
+    var test_nil_card_number = reg_not_nil.test(card_number);
+    var test_fomart_card_number = reg_credit_card_number.test(card_number);
+    var test_nil_expiration_month = reg_not_nil.test(expiration_month);
+    var test_nil_expiration_year = reg_not_nil.test(expiration_year);
+    var test_nil_security_code = reg_not_nil.test(security_code);
+    var test_fomart_security_code = reg_intger_3or4_characters.test(security_code);
+    var test_nil_all_address = ( test_nil_card_number && test_fomart_card_number && test_nil_expiration_month && test_nil_expiration_year && test_nil_security_code && test_fomart_security_code );
+    if( test_nil_card_number ){
+      $('.error--card_number').removeClass('active');
+    }else{
+      $('.error--card_number').addClass('active');
+    };
+    if( test_nil_expiration_month ){
+      $('.error--expiration_month').removeClass('active');
+    }else{
+      $('.error--expiration_month').addClass('active');
+    };
+    if( test_nil_expiration_year ){
+      $('.error--expiration_year').removeClass('active');
+    }else{
+      $('.error--expiration_year').addClass('active');
+    };
+    if( test_nil_security_code ){
+      $('.error--security_code').removeClass('active');
+    }else{
+      $('.error--security_code').addClass('active');
+    };
+    if( test_nil_all_address ){
+      this.submit();
+    }else{
+      return false;
+    };
     });
   });
 });
