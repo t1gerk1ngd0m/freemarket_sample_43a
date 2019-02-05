@@ -7,7 +7,7 @@
       .new-main__container
         %h2.new-main__title
           商品の情報を入力
-        = form_for @product, :url => {:new => :create}, html: {class: "new-main__sell"} do |f|
+        = form_for @product, html: {class: "new-main__sell"} do |f|
           .new-main__image
             %h3.new-main__image-head
               出品画像
@@ -20,14 +20,14 @@
                 .image-upload-items.have-item-0
                   %ul
               %label.image-upload-dropbox.have-item-0
-                = f.file_field :image, class: 'image-upload-dropfile hidden', type: 'file'
-                %pre.visible-pc
-                  ドラッグアンドドロップ<br />またはクリックしてファイルをアップロード
-                %i.icon-camera
+                = f.fields_for :item_images do |i|
+                  = i.file_field :name, class: 'image-upload-dropfile hidden', type: 'file'
+                  %pre.visible-pc
+                    ドラッグアンドドロップ<br />またはクリックしてファイルをアップロード
+                  %i.icon-camera
 
           .new-main__content
             .form-group
-              / = f.label :商品名
               %label
                 商品名
                 %span.form-require
@@ -73,7 +73,7 @@
                   %span.form-arbitrary
                     任意
                 %div
-                  %input.input-default{ placeholder: "例)シャネル"}
+                = f.text_field :brand, class: 'input-default', placeholder: "例)シャネル"
               .form-group
                 %label
                   商品の状態
@@ -95,6 +95,14 @@
                     必須
                 .select-wrap
                   = f.select :shipping_charges_burden, [["---", "---"], ["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"]], {}, {class: "select-default"}
+                  %i.icon-arrow-bottom
+              .form-group
+                %label
+                  配送の方法
+                  %span.form-require
+                    必須
+                .select-wrap
+                  = f.select :shipping_method, [["---", "---"], ["未定", "未定"], ["らくらくメルカリ便", "らくらくメルカリ便"], ["ゆうメール", "ゆうメール"], ["レターパック", "レターパック"], ["普通郵便(定形、定形外)", "普通郵便(定形、定形外)"], ["クロネコヤマト", "クロネコヤマト"], ["ゆうパック", "ゆうパック"], ["クリックポスト", "クリックポスト"], ["ゆうパケット", "ゆうパケット"]], {}, {class: "select-default"}
                   %i.icon-arrow-bottom
               .form-group
                 %label
