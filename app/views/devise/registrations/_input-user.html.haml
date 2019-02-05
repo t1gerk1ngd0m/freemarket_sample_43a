@@ -37,7 +37,7 @@
         .signup-main__title.hidden.input-field__address 住所入力
         .signup-main__title.hidden.input-field__peymethod 支払い方法
         .signup-main__wrap
-          = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "new_user_signup"}) do |f|
             = devise_error_messages!
             .input-field__main.hidden.active
               .field

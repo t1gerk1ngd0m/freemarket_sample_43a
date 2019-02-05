@@ -28,6 +28,7 @@ $(function(){
     var test_match_password_confirmation = ( password == password_confirmation );
     var test_checked_recaptcha = grecaptcha.getResponse();
     var test_all_member_information = ( test_nil_nickname && test_nil_email && test_fomart_email && test_nil_password && test_fomart_password && test_nil_password_confirmation && test_match_password_confirmation && test_checked_recaptcha );
+
     if( test_nil_nickname ){
       $('.error--nickname').removeClass('active');
       $('#user_nickname').addClass('signup_input');
@@ -193,7 +194,7 @@ $(function(){
       $('.input-field__address').removeClass('active');
     };
   });
-  $('#new_user').submit(function(e){
+  $('.new_user_signup').submit(function(e){
     e.preventDefault(e);
     var card_number = document.getElementById('user_card_number').value;
     var expiration_month = document.getElementById('user_expiration_month_2i').value;
