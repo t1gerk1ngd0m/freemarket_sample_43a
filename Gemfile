@@ -71,8 +71,5 @@ gem 'devise'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'font-awesome-rails'
-gem 'carrierwave'
-gem 'mini_magick'
-gem 'fog-aws'
 gem 'recaptcha', require: "recaptcha/rails"
 gem 'dotenv-rails'

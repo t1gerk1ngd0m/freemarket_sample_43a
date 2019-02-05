@@ -28,7 +28,6 @@ $(function(){
     var test_match_password_confirmation = ( password == password_confirmation );
     var test_checked_recaptcha = grecaptcha.getResponse();
     var test_all_member_information = ( test_nil_nickname && test_nil_email && test_fomart_email && test_nil_password && test_fomart_password && test_nil_password_confirmation && test_match_password_confirmation && test_checked_recaptcha );
-
     if( test_nil_nickname ){
       $('.error--nickname').removeClass('active');
       $('#user_nickname').addClass('signup_input');
@@ -251,6 +250,48 @@ $(function(){
     };
     if( test_all_address ){
       this.submit();
+    }else{
+      return false;
+    };
+  });
+  $('.new_user_signin').submit(function(e){
+    e.preventDefault(e);
+    var email = document.getElementById('user_email').value;
+    var password = document.getElementById('user_password').value;
+    var test_nil_email = reg_not_nil.test(email);
+    var test_fomart_email = reg_mail_address.test(email);
+    var test_nil_password = reg_not_nil.test(password);
+    var test_all_signin_information = ( test_nil_email && test_fomart_email && test_nil_password );
+    if( test_nil_email  ){
+      $('.error--email-nil').removeClass('active');
+      $('#user_email').addClass('signup_input');
+    }else{
+      $('.error--email-nil').addClass('active');
+      $('#user_email').removeClass('signup_input');
+    };
+    if( test_nil_password ){
+      $('.error--password-nil').removeClass('active');
+      $('#user_password').addClass('signup_input');
+    }else{
+      $('.error--password-nil').addClass('active');
+      $('#user_password').removeClass('signup_input');
+      $('#user_password_confirmation').removeClass('signup_input');
+    };
+    var $form = $('.new_user_signin');
+    var param = $form.serializeArray();
+    console.log( param );
+    $.ajax({
+      url: '/users/search',
+      type: "POST",
+      date: param,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+    .done(function( data ) {
+        console.log( data );
+    })
+    if( test_all_signin_information ){
     }else{
       return false;
     };
