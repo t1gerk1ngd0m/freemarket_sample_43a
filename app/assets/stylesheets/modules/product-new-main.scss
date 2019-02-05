@@ -150,10 +150,6 @@ a{
   background: #ccc;
 }
 
-.form-suggest-container {
-  position: relative;
-}
-
 .new-main__content{
   padding: 40px;
   border-top: 1px solid #eee;
@@ -211,6 +207,7 @@ label{
 }
 
 .form-suggest-container{
+    position: relative;
   .input-default{
     width: 366px;
   }
@@ -258,6 +255,20 @@ textarea{
   float: right;
 }
 
+.sell-price__input{
+  text-align: right;
+  &__block{
+    display: inline-block;
+  }
+  &__block:first-child{
+    margin: 0 5px 0 0;
+  }
+  .input-default{
+    margin: 0;
+    text-align: right;
+  }
+}
+
 .sell-price{
   li{
     padding: 24px 0;
@@ -278,20 +289,6 @@ textarea{
     .input-default{
       width: 126px;
     }
-  }
-}
-
-.sell-price__input{
-  text-align: right;
-  &__block{
-    display: inline-block;
-  }
-  &__block:first-child{
-    margin: 0 5px 0 0;
-  }
-  .input-default{
-    margin: 0;
-    text-align: right;
   }
 }
 
