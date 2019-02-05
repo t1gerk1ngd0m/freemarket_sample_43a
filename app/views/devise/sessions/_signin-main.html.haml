@@ -10,17 +10,15 @@
     %btn.btn-default.btn-sns.btn-sns-google
       Googleでログイン
       %i.icon-google-plus.fab.fa-google-plus-g
-  %form
+  = form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => "new_user_signin"}) do |f|
     .signin__form-inner
       .form-group
-        %input{ type: "email", name: "email", placeholder: "メールアドレス", class: "signin__input-text input__default"}
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'メールアドレス', class: "signin__input-text input__default"
       .form-group
-        %input{ type: "password", name: "password", placeholder: "パスワード", class: "signin__input-text input__default"}
+        = f.password_field :password, autocomplete: "new-password", placeholder: 'パスワード', class: "signin__input-text input__default"
       = recaptcha_tags
       .form-group
-        .g-recaptcha.signin__captcha
-      %button.signin__submit.btn-default.btn-red
-        ログイン
+      = f.submit "ログイン", class: 'signin__submit btn-default btn-red'
 
       %a
         パスワードをお忘れの方
