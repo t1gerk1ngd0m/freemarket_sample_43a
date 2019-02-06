@@ -1,0 +1,36 @@
+.icon-content {
+    margin-top: 70px;
+    background: white;
+    &__menu {
+      padding: 50px;
+      text-align: center;
+      &__facebook {
+        color: white;
+        padding-right: 10px;
+      }
+        &__facebook--color {
+        display: inline-block;
+        background: #385185;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      &__twitter {
+        font-size: 25px;
+        position: relative;
+        top: 10px;
+        padding-right: 10px;
+      }
+        &__twitter--color {
+        font-size: 60px;
+      }
+      &__pinterest {
+        color: white;
+      }
+        &__pinterest--color {
+          display: inline-block;
+          background: #aa262a;
+          padding: 10px;
+          border-radius: 10px;
+      }
+  }
+}

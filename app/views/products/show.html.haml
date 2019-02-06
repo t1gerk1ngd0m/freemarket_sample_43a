@@ -1,0 +1,138 @@
+= render "top-header"
+
+.gray-background
+  .user-page
+    .product-content
+      .product-content__detail
+        .product-content__detail--title 正規品 LOUIS VUITTON ルイヴィトン キーホルダー BD1-1
+        .product-content__detail__summary
+          .product-content__detail__summary__image
+            .product-content__detail__summary__image__main
+            = image_tag "product-detail-image-main.jpg",class: "product-content__detail__summary__image__main--photo"
+            %ul.product-content__detail__summary__image__main__list
+              %li.product-content__detail__summary__image__main__list__photo
+              = image_tag "product-detail-image-main.jpg",class: "product-content__detail__summary__image__main__list__photo"
+              = image_tag "product-detail-image-main.jpg",class: "product-content__detail__summary__image__main__list__photo"
+              = image_tag "product-detail-image-main.jpg",class: "product-content__detail__summary__image__main__list__photo"
+              = image_tag "product-detail-image-main.jpg",class: "product-content__detail__summary__image__main__list__photo"
+          .table
+            .table__box
+              .table__box__title
+                %h3.table__box__title--text 出品者
+              .table__box__item
+                =link_to 'TO',class: "table__box__item--text"
+                .table__box__item__ratings
+                  %i.table__box__item__ratings--icon-good.far.fa-laugh
+                  %span.table__box__item__ratings--evaluation 0
+                  %i.table__box__item__ratings--icon-normal.far.fa-meh
+                  %span.table__box__item__ratings--evaluation 0
+                  %i.table__box__item__ratings--icon-sad.far.fa-frown
+                  %span.table__box__item__ratings--evaluation 0
+            .table__box
+              .table__box__title
+                %h3.table__box__title--text カテゴリー
+              .table__box__item
+                .table__box__item__detail
+                  %h3.table__box__item__detail--text
+                    %a{ href: "", class: ""} メンズ
+                  .table__box__item__detail--text
+                    %i.fas.fa-angle-right
+                      %a{ href: "", class: ""} 小物
+                  .table__box__item__detail--text
+                    %i.fas.fa-angle-right
+                      %a{ href: "", class: ""} キーホルダー
+            .table__box
+              .table__box__title
+                %h3.table__box__title--text ブランド
+              .table__box__item
+                .table__box__item__blue-text
+                  %a{ href: "", class: ""} ルイヴィトン
+            .table__box
+              .table__box__title
+                %h3.table__box__title--text 商品の状態
+              .table__box__item
+                %h4.table__box__item__info 目立った傷なし
+            .table__box
+              .table__box__title
+                %h3.table__box__title--text 配送料の負担
+              .table__box__item
+                %h4.table__box__item__info 送料込み
+            .table__box
+              .table__box__title
+                %h3.table__box__title--text 配送方法
+              .table__box__item
+                %h4.table__box__item__info 未定
+            .table__box
+              .table__box__title
+                %h3.table__box__title--text 配送元地域
+              .table__box__item
+                .table__box__item__blue-text
+                  %a{ href: "", class: ""} 兵庫県
+            .table__box
+              .table__box__title
+                %h3.table__box__title--text 発送日の目安
+              .table__box__item
+                %h4.table__box__item__info 2~3日後
+        .price
+          .price__box
+            %h2.price__box__detail ¥ 28,900
+            %h6.price__box__tax （税込）
+            %h4.price__box__postage 送料込み
+        .purchase
+          %a{ href: "", class: "purchase__btn"} 購入画面に進む
+        .description
+          .description__text
+            %p 正規品 LOUIS VUITTON ルイヴィトン ポルトクレ LVクラブ キーホルダー チャーム BD1-1
+            %br 確実正規品です
+            %br メンズ、レディースともお使い頂けます
+            %br サイズ 縦 × 横 : 約 12 cm × 4 cm  素人採寸ですので多少の誤差はご了承下さい状態 写真のような、使用感はありますが、まだまだお使い頂ける商品です
+            %br 付属品 保存袋、箱あり 他状態は写真にてご覧くださいませ
+        .tag
+          .tag__content
+            %a{ href: "",class: "tag__content__good" }
+              %i.tag__content__good--rogo.far.fa-heart
+              %span いいね!
+              %span 0
+            %a{ href: "",class: "tag__content__report" }
+              %i.tag__content__report--rogo.far.fa-flag
+              %span 不適切な商品の報告
+            .tag__content__message
+              %a{ href: "",class: "tag__content__message__show"}
+                %i.fas.fa-lock
+                %span 安心、安全への取り組み
+      .product-other
+        %a{ href: "",class: "product-other__left" }
+          %i.fas.fa-chevron-left
+          %span.product-other__left__text ショール
+        %a{ href: "",class: "product-other__right"}
+          %span.product-other__right__text 鏡
+          %i.fas.fa-chevron-right
+      .icon-content
+        .icon-content__menu
+          %a{ href: "",class: "icon-content__menu__facebook"}
+            %i.icon-content__menu__facebook--color.fab.fa-facebook-square.fa-3x
+          %a{ href: "",class: "icon-content__menu__twitter"}
+            %i.icon-content__menu__twitter--color.fab.fa-twitter-square.fa-3x
+          %a{ href: "",class: "icon-content__menu__pinterest"}
+            %i.icon-content__menu__pinterest--color.fab.fa-pinterest-square.fa-3x
+      .product-image
+        .product-image__user-otherwise
+          %a{ href: "",class: "product-image__user-otherwise__title"} TOさんのその他の出品
+          %ul.product-image__user-otherwise__list
+            =render "product-image"
+            =render "product-image"
+            =render "product-image"
+            =render "product-image"
+            =render "product-image"
+            =render "product-image"
+        .product-image__item-otherwise
+          %a{ href: "",class: "product-image__item-otherwise__title"} ルイヴィトンのその他の商品
+          %ul.product-image__item-otherwise__list
+            =render "product-image"
+            =render "product-image"
+            =render "product-image"
+            =render "product-image"
+            =render "product-image"
+            =render "product-image"
+= render "top-footer"
+= render "top-button"
