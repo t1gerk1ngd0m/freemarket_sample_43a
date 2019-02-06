@@ -32,5 +32,14 @@
           padding: 10px;
           border-radius: 10px;
       }
+      &__facebook--color:hover {
+        opacity: 0.5;
+      }
+      &__twitter:hover {
+        opacity: 0.5;
+      }
+      &__pinterest--color:hover {
+        opacity: 0.5;
+      }
   }
 }
