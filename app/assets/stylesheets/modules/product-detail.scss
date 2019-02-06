@@ -23,13 +23,19 @@
           &__main {
             width: 100%;
           }
-          &__main--photo {
-              width: 300px;
-            }
+
+          &__main1 {
+            width: 300px;
+            float: left;
+          }
       }
-        &__summary__image__main__list__photo {
-          width: 25%;
-          float: left;
+            &__summary__image__sub1 {
+              width: 25%;
+              float: left;
+              opacity: 0.5;
+            }
+        &__summary__image__sub1:hover {
+          opacity: 1;
         }
       &__summary__table {
         border: solid 1px #f5f5f5;
@@ -82,8 +88,22 @@
   }
 }
 
+.my-info {
+  &__box {
+    color: #fff;
+    background: #05B0B4;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 7px 15px;
+  }
+  &__font {
+    display: block;
+  }
+}
+
+
 .purchase {
-  padding-top: 50px;
+  padding-top: 20px;
   &__btn {
     display: block;
     background: red;
