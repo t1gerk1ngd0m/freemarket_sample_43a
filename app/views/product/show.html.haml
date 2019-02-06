@@ -8,13 +8,14 @@
         .product-content__detail__summary
           .product-content__detail__summary__image
             .product-content__detail__summary__image__main
-            = image_tag "product-detail-image-main.jpg",class: "product-content__detail__summary__image__main--photo"
-            %ul.product-content__detail__summary__image__main__list
-              %li.product-content__detail__summary__image__main__list__photo
-              = image_tag "product-detail-image-main.jpg",class: "product-content__detail__summary__image__main__list__photo"
-              = image_tag "product-detail-image-main.jpg",class: "product-content__detail__summary__image__main__list__photo"
-              = image_tag "product-detail-image-main.jpg",class: "product-content__detail__summary__image__main__list__photo"
-              = image_tag "product-detail-image-main.jpg",class: "product-content__detail__summary__image__main__list__photo"
+              = image_tag "product-detail-image-main.jpg",class: "product-content__detail__summary__image__main1"
+
+            %ul.product-content__detail__summary__image__sub
+              %li.product-content__detail__summary__image__sub
+                = image_tag "product-detail-image-main.jpg",class: "product-content__detail__summary__image__sub1"
+                = image_tag "product:view:item12.jpg",class: "product-content__detail__summary__image__sub1"
+                = image_tag "product:view:item10.jpg",class: "product-content__detail__summary__image__sub1"
+                = image_tag "product-detail-sub2.jpg",class: "product-content__detail__summary__image__sub1"
           .table
             .table__box
               .table__box__title
@@ -34,7 +35,7 @@
               .table__box__item
                 .table__box__item__detail
                   %h3.table__box__item__detail--text
-                    %a{ href: "", class: ""} メンズ
+                    =link_to "メンズ",class: ""
                   .table__box__item__detail--text
                     %i.fas.fa-angle-right
                       %a{ href: "", class: ""} 小物
@@ -78,6 +79,9 @@
             %h2.price__box__detail ¥ 28,900
             %h6.price__box__tax （税込）
             %h4.price__box__postage 送料込み
+        .my-info
+          .my-info__box 500Pあります
+          .i.fas.fa-sort-down.my-info__font
         .purchase
           %a{ href: "", class: "purchase__btn"} 購入画面に進む
         .description
@@ -136,3 +140,13 @@
             =render "product-image"
 = render "top-footer"
 = render "top-button"
+
+
+/ .product-content__detail__summary__image__main__stage__hide
+/   = image_tag "product-detail-image-main.jpg",class: "product-content__detail__summary__image__main__stage__hide--photo"
+/ .product-content__detail__summary__image__main__stage__hide
+/   = image_tag "product:view:item12.jpg",class: "product-content__detail__summary__image__main__stage__hide--photo"
+/ .product-content__detail__summary__image__main__stage__hide
+/   = image_tag "product:view:item10.jpg",class: "product-content__detail__summary__image__main__stage__hide--photo"
+/ .product-content__detail__summary__image__main__stage__hide
+/   = image_tag "product:view:item7.jpg",class: "product-content__detail__summary__image__main__stage__hide--photo"
