@@ -1,0 +1,30 @@
+.tag {
+  &__content {
+    text-align: left;
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 30px;
+    &__good {
+      width: 20%;
+      background: #eee;
+      border-radius: 30%;
+      height: 30px;
+      line-height: 30px;
+      display: inline-block;
+      color: black;
+      text-align: center;
+      font-size: 13px;
+    }
+    &__report {
+      display: inline-block;
+      background: #eee;
+      border-radius: 30%;
+      height: 30px;
+      line-height: 30px;
+      color: black;
+      font-size: 13px;
+      width: 25%;
+      text-align: center;
+    }
+  }
+}
