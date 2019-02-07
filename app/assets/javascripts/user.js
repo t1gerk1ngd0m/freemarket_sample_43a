@@ -4,7 +4,7 @@ $(function(){
   var reg_alphanumeric_6characters = new RegExp('[a-zA-Z0-9]{6,}');
   var reg_prefecture_choce = new RegExp("^(?!.*--未選択--).*$");
   var reg_only_kana = new RegExp("[ ァ-ヺ ]");
-  var reg_zip_code = new RegExp('\A\d{3}\-?d{4}\z');
+  var reg_zip_code = new RegExp('^[0-9]{3}\-[0-9]{4}$');
   var reg_intger_10or11_characters = new RegExp('[0-9]{10,11}');
   var reg_intger_14or16_characters = new RegExp('[0-9]{14,16}');
   var reg_intger_3or4_characters = new RegExp('[0-9]{3,4}');
