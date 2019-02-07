@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190204034030) do
+ActiveRecord::Schema.define(version: 20190207013302) do
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       default: "", null: false
+    t.integer  "parent_id"
+    t.integer  "lft",                     null: false
+    t.integer  "rgt",                     null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["lft"], name: "index_categories_on_lft", using: :btree
+    t.index ["parent_id"], name: "index_categories_on_parent_id", using: :btree
+    t.index ["rgt"], name: "index_categories_on_rgt", using: :btree
+  end
 
   create_table "creditcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -58,6 +70,14 @@ ActiveRecord::Schema.define(version: 20190204034030) do
     t.index ["user_id"], name: "index_tells_on_user_id", using: :btree
   end
 
+  create_table "tests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_tests_on_product_id", using: :btree
+  end
+
   create_table "user_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.string   "first_name",      null: false
@@ -94,5 +114,6 @@ ActiveRecord::Schema.define(version: 20190204034030) do
   add_foreign_key "item_images", "products"
   add_foreign_key "products", "users"
   add_foreign_key "tells", "users"
+  add_foreign_key "tests", "products"
   add_foreign_key "user_details", "users"
 end
