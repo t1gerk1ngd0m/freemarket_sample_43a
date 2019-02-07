@@ -15,7 +15,7 @@ $(function(){
     }else{
       error.addClass('active');
       user.removeClass('signup_input');
-    };
+    }
   };
   $('.signup-main__botton').on('click',function(){
     $('.signup-container__user').addClass('active');
@@ -50,7 +50,7 @@ $(function(){
       $('.input-field__tel').addClass('active');
       $('.progress__user').addClass('progress--done');
       $('.input-field__main').removeClass('active');
-    };
+    }
   });
   $('.signup_button--tel').on('click',function(e){
     e.preventDefault(e);
@@ -66,7 +66,7 @@ $(function(){
     }else{
       $('.error--tel_confirmation-fomart').addClass('active');
       $('#user_tel_confirmation').removeClass('signup_input');
-    };
+    }
   });
   $('.signup_button--address').on('click',function(e){
     e.preventDefault(e);
@@ -98,14 +98,14 @@ $(function(){
     }else{
       $('.error--prefecture').addClass('active');
       $('#user_prefecture').removeClass('signup_input signup_input--prefecture');
-    };
+    }
     vadication( test_nil_city , $('.error--city') , $('#user_city') );
     vadication( test_nil_block , $('.error--block') , $('#user_block') );
     if ( test_all_address ){
       $('.input-field__peymethod').addClass('active');
       $('.progress__address').addClass('progress--done');
       $('.input-field__address').removeClass('active');
-    };
+    }
   });
   $('.new_user_signup').submit(function(e){
     e.preventDefault(e);
@@ -128,21 +128,21 @@ $(function(){
     }else{
       $('.error--expiration_month').addClass('active');
       $('#user_expiration_month').removeClass('input-form__birth');
-    };
+    }
     if( test_nil_expiration_year ){
       $('.error--expiration_year').removeClass('active');
       $('#user_expiration_year').addClass('input-form__birth');
     }else{
       $('.error--expiration_year').addClass('active');
       $('#user_expiration_year').removeClass('input-form__birth');
-    };
+    }
     vadication( test_nil_security_code , $('.error--security_code-nil') , $('#user_security_code') );
     vadication( test_fomart_security_code , $('.error--security_code-fomart') , $('#user_security_code') );
     if( test_all_address ){
       this.submit();
     }else{
       return false;
-    };
+    }
   });
 
 });
