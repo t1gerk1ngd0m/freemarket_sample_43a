@@ -143,7 +143,7 @@
                 %br/
                 = f.text_field :card_number, placeholder: '半角数字のみ', class: "signup_input error-form"
                 .error.error--card_number-nil.hidden カード情報を入力してください
-                .error.error--card_number-fomart.hidden カード番号は半角数字を入力してください
+                .error.error--card_number-fomart.hidden カード番号は半角数字(14〜16桁)を入力してください
               .field
                 .input-form__name 有効期限
                 .input-form__icon 必須
@@ -169,6 +169,6 @@
                 = f.text_field :security_code, placeholder: 'カード背面4桁もしくは3桁の', class: "signup_input error-form"
                 .error.error--security_code-nil.hidden セキュリティコードを入力してください
                 .error.error--security_code-fomart.hidden セキュリティコードは4桁もしくは3桁の数字を入力してください
-              = f.submit "次へ進む", class: "signup_button.signup_button--card"
+              = f.submit "次へ進む", class: "signup_button signup_button--card"
         %footer.signup-footer
           = render "signup-footer"
