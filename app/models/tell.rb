@@ -1,2 +1,0 @@
-class Tell < ApplicationRecord
-end

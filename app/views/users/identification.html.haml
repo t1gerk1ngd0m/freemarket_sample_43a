@@ -10,48 +10,48 @@
           .input-form__name お名前
           .input-form__icon 必須
           .input-form__form
-            = text_field_tag :text, '', placeholder: '例）ピコ', class: .input-form__input'
+            = text_field_tag :text, '', placeholder: '例）ピコ', class: 'input-form__input'
           .input-form__form
-            = text_field_tag :text, '', placeholder: '例）太郎', class: .input-form__input'
+            = text_field_tag :text, '', placeholder: '例）太郎', class: 'input-form__input'
         .input-form__item
           .input-form__name お名前カナ
           .input-form__icon 必須
           .input-form__form
-            = text_field_tag :text, '', placeholder: '例）ピコ', class: .input-form__input'
+            = text_field_tag :text, '', placeholder: '例）ピコ', class: 'input-form__input'
           .input-form__form
-            = text_field_tag :text, '', placeholder: '例）タロウ', class: .input-form__input'
+            = text_field_tag :text, '', placeholder: '例）タロウ', class: 'input-form__input'
         .input-form__item
           .input-form__name 郵便番号
           .input-form__icon.input-form__icon--gray 任意
           .input-form__form
-            = text_field_tag :text, '', placeholder: '例）1234567', class: .input-form__input'
+            = text_field_tag :text, '', placeholder: '例）1234567', class: 'input-form__input'
         .input-form__item
           .input-form__name 都道府県
           .input-form__icon 必須
           .input-form__form
-            = select_tag 'note', options_for_select(["--", "東京都", "大阪府", "三重県", "福岡県", "熊本県"]), class: .input-form__city'
+            = f.select :prefecture, User.prefectures.keys, {prompt: '選択してください'}, class: 'input-form__city'
             .input-form__chevron-down.input-form__chevron-down--city.fas.fa-chevron-down
         .input-form__item
           .input-form__name 市区町村
           .input-form__icon 必須
           .input-form__form
-            = text_field_tag :text, '', placeholder: '例）渋谷区代々木', class: .input-form__input'
+            = text_field_tag :text, '', placeholder: '例）渋谷区代々木', class: 'input-form__input'
         .input-form__item
           .input-form__name 番地
           .input-form__icon 必須
           .input-form__form
-            = text_field_tag :text, '', placeholder: '例）42-3-120005', class: .input-form__input'
+            = text_field_tag :text, '', placeholder: '例）42-3-120005', class: 'input-form__input'
         .input-form__item
           .input-form__name 建物名
           .input-form__icon.input-form__icon--gray 任意
           .input-form__form
-            = text_field_tag :text, '', placeholder: '例）ハイパーハイブリッドハイスコアマンション第32号棟', class: .input-form__input'
+            = text_field_tag :text, '', placeholder: '例）ハイパーハイブリッドハイスコアマンション第32号棟', class: 'input-form__input'
         .input-form__item
           .input-form__name 生年月日
           .input-form__icon 必須
           .input-form__form-wrap
             .input-form__form
-              = date_select :birth, :date, {start_year: 1900, use_month_numbers: true}, {class: .input-form__birth'}
+              = date_select :birth, :date, {start_year: 1900, use_month_numbers: true}, {class: 'input-form__birth'}
               .input-form__chevron-down.input-form__chevron-down--year
                 .fas.fa-chevron-down
                 .input-form__date-separation 年
@@ -64,7 +64,7 @@
                 .input-form__date-separation 日
         .identification__note ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
         .identification__entry
-        = link_to "登録する",root_path, class: .input-form__button'
+        = link_to "登録する",root_path, class: 'input-form__button'
         .input-form__overview-link 本人情報の登録について>
     = render "side-bar"
 = render "top-footer"
