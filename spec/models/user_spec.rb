@@ -3,7 +3,7 @@ require 'rails_helper'
 describe User do
   describe '#create' do
 
-   it "is valid with a nickname, email, password, password_confirmation, tel_confirmation, first_name, last_name, first_name_kana, last_name_kana, zip, prefecture, city, block, building, phone_number, card_number, expiration_month, expiration_year, security_code" do
+   it "is valid with factory girl data" do
       user = build(:user)
       expect(user).to be_valid
     end
@@ -15,7 +15,7 @@ describe User do
     end
 
     it "is invalid with a duplicate nickname" do
-      user = create(:user)
+      create(:user)
       another_user = build(:user)
       another_user.valid?
       expect(another_user.errors[:nickname]).to include("has already been taken")
@@ -28,7 +28,7 @@ describe User do
     end
 
     it "is invalid with a duplicate email address" do
-      user = create(:user)
+      create(:user)
       another_user = build(:user)
       another_user.valid?
       expect(another_user.errors[:email]).to include("has already been taken")
