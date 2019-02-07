@@ -15,4 +15,60 @@ class User < ApplicationRecord
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
   }
 
+  reg_mail_address = /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/
+  reg_alphanumeric_6characters = /[a-zA-Z0-9]{6,}/
+  reg_prefecture_choce = /(?!.*--未選択--)/
+  reg_only_kana = /[ ァ-ヺ ]/
+  reg_zip_code = /[0-9]{3}\-[0-9]{4}/
+  reg_intger_10or11_characters = /[0-9]{10,11}/
+  reg_intger_14or16_characters = /[0-9]{14,16}/
+  reg_intger_3or4_characters = /[0-9]{3,4}/
+
+  validates :nickname,
+    presence: true,
+    uniqueness: true
+  validates :email,
+    presence: true,
+    uniqueness: true,
+    format: { with: reg_mail_address }
+  validates :password,
+    presence: true,
+    confirmation: true,
+    format: { with: reg_alphanumeric_6characters }
+  validates :tel_confirmation,
+    presence: true,
+    uniqueness: true,
+    format: { with: reg_intger_10or11_characters }
+  validates :first_name,
+    presence: true
+  validates :last_name,
+    presence: true
+  validates :first_name_kana,
+    presence: true,
+    format: { with: reg_only_kana }
+  validates :last_name_kana,
+    presence: true,
+    format: { with: reg_only_kana }
+  validates :zip,
+    presence: true,
+    format: { with: reg_zip_code }
+  validates :prefecture,
+    presence: true,
+    format: { with: reg_prefecture_choce }
+  validates :city,
+    presence: true
+  validates :block,
+    presence: true
+  validates :card_number,
+    presence: true,
+    uniqueness: true,
+    format: { with: reg_intger_14or16_characters }
+  validates :expiration_month,
+    presence: true
+  validates :expiration_year,
+    presence: true
+  validates :security_code,
+    presence: true,
+    format: { with: reg_intger_3or4_characters }
+
 end
