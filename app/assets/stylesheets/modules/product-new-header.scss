@@ -1,0 +1,38 @@
+.new-wrap{
+  padding:0 0 250px;
+  background-color: whitesmoke;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  color: #333333;
+  font-size: 14px;
+  position: relative;
+  min-height: 100%;
+  line-height: 1;
+  display: block;
+  .new-header{
+    text-align: center;
+    height: 128px;
+    position: relative;
+    h1{
+      display: inline-block;
+      margin: 40px 0 0;
+      a{
+        display: inline-block;
+        width: 185px;
+        height: 49px;
+        line-height: 49px;
+        img{
+          width: 185px;
+          height: 49px;
+        }
+      }
+    }
+    &__logo{
+      width: 200px;
+      height: 50px;
+      display: inline-block;
+    }
+    &__progress{
+      display: inline-block;
+    }
+  }
+}

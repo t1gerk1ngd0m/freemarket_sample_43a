@@ -1,0 +1,132 @@
+.product-content {
+  width: 70%;
+  margin: auto;
+  padding: 30px 0;
+  &__detail {
+    text-align: center;
+    background: white;
+    &--title {
+      font-size: 20px;
+      font-weight: bold;
+      padding: 20px;
+    }
+    &__summary {
+      display: flex;
+    }
+      &__summary__image {
+        min-width: 300px;
+        max-width: 300px;
+        min-height: 375px;
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 50px;
+          &__main {
+            width: 100%;
+          }
+
+          &__main1 {
+            width: 300px;
+            float: left;
+          }
+      }
+            &__summary__image__sub1 {
+              width: 25%;
+              float: left;
+              opacity: 0.5;
+            }
+        &__summary__image__sub1:hover {
+          opacity: 1;
+        }
+      &__summary__table {
+        border: solid 1px #f5f5f5;
+        min-height: 375px;
+        display: inline-block;
+          th {
+            width: 40%;
+            background: #fafafa;
+           }
+           td {
+            width: 60%;
+           }
+         &--text {
+          color: #0099e8;
+         }
+         &__icon {
+          display: flex;
+          padding-top: 5px;
+          padding-left: 10px;
+          &__ratings{
+            &--laugh{
+              color: #ef5185;
+            }
+            &--normal {
+              color: #fba933;
+            }
+            &--sad {
+              color: #6ab5d8;
+            }
+          }
+         }
+      }
+
+      }
+  }
+
+.price {
+  margin-top: 30px;
+  &__box {
+    &__detail {
+      font-size: 50px;
+      display: inline-block;
+    }
+    &__tax {
+      display: inline-block;
+    }
+    &__postage {
+      display: inline-block;
+    }
+  }
+}
+
+.my-info {
+  &__box {
+    color: #fff;
+    background: #05B0B4;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 7px 15px;
+  }
+  &__font {
+    display: block;
+  }
+}
+
+
+.purchase {
+  padding-top: 20px;
+  &__btn {
+    display: block;
+    background: red;
+    color: white;
+    height: 60px;
+    line-height: 60px;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 25px;
+  }
+}
+
+.description {
+  &__text {
+    text-align: left;
+    margin: 30px 50px;
+  }
+}
+
+.product-other {
+  margin-top: 20px;
+  &__right {
+    float: right;
+  }
+}
+

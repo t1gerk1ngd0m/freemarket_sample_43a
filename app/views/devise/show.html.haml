@@ -24,7 +24,7 @@
       .my-profile-information
         %ul.my-profile-information__data
           %li.my-profile-information__data__list
-            %a{href: "",class: "my-profile-information__data__list--message"}
+            = link_to '',class: "my-profile-information__data__list--message"
               = image_tag "mercari_rogo.png", class: :"my-profile-information__data__list--logo"
               .my-profile-information__data__list__detail
                 .my-profile-information__data__list__detail--text 明日、500Pの有効期限が切れます。
@@ -65,10 +65,3 @@
     = render "side-bar"
 = render "top-footer"
 = render "top-button"
-
-
-
-
-
-
-

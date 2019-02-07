@@ -10,7 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190129023755) do
+ActiveRecord::Schema.define(version: 20190207013302) do
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       default: "", null: false
+    t.integer  "parent_id"
+    t.integer  "lft",                     null: false
+    t.integer  "rgt",                     null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["lft"], name: "index_categories_on_lft", using: :btree
+    t.index ["parent_id"], name: "index_categories_on_parent_id", using: :btree
+    t.index ["rgt"], name: "index_categories_on_rgt", using: :btree
+  end
+
+  create_table "item_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       default: "", null: false
+    t.integer  "product_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["product_id"], name: "index_item_images_on_product_id", using: :btree
+  end
+
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",                       default: "", null: false
+    t.integer  "user_id"
+    t.string   "description",                             null: false
+    t.string   "category_large",                          null: false
+    t.string   "category_middle",                         null: false
+    t.string   "category_small",                          null: false
+    t.string   "brand"
+    t.string   "size",                                    null: false
+    t.string   "shipping_charges_burden",                 null: false
+    t.integer  "dispatch_area",              default: 0,  null: false
+    t.string   "shipping_method",                         null: false
+    t.string   "number_of_the_days_to_ship",              null: false
+    t.integer  "price",                                   null: false
+    t.string   "condition",                               null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.index ["user_id"], name: "index_products_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nickname",               default: "",           null: false
@@ -42,4 +82,6 @@ ActiveRecord::Schema.define(version: 20190129023755) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "item_images", "products"
+  add_foreign_key "products", "users"
 end

@@ -122,12 +122,11 @@
 ### Association
 - belongs_to :product
 
-## imageテーブル
+## item_imageテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|user_id|references|foreign_key: true|
 |product_id|references|foreign_key: true|
 
 ### Association

@@ -1,0 +1,22 @@
+= render "top-header"
+
+.gray-background
+  .user-page
+    .user-page__content
+      .card
+        .card__content
+          .card__content__top
+            支払い方法
+          .card__content__middle
+            .card__content__middle__text
+              クレジットカード一覧
+            .card__content__middle__btn
+              .card__content__middle__btn__text
+                %i.far.fa-credit-card
+                クレジットカードを追加する
+            .card__content__middle__bottom
+              %span 支払い方法について
+              =fa_icon "angle-right"
+    = render "side-bar"
+= render "top-footer"
+= render "top-button"
