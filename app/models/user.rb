@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
   reg_mail_address = /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/
   reg_alphanumeric_6characters = /[a-zA-Z0-9]{6,}/
-  reg_prefecture_choce = /(?!.*--未選択--)/
+  reg_prefecture_choce = /\A(?!.*--未選択--).*\z/
   reg_only_kana = /[ ァ-ヺ ]/
   reg_zip_code = /[0-9]{3}\-[0-9]{4}/
   reg_intger_10or11_characters = /[0-9]{10,11}/
