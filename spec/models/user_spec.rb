@@ -215,7 +215,7 @@ describe User do
     end
 
     it "is invalid with a duplicate card_number" do
-      user = create(:user)
+      create(:user)
       another_user = build(:user)
       another_user.valid?
       expect(another_user.errors[:card_number]).to include("has already been taken")
