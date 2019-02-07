@@ -4,18 +4,18 @@
   .user-page
     .product-content
       .product-content__detail
-        .product-content__detail--title 正規品 LOUIS VUITTON ルイヴィトン キーホルダー BD1-1
+        .product-content__detail--title
+          =@product.name
         .product-content__detail__summary
           .product-content__detail__summary__image
             .product-content__detail__summary__image__main
-              = image_tag "product-detail-image-main.jpg",class: "product-content__detail__summary__image__main1"
-
+              = image_tag @product.item_images.first.name,class: "product-content__detail__summary__image__main1"
             %ul.product-content__detail__summary__image__sub
               %li.product-content__detail__summary__image__sub
-                = image_tag "product-detail-image-main.jpg",class: "product-content__detail__summary__image__sub1"
-                = image_tag "product:view:item12.jpg",class: "product-content__detail__summary__image__sub1"
-                = image_tag "product:view:item10.jpg",class: "product-content__detail__summary__image__sub1"
-                = image_tag "product-detail-sub2.jpg",class: "product-content__detail__summary__image__sub1"
+                = image_tag @product.item_images.first.name,class: "product-content__detail__summary__image__sub1"
+                = image_tag @product.item_images.second.name,class: "product-content__detail__summary__image__sub1"
+                = image_tag @product.item_images.third.name,class: "product-content__detail__summary__image__sub1"
+                = image_tag @product.item_images.fourth.name,class: "product-content__detail__summary__image__sub1"
           .table
             .table__box
               .table__box__title
@@ -35,48 +35,53 @@
               .table__box__item
                 .table__box__item__detail
                   %h3.table__box__item__detail--text
-                    =link_to "メンズ",class: ""
+                    =link_to @product.category_large,class: ""
                   .table__box__item__detail--text
                     %i.fas.fa-angle-right
-                      %a{ href: "", class: ""} 小物
+                      =link_to @product.category_middle,class: ""
                   .table__box__item__detail--text
                     %i.fas.fa-angle-right
-                      %a{ href: "", class: ""} キーホルダー
+                      =link_to @product.category_small,class: ""
             .table__box
               .table__box__title
                 %h3.table__box__title--text ブランド
               .table__box__item
                 .table__box__item__blue-text
-                  %a{ href: "", class: ""} ルイヴィトン
+                  =link_to @product.brand,class: ""
             .table__box
               .table__box__title
                 %h3.table__box__title--text 商品の状態
               .table__box__item
-                %h4.table__box__item__info 目立った傷なし
+                %h4.table__box__item__info
+                =@product.condition
             .table__box
               .table__box__title
                 %h3.table__box__title--text 配送料の負担
               .table__box__item
-                %h4.table__box__item__info 送料込み
+                %h4.table__box__item__info
+                =@product.shipping_charges_burden
             .table__box
               .table__box__title
                 %h3.table__box__title--text 配送方法
               .table__box__item
-                %h4.table__box__item__info 未定
+                %h4.table__box__item__info
+                =@product.shipping_method
             .table__box
               .table__box__title
                 %h3.table__box__title--text 配送元地域
               .table__box__item
                 .table__box__item__blue-text
-                  %a{ href: "", class: ""} 兵庫県
+                  =link_to @product.dispatch_area,class: ""
             .table__box
               .table__box__title
                 %h3.table__box__title--text 発送日の目安
               .table__box__item
-                %h4.table__box__item__info 2~3日後
+                %h4.table__box__item__info
+                =@product.number_of_the_days_to_ship
         .price
           .price__box
-            %h2.price__box__detail ¥ 28,900
+            %span.price__box__mark ¥
+            %h2.price__box__detail=@product.price.to_s(:delimited)
             %h6.price__box__tax （税込）
             %h4.price__box__postage 送料込み
         .my-info
@@ -86,11 +91,7 @@
           %a{ href: "", class: "purchase__btn"} 購入画面に進む
         .description
           .description__text
-            %p 正規品 LOUIS VUITTON ルイヴィトン ポルトクレ LVクラブ キーホルダー チャーム BD1-1
-            %br 確実正規品です
-            %br メンズ、レディースともお使い頂けます
-            %br サイズ 縦 × 横 : 約 12 cm × 4 cm  素人採寸ですので多少の誤差はご了承下さい状態 写真のような、使用感はありますが、まだまだお使い頂ける商品です
-            %br 付属品 保存袋、箱あり 他状態は写真にてご覧くださいませ
+            =@product.description
         .tag
           .tag__content
             %a{ href: "",class: "tag__content__good" }
@@ -141,6 +142,7 @@
 = render "top-footer"
 = render "top-button"
 
+/ = image_tag "product-detail-image-main.jpg",class: "product-content__detail__summary__image__main1"
 
 / .product-content__detail__summary__image__main__stage__hide
 /   = image_tag "product-detail-image-main.jpg",class: "product-content__detail__summary__image__main__stage__hide--photo"
