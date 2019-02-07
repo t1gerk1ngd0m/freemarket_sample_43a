@@ -16,13 +16,13 @@ class User < ApplicationRecord
   }
 
   reg_mail_address = /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/
-  reg_alphanumeric_6characters = /[a-zA-Z0-9]{6,}/
+  reg_alphanumeric_6characters = /\A[a-zA-Z0-9]{6,}+\z/
   reg_prefecture_choce = /\A(?!.*--未選択--).*\z/
   reg_only_kana = /\A[ァ-ヴ]+\z/
-  reg_zip_code = /[0-9]{3}\-[0-9]{4}/
-  reg_intger_10or11_characters = /[0-9]{10,11}/
-  reg_intger_14or16_characters = /[0-9]{14,16}/
-  reg_intger_3or4_characters = /[0-9]{3,4}/
+  reg_zip_code = /\A[0-9]{3}\-[0-9]{4}+\z/
+  reg_intger_10or11_characters = /\A[0-9]{10,11}+\z/
+  reg_intger_14or16_characters = /\A[0-9]{14,16}+\z/
+  reg_intger_3or4_characters = /\A[0-9]{3,4}+\z/
 
   validates :nickname,
     presence: true,
