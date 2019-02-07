@@ -77,3 +77,4 @@ gem 'erb2haml'
 gem 'font-awesome-rails'
 gem 'recaptcha', require: "recaptcha/rails"
 gem 'mechanize'
+gem 'awesome_nested_set'
