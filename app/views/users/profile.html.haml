@@ -1,4 +1,4 @@
-= render "top-header"
+= render "layouts/top-header"
 
 .gray-background
   .user-page
@@ -14,6 +14,6 @@
           %textarea{ type: "text",placeholder: "こんにちは！ ご覧頂きありがとうございます 可愛いものや綺麗めカジュアルを中心に出品しています。服のサイズは9号です。気持ちよくお取引できるように心がけていきますので、商品や発送方法などご質問がございましたらお気軽にどうぞ",name: "",class: :"user-profile__text--area"}
         .user-profile__btn
           %a{href: "",class: "user-profile__btn--change"} 変更する
-    = render "side-bar"
-= render "top-footer"
-= render "top-button"
+    = render "layouts/side-bar"
+= render "layouts/top-footer"
+= render "layouts/top-button"
