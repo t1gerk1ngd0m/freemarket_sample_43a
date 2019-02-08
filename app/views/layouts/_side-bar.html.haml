@@ -1,7 +1,7 @@
 .side-bar
   .side-bar__box
     .side-bar__list
-      .side-bar__name マイページ
+      = link_to "マイページ", users_path, class: "side-bar__name"
       .side-bar__greater-than.fas.fa-greater-than
     .side-bar__list
       .side-bar__name お知らせ
@@ -53,24 +53,24 @@
   .side-bar__box
     .side-bar__title 設定
     .side-bar__list
-      .side-bar__name プロフィール
+      = link_to "プロフィール", profile_users_path, class: "side-bar__name"
       .side-bar__greater-than.fas.fa-greater-than
     .side-bar__list
       .side-bar__name 住所変更
       .side-bar__greater-than.fas.fa-greater-than
     .side-bar__list
-      .side-bar__name 支払い方法
+      = link_to "支払い方法", card_users_path, class: "side-bar__name"
       .side-bar__greater-than.fas.fa-greater-than
     .side-bar__list
       .side-bar__name メール/パスワード
       .side-bar__greater-than.fas.fa-greater-than
     .side-bar__list
-      .side-bar__name 本人情報
+      = link_to "本人情報", identification_users_path, class: "side-bar__name"
       .side-bar__greater-than.fas.fa-greater-than
     .side-bar__list
       .side-bar__name 電話番号の確認
       .side-bar__greater-than.fas.fa-greater-than
     .side-bar__list
-      .side-bar__name ログアウト
+      = link_to "ログアウト", logout_users_path, class: "side-bar__name"
       .side-bar__greater-than.fas.fa-greater-than
 
