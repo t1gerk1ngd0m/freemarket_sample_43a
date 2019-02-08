@@ -79,6 +79,5 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'font-awesome-rails'
 gem 'recaptcha', require: "recaptcha/rails"
-gem 'dotenv-rails'
 gem 'mechanize'
 gem 'awesome_nested_set'
