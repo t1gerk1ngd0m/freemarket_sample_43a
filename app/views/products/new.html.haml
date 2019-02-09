@@ -21,7 +21,7 @@
                   %ul
               %label.image-upload-dropbox.have-item-0
                 = f.fields_for :item_images do |i|
-                  = i.file_field :name, class: 'image-upload-dropfile hidden', type: 'file'
+                  = i.file_field :name, multiple: true, class: 'image-upload-dropfile hidden', type: 'file', name: "item_images[name][]"
                   %pre.visible-pc
                     ドラッグアンドドロップ<br />またはクリックしてファイルをアップロード
                   %i.icon-camera
@@ -54,12 +54,12 @@
                     = f.select :category_large, [["---", "---"], ["レディース", "レディース"], ["メンズ", "メンズ"], ["ベビー・キッズ", "ベビー・キッズ"]], {}, {class: "select-default"}
                     %i.icon-arrow-bottom
                   .select-wrap
-                    = f.select :category_middle, [["---", "---"], ["トップス", "トップス"], ["ジャケット/アウター", "ジャケット/アウター"], ["パンツ", "パンツ"]], {}, {class: "select-default"}
+                    = f.select :category_middle, [["---", "---"], ["トップス", "トップス"], ["ジャケット/アウター", "ジャケット/アウター"], ["パンツ", "パンツ"]], {}, {class: "select-default hidden"}
                     %i.icon-arrow-bottom
                   .select-wrap
-                    = f.select :category_small, [["---", "---"], ["Tシャツ/カットソー(半袖/袖なし)", "Tシャツ/カットソー(半袖/袖なし)"], ["Tシャツ/カットソー(七分/長袖)", "Tシャツ/カットソー(七分/長袖)"], ["その他", "その他"]], {}, {class: "select-default"}
+                    = f.select :category_small, [["---", "---"], ["Tシャツ/カットソー(半袖/袖なし)", "Tシャツ/カットソー(半袖/袖なし)"], ["Tシャツ/カットソー(七分/長袖)", "Tシャツ/カットソー(七分/長袖)"], ["その他", "その他"]], {}, {class: "select-default hidden"}
                     %i.icon-arrow-bottom
-              .form-group
+              #size.form-group.hidden
                 %label
                   サイズ
                   %span.form-require
@@ -96,7 +96,7 @@
                 .select-wrap
                   = f.select :shipping_charges_burden, [["---", "---"], ["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"]], {}, {class: "select-default"}
                   %i.icon-arrow-bottom
-              .form-group
+              #shipping_method.form-group.hidden
                 %label
                   配送の方法
                   %span.form-require
@@ -137,16 +137,16 @@
                       .sell-price__input__block
                         ¥
                       .sell-price__input__block
-                        = f.text_field :price, class: 'input-default', placeholder: "例)300"
+                        = f.text_field :price, id: 'product_price', class: 'input-default', placeholder: "例)300"
                 %li.clearfix
                   .l-left
                     販売手数料(10%)
-                  .l-right
+                  #commission.l-right
                     -
                 %li.clearfix.bold
                   .l-left
                     販売利益
-                  .l-right
+                  #profit.l-right
                     -
           .new-main__content.new-main__btn-box
             %div
