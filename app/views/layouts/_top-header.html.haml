@@ -12,7 +12,7 @@
     .top-header__user-info
       .user-info__mypage
         = image_tag("member_photo_noimage_thumb.png", class: :"mypage__image", value: "マイページ")
-        .mypage__title マイページ
+        = link_to "マイページ", users_path, class: "mypage__title"
       .user-info__notice
         .far.fa-bell
         .notice__text お知らせ

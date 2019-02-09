@@ -1,4 +1,4 @@
-= render "top-header"
+= render "layouts/top-header"
 
 .gray-background
   .user-page
@@ -24,7 +24,7 @@
       .my-profile-information
         %ul.my-profile-information__data
           %li.my-profile-information__data__list
-            = link_to '',class: "my-profile-information__data__list--message"
+            .my-profile-information__data__list--message
               = image_tag "mercari_rogo.png", class: :"my-profile-information__data__list--logo"
               .my-profile-information__data__list__detail
                 .my-profile-information__data__list__detail--text 明日、500Pの有効期限が切れます。
@@ -62,6 +62,6 @@
         .my-profile-purchase__content
           %ul.my-profile-purchase__content__data
             %li.my-profile-purchase__content__data--detail 取引中の商品がございません
-    = render "side-bar"
-= render "top-footer"
-= render "top-button"
+    = render "layouts/side-bar"
+= render "layouts/top-footer"
+= render "layouts/top-button"
