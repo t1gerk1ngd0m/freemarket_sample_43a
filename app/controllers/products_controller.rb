@@ -8,7 +8,6 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      binding.pry
       params[:item_images]['name'].each do |a|
         @item_image = @product.item_images.create!(name: a)
       end
