@@ -47,7 +47,7 @@
                 %h3.table__box__title--text ブランド
               .table__box__item
                 .table__box__item__blue-text
-                  =link_to @product.brand
+                  =link_to @product.brand,class: ""
             .table__box
               .table__box__title
                 %h3.table__box__title--text 商品の状態
@@ -71,7 +71,7 @@
                 %h3.table__box__title--text 配送元地域
               .table__box__item
                 .table__box__item__blue-text
-                  =@product.dispatch_area
+                  =link_to @product.dispatch_area,class: ""
             .table__box
               .table__box__title
                 %h3.table__box__title--text 発送日の目安
@@ -81,8 +81,7 @@
         .price
           .price__box
             %span.price__box__mark ¥
-            %h2.price__box__detail
-              =@product.price.to_s(:delimited)
+            %h2.price__box__detail=@product.price.to_s(:delimited)
             %h6.price__box__tax （税込）
             %h4.price__box__postage 送料込み
         .my-info
