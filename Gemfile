@@ -84,4 +84,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'dotenv-rails'
-
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
