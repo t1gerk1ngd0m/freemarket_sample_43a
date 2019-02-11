@@ -1,7 +1,7 @@
-%li.product-image__user-otherwise__list__item
-  = image_tag "product:view:item1.jpg",class: "product-image__user-otherwise__list__item__image"
-  .product-image__user-otherwise__list__item__text
-    %h3.product-image__user-otherwise__list__item__text--title COACH ブラックレザーバック
-    .product-image__user-otherwise__list__item__text__price
-      %h4.product-image__user-otherwise__list__item__text__price--main 20,800円
-      %h6.product-image__user-otherwise__list__item__text__price--tax （税込）
+- @products.each do |product|
+  %a{ href: "",class: "item-box" }
+    .item-box__image
+      = image_tag product.item_images.first.name,class: "product-image__user-otherwise__list__item__image"
+    .product-image__user-otherwise__list__item__text
+      = product.name
+      .item-box__tax 税込
