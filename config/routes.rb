@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
- devise_for :users, controllers: { sessions: 'users/sessions' , registraions: 'users/registraions' }
+ devise_for :users,
+ controllers: {
+  sessions: 'users/sessions' ,
+  registraions: 'users/registraions' ,
+  omniauth_callbacks: 'users/omniauth_callbacks'
+  }
+
   resources :users do
     collection do
       get 'card', to: 'users#card', as: 'card'
@@ -8,7 +14,6 @@ Rails.application.routes.draw do
       get 'profile', to: 'users#profile', as: 'profile'
     end
   end
-
 
   root to:'products#index'
   resources :products do
