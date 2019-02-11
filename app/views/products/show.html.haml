@@ -127,15 +127,3 @@
             =render partial: "product-image",collections: @products
 = render "layouts/top-footer"
 = render "layouts/top-button"
-
-/ - @products.each do |product|
-/     = image_tag product.item_images.first.name,class: "product-image__user-otherwise__list__item__image"
-
-
-/ .product-image__user-otherwise
-/           %a{ href: "",class: "product-image__user-otherwise__title"} TOさんのその他の出品
-/           %ul.product-image__user-otherwise__list
-/             =render partial: "product-image",collections: @products
-/         .product-image__item-otherwise
-/           %a{ href: "",class: "product-image__item-otherwise__title"} ルイヴィトンのその他の商品
-/           %ul.product-image__item-otherwise__list
