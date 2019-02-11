@@ -1,10 +1,6 @@
 class Product < ApplicationRecord
   has_many :item_images, :dependent => :destroy
   accepts_nested_attributes_for :item_images, allow_destroy: true
-  belongs_to :category_large, class_name: "Category"
-  belongs_to :category_middle, class_name: "Category"
-  belongs_to :category_small, class_name: "Category"
-  belongs_to :size
   with_options presence: true do
     validates :name
     validates :description
@@ -45,6 +41,30 @@ class Product < ApplicationRecord
 
   enum number_of_the_days_to_ship: {
    "---": 0, "1~2日で発送": 1, "2~3日で発送": 2, "4~7日で発送": 3
+  }, _suffix: true
+
+  enum size: {
+   "---": 0, "XXS以下": 1, "XS(SS)": 2, "S": 3, "M": 4, "L": 5, "XL(LL)": 6, "2XL(3L)": 7,
+   "3XL(4L)": 8, "4XL(5L)以上": 9, "FREE SIZE": 10, "20cm以下": 11, "20.5cm": 12, "21cm": 13,
+   "21.5cm": 14, "22cm": 15, "22.5cm": 16, "23cm": 17, "23.5cm": 18, "24cm": 29,
+   "24.5cm": 20, "25cm": 21, "25.5cm": 22, "26cm": 23,
+   "26.5cm": 24, "27cm": 25, "27.5cm以上": 26
+  }, _suffix: true
+
+  enum category_large: {
+   "---": 0, "レディース": 1, "メンズ": 2, "ベビー・キッズ": 3
+  }, _suffix: true
+
+  enum category_middle: {
+   "---": 0, "ジャケット/アウター": 1, "スカート": 2, "靴": 3, "ジャケット/アウター": 4, "パンツ": 5,
+   "靴": 6, "ベビー服(男女兼用)  ~95cm": 7, "キッズ服(男女兼用) 100cm~": 8, "キッズ靴": 9
+  }, _suffix: true
+
+  enum category_small: {
+   "---": 0, "テーラードジャケット": 1, "ノーカラージャケット": 2, "Gジャン/デニムジャケット": 3, "レザージャケット": 4, "ダウンジャケット": 5, "ライダースジャケット": 6, "ミリタリージャケット": 7,
+   "ダウンベスト": 8, "ジャンパー/ブルゾン": 9, "ポンチョ": 10, "ロングコート": 11, "トレンチコート": 12, "ダッフルコート": 13,
+   "ピーコート": 14, "チェスターコート": 15, "モッズコート": 16, "スタジャン": 17, "毛皮/ファーコート": 18, "スプリングコート": 29,
+   "スカジャン": 20, "その他": 21
   }, _suffix: true
 
 end

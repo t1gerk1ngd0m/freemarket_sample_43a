@@ -51,13 +51,13 @@
                     必須
                 %div
                   .select-wrap
-                    = f.collection_select :category_large, @category_larges, :id, :name, { include_blank: true, selected: 110 }, {class: "select-default"}
+                    = f.select :category_large, Product.category_larges.keys, {}, class: "select-default"
                     %i.icon-arrow-bottom
                   .select-wrap
-                    = f.collection_select :category_middle, @category_middles, :ids, :name, { include_blank: true, selected: 110 }, {class: "select-default hidden"}
+                    = f.select :category_middle, Product.category_middles.keys, {}, class: "select-default hidden"
                     %i.icon-arrow-bottom
                   .select-wrap
-                    = f.collection_select :category_small, @category_smalls, :ids, :name, { include_blank: true, selected: 110 }, {class: "select-default hidden"}
+                    = f.select :category_small, Product.category_smalls.keys, {}, class: "select-default hidden"
                     %i.icon-arrow-bottom
               #size.form-group.hidden
                 %label
@@ -65,7 +65,7 @@
                   %span.form-require
                     必須
                 .select-wrap
-                  = f.collection_select :size_id, @sizes, :id, :name, { include_blank: true, selected: 27 }, {class: "select-default"}
+                  = f.select :size, Product.sizes.keys, {}, class: "select-default"
                   %i.icon-arrow-bottom
               .form-group.form-suggest-container
                 %label
@@ -80,7 +80,7 @@
                   %span.form-require
                     必須
                 .select-wrap
-                  = f.select :condition, Product.conditions.keys, {prompt: "選択してください"}, class: "select-default"
+                  = f.select :condition, Product.conditions.keys, {}, class: "select-default"
                   %i.icon-arrow-bottom
           .new-main__content.clearfix
             %h3.new-main__content__sub-head
@@ -94,7 +94,7 @@
                   %span.form-require
                     必須
                 .select-wrap
-                  = f.select :shipping_charges_burden, Product.shipping_charges_burdens.keys, {prompt: "選択してください"}, class: "select-default"
+                  = f.select :shipping_charges_burden, Product.shipping_charges_burdens.keys, {}, class: "select-default"
                   %i.icon-arrow-bottom
               #shipping_method.form-group.hidden
                 %label
@@ -102,7 +102,7 @@
                   %span.form-require
                     必須
                 .select-wrap
-                  = f.select :shipping_method, Product.shipping_methods.keys, {prompt: "選択してください"}, class: "select-default"
+                  = f.select :shipping_method, Product.shipping_methods.keys, {}, class: "select-default"
                   %i.icon-arrow-bottom
               .form-group
                 %label
@@ -110,7 +110,7 @@
                   %span.form-require
                     必須
                 .select-wrap
-                  = f.select :dispatch_area, Product.dispatch_areas.keys, {prompt: "選択してください"}, class: "select-default"
+                  = f.select :dispatch_area, Product.dispatch_areas.keys, {}, class: "select-default"
                   %i.icon-arrow-bottom
               .form-group
                 %label
@@ -118,7 +118,7 @@
                   %span.form-require
                     必須
                 .select-wrap
-                  = f.select :number_of_the_days_to_ship, Product.number_of_the_days_to_ships.keys, {prompt: "選択してください"}, class: "select-default"
+                  = f.select :number_of_the_days_to_ship, Product.number_of_the_days_to_ships.keys, {}, class: "select-default"
                   %i.icon-arrow-bottom
           .new-main__content.clearfix
             %h3.new-main__content__sub-head

@@ -3,20 +3,6 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @item_image = @product.item_images.build
-
-    @category_larges = Category.roots
-    @category_middles = []
-    @category_smalls = []
-    for @category_large in @category_larges
-      @category_middle = @category_large.children
-      for @category_middle_small in @category_middle
-        @category_small = @category_middle_small.children
-        @category_smalls << @category_small
-      end
-      @category_middles << @category_middle
-    end
-
-    @sizes = Size.all
   end
 
   def create
@@ -27,6 +13,7 @@ class ProductsController < ApplicationController
       end
       redirect_to root_path, notice: '出品しました。'
     else
+      binding.pry
       render :new
     end
   end
