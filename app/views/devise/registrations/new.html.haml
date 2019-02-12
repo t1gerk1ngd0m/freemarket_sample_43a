@@ -38,7 +38,6 @@
         .signup-main__title.hidden.input-field__peymethod 支払い方法
         .signup-main__wrap
           = form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "new_user_signup"}) do |f|
-            = devise_error_messages!
             .input-field__main.hidden.active
               .field
                 .input-form__name ニックネーム
@@ -103,8 +102,8 @@
                 .input-form__name 郵便番号
                 .input-form__icon 必須
                 %br/
-                = f.text_field :zip, placeholder: '例）1234567', class: "signup_input error-form"
-                .error.error--zip.hidden 郵便番号を数字(7桁)で入力してください
+                = f.text_field :zip, placeholder: '例）123-4567', class: "signup_input error-form"
+                .error.error--zip.hidden 郵便番号を数字(例：123-4567)で入力してください
               .field
                 .input-form__name 都道府県
                 .input-form__icon 必須
