@@ -1,0 +1,175 @@
+.signup-container.signup-container__user
+  %header.signup-header
+    %h1
+      %a{ href: "/" }
+        = image_tag("logo_signup_top.svg", alt: :"mercari" ,class: "signup-header__logo")
+      .signup-header__progress
+        .progress
+          .progress__item
+            .progress__title.progress--done 会員情報
+            .progress__dot.progress--done
+              .fas.fa-circle
+              .progress__line.progress__user
+          .progress__item
+            .progress__title.progress__user 電話番号確証
+            .progress__dot.progress__user
+              .fas.fa-circle
+              .progress__line.progress__tel
+          .progress__item
+            .progress__title.progress__tel 住所入力
+            .progress__dot.progress__tel
+              .fas.fa-circle
+              .progress__line.progress__address
+          .progress__item
+            .progress__title.progress__address 支払い方法
+            .progress__dot.progress__address
+              .fas.fa-circle
+              .progress__line.progress__peymethod
+          .progress__item
+            .progress__title.progress__peymethod 完了
+            .progress__dot.progress__peymethod
+              .fas.fa-circle
+  %main.signup-main
+    %section.l-signup-container
+      .signup-main
+        .signup-main__title.hidden.input-field__main.active 会員情報入力
+        .signup-main__title.hidden.input-field__tel 電話番号認証
+        .signup-main__title.hidden.input-field__address 住所入力
+        .signup-main__title.hidden.input-field__peymethod 支払い方法
+        .signup-main__wrap
+          = form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "new_user_signup"}) do |f|
+            .input-field__main.hidden.active
+              .field
+                .input-form__name ニックネーム
+                .input-form__icon 必須
+                %br/
+                = f.text_field :nickname, autofocus: true, autocomplete: "name", placeholder: '例）ピコ太郎', class: "signup_input error-form"
+                .error.error--nickname.hidden ニックネームを入力してください
+                .hidden
+                  .field
+                    .input-form__name メールアドレス
+                    .input-form__icon 必須
+                    %br/
+                    = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'PC・携帯どちらでも可', class: "signup_input error-form"
+                    .error.error--email-nil.hidden メールアドレスが入力されていません
+                    .error.error--email-fomart.hidden フォーマットが不適切です
+
+                  .field
+                    .input-form__name パスワード
+                    .input-form__icon 必須
+                    %br/
+                    = f.text_field :password, autocomplete: "new-password", placeholder: '6文字以上', class: "signup_input error-form"
+                    .error.error--password-nil.hidden パスワードを入力してください
+                    .error.error--password-fomart.hidden パスワードは6文字以上の英数字で入力してください
+                  .field
+                    .input-form__name パスワード（確認）
+                    .input-form__icon 必須
+                    %br/
+                    = f.text_field :password_confirmation, autocomplete: "new-password", placeholder: '6文字以上', class: "signup_input error-form"
+                    .error.error--password_confirmation-nil.hidden パスワード (確認) を入力してください
+                    .error.error--password_confirmation-match.hidden パスワードとパスワード (確認) が一致しません
+                .g-recaptcha.signup-recaptcha{"data-sitekey" => "6Lcxpo4UAAAAALKIEWUEjHLN-12V1zAQHUQH7wZB"}
+                .error.error--recaptcha.hidden 選択してください
+              .signup_button.signup_button--user 次へ進む
+            .input-field__tel.hidden
+              .field
+                .input-form__name 携帯電話の番号
+                %br/
+                = f.text_field :tel_confirmation, placeholder: '携帯電話の番号を入力', class: "signup_input error-form"
+                .error.error--tel_confirmation-nil.hidden 電話番号を入力してください
+                .error.error--tel_confirmation-fomart.hidden 電話番号が正しくありません
+                .identification__note 本人確認のため、携帯電話のSMS（ショートメッセージサービス）を利用して認証を行っています。
+              .signup_button.signup_button--tel 次へ進む
+              .identification__note ※電話番号は本人確認や不正利用を防ぐために利用します。他のユーザーに公開されることはございません。
+            .input-field__address.hidden
+              .field
+                .input-form__name お名前
+                .input-form__icon 必須
+                %br/
+                = f.text_field :first_name, placeholder: '例）ピコ', class: "signup_input error-form"
+                .error.error--first_name.hidden 姓を入力してください
+                %br/
+                = f.text_field :last_name, placeholder: '例）太郎', class: "signup_input error-form"
+                .error.error--last_name.hidden 名を入力してください
+              .field
+                .input-form__name お名前カナ
+                .input-form__icon 必須
+                %br/
+                = f.text_field :first_name_kana, placeholder: '例）ピコ', class: "signup_input error-form"
+                .error.error--first_name_kana.hidden 姓（カナ）を入力してください
+                %br/
+                = f.text_field :last_name_kana, placeholder: '例）タロウ', class: "signup_input error-form"
+                .error.error--last_name_kana.hidden 名（カナ）を入力してください
+              .field
+                .input-form__name 郵便番号
+                .input-form__icon 必須
+                %br/
+                = f.text_field :zip, placeholder: '例）123-4567', class: "signup_input error-form"
+                .error.error--zip.hidden 郵便番号を数字(例：123-4567)で入力してください
+              .field
+                .input-form__name 都道府県
+                .input-form__icon 必須
+                %br/
+                .input-form__form
+                  = f.select :prefecture, User.prefectures.keys, {prompt: '選択してください'}, class: 'signup_input signup_input--prefecture error-form--prefecture'
+                  .error.error--prefecture.hidden 住所を選択してください
+                  .input-form__chevron-down.input-form__chevron-down--city-signup.fas.fa-chevron-down
+              .field
+                .input-form__name 市区町村
+                .input-form__icon 必須
+                %br/
+                = f.text_field :city, placeholder: '例）渋谷区代々木', class: "signup_input error-form"
+                .error.error--city.hidden 市区町村を入力してください
+              .field
+                .input-form__name 番地
+                .input-form__icon 必須
+                %br/
+                = f.text_field :block, placeholder: '例）12-45-90909', class: "signup_input error-form"
+                .error.error--block.hidden 番地を入力してください
+              .field
+                .input-form__name 建物名
+                .input-form__icon.input-form__icon--gray 任意
+                %br/
+                = f.text_field :building, placeholder: '例）ピコピコピコマンション', class: "signup_input error-form"
+              .field
+                .input-form__name 電話
+                .input-form__icon.input-form__icon--gray 任意
+                %br/
+                = f.text_field :phone_number, placeholder: '例）080-1122-3322', class: "signup_input error-form"
+              .signup_button.signup_button--address 次へ進む
+            .input-field__peymethod.hidden
+              .field
+                .input-form__name カード情報
+                .input-form__icon 必須
+                %br/
+                = f.text_field :card_number, placeholder: '半角数字のみ', class: "signup_input error-form"
+                .error.error--card_number-nil.hidden カード情報を入力してください
+                .error.error--card_number-fomart.hidden カード番号は半角数字(14〜16桁)を入力してください
+              .field
+                .input-form__name 有効期限
+                .input-form__icon 必須
+                %br/
+                .input-form__form
+                  = f.date_select :expiration_month ,{use_month_numbers: true, discard_day: true, discard_year: true}, {class: 'input-form__birth'}
+                  .input-form__chevron-down.input-form__chevron-down--year
+                    .fas.fa-chevron-down
+                    .input-form__date-separation 月
+                  .error.error--expiration_month.hidden 有効期限（月）を入力してください
+                %br/
+                .input-form__form
+                  = date_select :expiration_year, :date,{use_month_numbers: true, discard_day: true, discard_month: true}, {class: 'input-form__birth'}
+                  .input-form__chevron-down.input-form__chevron-down--year
+                    .fas.fa-chevron-down
+                    .input-form__date-separation 年
+                  .error.error--expiration_year.hidden 有効期限（年）を入力してください
+                %br/
+              .field
+                .input-form__name セキュリティコード
+                .input-form__icon 必須
+                %br/
+                = f.text_field :security_code, placeholder: 'カード背面4桁もしくは3桁の', class: "signup_input error-form"
+                .error.error--security_code-nil.hidden セキュリティコードを入力してください
+                .error.error--security_code-fomart.hidden セキュリティコードは4桁もしくは3桁の数字を入力してください
+              = f.submit "次へ進む", class: "signup_button signup_button--card"
+        %footer.signup-footer
+          = render "signup-footer"
