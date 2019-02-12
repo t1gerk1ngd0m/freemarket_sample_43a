@@ -14,6 +14,7 @@ class Product < ApplicationRecord
     validates :number_of_the_days_to_ship
     validates :price
     validates :condition
+    validates :status
   end
 
   enum dispatch_area: {
@@ -56,7 +57,7 @@ class Product < ApplicationRecord
   }, _suffix: true
 
   enum category_middle: {
-   "---": 0, "ジャケット/アウター": 1, "スカート": 2, "靴": 3, "ジャケット/アウター": 4, "パンツ": 5,
+   "---": 0, "ジャケット/アウター/MENS": 1, "スカート": 2, "靴": 3, "ジャケット/アウター/LADEIS": 4, "パンツ": 5,
    "靴": 6, "ベビー服(男女兼用)  ~95cm": 7, "キッズ服(男女兼用) 100cm~": 8, "キッズ靴": 9
   }, _suffix: true
 
@@ -65,6 +66,10 @@ class Product < ApplicationRecord
    "ダウンベスト": 8, "ジャンパー/ブルゾン": 9, "ポンチョ": 10, "ロングコート": 11, "トレンチコート": 12, "ダッフルコート": 13,
    "ピーコート": 14, "チェスターコート": 15, "モッズコート": 16, "スタジャン": 17, "毛皮/ファーコート": 18, "スプリングコート": 29,
    "スカジャン": 20, "その他": 21
+  }, _suffix: true
+
+  enum status: {
+   "出品中": 0, "取引中": 1, "売却済み": 2, "公開停止中": 3
   }, _suffix: true
 
 end
