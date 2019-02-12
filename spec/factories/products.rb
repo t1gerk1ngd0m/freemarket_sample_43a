@@ -1,4 +1,5 @@
 FactoryGirl.define do
+
   factory :product do
     name "ネコ"
     description "猫じゃらし"
