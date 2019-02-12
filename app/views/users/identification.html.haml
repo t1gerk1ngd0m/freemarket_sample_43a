@@ -1,4 +1,4 @@
-= render "top-header"
+= render "layouts/top-header"
 
 .gray-background
   .user-page
@@ -29,8 +29,7 @@
           .input-form__name 都道府県
           .input-form__icon 必須
           .input-form__form
-            = f.select :prefecture, User.prefectures.keys, {prompt: '選択してください'}, class: 'input-form__city'
-            .input-form__chevron-down.input-form__chevron-down--city.fas.fa-chevron-down
+            = select_tag 'note', options_for_select(["--", "東京都", "大阪府", "三重県", "福岡県", "熊本県"]), class: 'input-form__city'
         .input-form__item
           .input-form__name 市区町村
           .input-form__icon 必須
@@ -66,6 +65,6 @@
         .identification__entry
         = link_to "登録する",root_path, class: 'input-form__button'
         .input-form__overview-link 本人情報の登録について>
-    = render "side-bar"
-= render "top-footer"
-= render "top-button"
+    = render "layouts/side-bar"
+= render "layouts/top-footer"
+= render "layouts/top-button"
