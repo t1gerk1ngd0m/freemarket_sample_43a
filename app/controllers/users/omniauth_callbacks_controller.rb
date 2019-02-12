@@ -15,7 +15,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect @user, event: :authentication
     else
       session["devise.#{provider}_data"] = request.env['omniauth.auth']
-      redirect_to new_user_registration_url
+      session[:nickname] = @user.nickname
+      session[:email] = @user.email
+      session[:password] = @user.password
+      session[:provider] = @user.provider
+      session[:uid] = @user.uid
+      redirect_to new_user_registration_sns_path
     end
   end
 end
