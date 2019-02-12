@@ -51,13 +51,13 @@
                     必須
                 %div
                   .select-wrap
-                    = f.select :category_large, [["---", "---"], ["レディース", "レディース"], ["メンズ", "メンズ"], ["ベビー・キッズ", "ベビー・キッズ"]], {}, {class: "select-default"}
+                    = f.select :category_large, Product.category_larges.keys, {}, class: "select-default"
                     %i.icon-arrow-bottom
                   .select-wrap
-                    = f.select :category_middle, [["---", "---"], ["トップス", "トップス"], ["ジャケット/アウター", "ジャケット/アウター"], ["パンツ", "パンツ"]], {}, {class: "select-default hidden"}
+                    = f.select :category_middle, Product.category_middles.keys, {}, class: "select-default hidden"
                     %i.icon-arrow-bottom
                   .select-wrap
-                    = f.select :category_small, [["---", "---"], ["Tシャツ/カットソー(半袖/袖なし)", "Tシャツ/カットソー(半袖/袖なし)"], ["Tシャツ/カットソー(七分/長袖)", "Tシャツ/カットソー(七分/長袖)"], ["その他", "その他"]], {}, {class: "select-default hidden"}
+                    = f.select :category_small, Product.category_smalls.keys, {}, class: "select-default hidden"
                     %i.icon-arrow-bottom
               #size.form-group.hidden
                 %label
@@ -65,7 +65,7 @@
                   %span.form-require
                     必須
                 .select-wrap
-                  = f.select :size, [["---", "---"], ["XXXS以下", "XXXS以下"], ["XXS(SS)", "XXS(SS)"], ["S", "S"], ["L", "L"], ["XL(LL)", "XL(LL)"], ["2XL(3L)", "2XL(3L)"], ["3XL(4L)", "3XL(4L)"], ["4XL(5L)以上", "4XL(5L)以上"], ["FREE SIZE", "FREE SIZE"]], {}, {class: "select-default"}
+                  = f.select :size, Product.sizes.keys, {}, class: "select-default"
                   %i.icon-arrow-bottom
               .form-group.form-suggest-container
                 %label
@@ -80,7 +80,7 @@
                   %span.form-require
                     必須
                 .select-wrap
-                  = f.select :condition, [["---", "---"], ["新品、未使用", "新品、未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], {}, {class: "select-default"}
+                  = f.select :condition, Product.conditions.keys, {}, class: "select-default"
                   %i.icon-arrow-bottom
           .new-main__content.clearfix
             %h3.new-main__content__sub-head
@@ -94,7 +94,7 @@
                   %span.form-require
                     必須
                 .select-wrap
-                  = f.select :shipping_charges_burden, [["---", "---"], ["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"]], {}, {class: "select-default"}
+                  = f.select :shipping_charges_burden, Product.shipping_charges_burdens.keys, {}, class: "select-default"
                   %i.icon-arrow-bottom
               #shipping_method.form-group.hidden
                 %label
@@ -102,7 +102,7 @@
                   %span.form-require
                     必須
                 .select-wrap
-                  = f.select :shipping_method, [["---", "---"], ["未定", "未定"], ["らくらくメルカリ便", "らくらくメルカリ便"], ["ゆうメール", "ゆうメール"], ["レターパック", "レターパック"], ["普通郵便(定形、定形外)", "普通郵便(定形、定形外)"], ["クロネコヤマト", "クロネコヤマト"], ["ゆうパック", "ゆうパック"], ["クリックポスト", "クリックポスト"], ["ゆうパケット", "ゆうパケット"]], {}, {class: "select-default"}
+                  = f.select :shipping_method, Product.shipping_methods.keys, {}, class: "select-default"
                   %i.icon-arrow-bottom
               .form-group
                 %label
@@ -110,7 +110,7 @@
                   %span.form-require
                     必須
                 .select-wrap
-                  = f.select :dispatch_area, Product.dispatch_areas.keys, {prompt: "選択してください"}, class: "select-default"
+                  = f.select :dispatch_area, Product.dispatch_areas.keys, {}, class: "select-default"
                   %i.icon-arrow-bottom
               .form-group
                 %label
@@ -118,7 +118,7 @@
                   %span.form-require
                     必須
                 .select-wrap
-                  = f.select :number_of_the_days_to_ship, [["---", "---"], ["1~2日で発送", "1~2日で発送"], ["2~3日で発送", "2~3日で発送"], ["4~7日で発送", "4~7日で発送"]], {}, {class: "select-default"}
+                  = f.select :number_of_the_days_to_ship, Product.number_of_the_days_to_ships.keys, {}, class: "select-default"
                   %i.icon-arrow-bottom
           .new-main__content.clearfix
             %h3.new-main__content__sub-head

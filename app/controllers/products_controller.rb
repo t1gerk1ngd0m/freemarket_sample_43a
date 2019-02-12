@@ -19,6 +19,8 @@ class ProductsController < ApplicationController
 
   def show
     @product =Product.find(params[:id])
+    @products =Product.includes(:item_images).limit(6)
+
   end
 
   private
@@ -36,6 +38,7 @@ class ProductsController < ApplicationController
       :shipping_method,
       :number_of_the_days_to_ship,
       :price, :condition,
-      item_images_attributes: [:name])
+      item_images_attributes: [:name]
+    )
   end
 end

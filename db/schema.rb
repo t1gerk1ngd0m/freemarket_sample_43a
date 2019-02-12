@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190210074624) do
+ActiveRecord::Schema.define(version: 20190211082419) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       default: "", null: false
@@ -36,19 +36,20 @@ ActiveRecord::Schema.define(version: 20190210074624) do
     t.string   "name",                       default: "", null: false
     t.integer  "user_id"
     t.string   "description",                             null: false
-    t.string   "category_large",                          null: false
-    t.string   "category_middle",                         null: false
-    t.string   "category_small",                          null: false
+    t.integer  "category_large"
+    t.integer  "category_middle"
+    t.integer  "category_small"
     t.string   "brand"
-    t.string   "size",                                    null: false
-    t.string   "shipping_charges_burden",                 null: false
+    t.integer  "shipping_charges_burden",    default: 0,  null: false
     t.integer  "dispatch_area",              default: 0,  null: false
-    t.string   "shipping_method",                         null: false
-    t.string   "number_of_the_days_to_ship",              null: false
+    t.integer  "shipping_method",            default: 0,  null: false
+    t.integer  "number_of_the_days_to_ship", default: 0,  null: false
     t.integer  "price",                                   null: false
-    t.string   "condition",                               null: false
+    t.integer  "condition",                  default: 0,  null: false
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
+    t.integer  "status",                     default: 0,  null: false
+    t.integer  "size"
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 
