@@ -36,6 +36,7 @@ class ProductsController < ApplicationController
       :shipping_method,
       :number_of_the_days_to_ship,
       :price, :condition,
-      item_images_attributes: [:name])
+      item_images_attributes: [:name]
+    )
   end
 end
