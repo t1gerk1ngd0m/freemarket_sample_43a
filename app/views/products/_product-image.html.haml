@@ -1,5 +1,6 @@
 - @products.each do |product|
-  %a{ href: "",class: "item-box" }
+  .item-box
+    - link_to "item-box"
     .item-box__image
       = image_tag product.item_images.first.name,class: "product-image__user-otherwise__list__item__image"
     .product-image__user-otherwise__list__item__text
