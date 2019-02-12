@@ -20,6 +20,7 @@ FactoryGirl.define do
     expiration_month      "1900-04-01"
     expiration_year       "2020-01-01"
     security_code         "123"
+    provider              ""
+    uid                   ""
   end
-
 end
