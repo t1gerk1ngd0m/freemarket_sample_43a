@@ -50,6 +50,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'rails-controller-testing'
+  gem 'capybara'
 end
 
 group :development do
