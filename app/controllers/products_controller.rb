@@ -19,6 +19,8 @@ class ProductsController < ApplicationController
 
   def show
     @product =Product.find(params[:id])
+    @products =Product.includes(:item_images).limit(6)
+
   end
 
   private

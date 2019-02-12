@@ -3,6 +3,7 @@
     &__user-otherwise {
       &__title {
         font-size: 20px;
+        color: #0099e8;
       }
       &__list__item {
         width: 30%;
@@ -23,4 +24,15 @@
         font-size: 20px;
       }
     }
+}
+
+.item-box {
+  width: 220px;
+  height: 220px;
+  display: inline-block;
+  margin: 10px 10px 10px 0;
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
 }
