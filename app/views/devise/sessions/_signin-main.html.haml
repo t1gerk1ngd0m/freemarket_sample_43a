@@ -5,12 +5,12 @@
     %a 新規会員登録
   .signin__sns
     %btn.btn-default.btn-sns.btn-sns-facebook
-      Facebookでログイン
+      = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path ,class: "btn-sns-facebook"
       %i.icon-facebook.fab.fa-facebook
     %btn.btn-default.btn-sns.btn-sns-google
       Googleでログイン
       %i.icon-google-plus.fab.fa-google-plus-g
-    = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path
+
   = form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => "new_user_signin"}) do |f|
     .signin__form-inner
       .form-group
