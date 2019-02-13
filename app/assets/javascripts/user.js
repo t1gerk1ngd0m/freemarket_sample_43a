@@ -17,10 +17,9 @@ $(function(){
       user.removeClass('signup_input');
     }
   };
-  $('.signup-main__botton').on('click',function(){
-    $('.signup-container__user').addClass('active');
-    $('.signup-container__user').addClass('active');
-    $('.signup-container__main').removeClass('active');
+  $('.signin__no-account').on('click',function(){
+    $('.l-signup-container').addClass('active');
+    $('.signin-panel').removeClass('active');
   });
   $('.signup_button--user').on('click',function(e){
     e.preventDefault();

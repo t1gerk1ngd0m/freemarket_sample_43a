@@ -22,6 +22,8 @@
 |security_code|string|null: false|
 |profile|string||
 |birthday|date|null: false|
+|provider|string||
+|uid|string||
 
 ### Association
 - has_many :products

@@ -257,5 +257,32 @@ describe User do
       expect(user.errors[:security_code][0]).to include("is invalid")
     end
 
+    it "is valid when the provider matches facebook" do
+      user = build(:user, provider: "facebook")
+      expect(user).to be_valid
+    end
+
+    it "is valid when the provider matches google_oauth2 " do
+      user = build(:user, provider: "google_oauth2")
+      expect(user).to be_valid
+    end
+
+    it "is invalid with a provider not matches facebook or google_oauth2 " do
+      user = build(:user, provider: "google")
+      user.valid?
+      expect(user.errors[:provider][0]).to include("is not included in the list")
+    end
+
+    it "is valid when the uid is integer  " do
+      user = build(:user, uid: "1234567890")
+      expect(user).to be_valid
+    end
+
+    it "is invalid with a uid includes non-integer characters" do
+      user = build(:user, uid: "123r4567890")
+      user.valid?
+      expect(user.errors[:uid][0]).to include("is not a number")
+    end
+
   end
 end
