@@ -17,4 +17,3 @@
 .byebug_history
 .env
 public/uploads/item_image/name
-config/secrets.yml
