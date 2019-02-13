@@ -78,7 +78,7 @@ $(function(){
     reader.onload = (function(file) {
       return function(e) {
         var loadedImageUri = e.target.result;
-        var appendImage = '<li class="image-upload-item">
+        var appendImage = `<li class="image-upload-item">
                             <figure class="sell-upload-figure portrait">
                               <img src="${ loadedImageUri }" alt class>
                             </figure>
@@ -86,7 +86,7 @@ $(function(){
                               --><a href class="sell-upload-edit">編集</a><!--
                               --><a href>削除</a><!--
                             --></div>
-                          </li>'
+                          </li>`
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
         $preview.append(appendImage)
       };
