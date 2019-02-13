@@ -4,7 +4,7 @@
     text-align: center;
   }
     &__wrap-top {
-      background-image: url("myprofile-image.jpg");
+      background-image: image-url("myprofile-image.jpg");
       height: 200px;
       min-width: 700px;
         #name {
@@ -168,7 +168,7 @@
       background: white;
     }
       &__data--detail {
-        background-image: url("my-profile-logo-gray-icon.svg");
+        background-image: image-url("my-profile-logo-gray-icon.svg");
         background-repeat: no-repeat;
         padding: 170px 0;
         background-size: 100px;
