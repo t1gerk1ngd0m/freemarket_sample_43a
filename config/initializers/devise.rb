@@ -8,7 +8,6 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  config.secret_key = 'a1a81180675c31256a5ecd97ee51b241719bbc77913bcba4d8217579f142e1dad154d6f61d3bd3204c12de3d509d2697f22bc836681a877552b36deff2d55d9b'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -287,7 +286,7 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
-
+  config.secret_key = '662b97eaa8f12a9efb7d53f817c5101651aeebed363c883f56be35264d501fad9a06764ac4ee8665a07b0c3923c5425693403d2051c49f00e29ae590011ae567'
   config.omniauth :facebook ,ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
   config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], scope: 'email'
 end
