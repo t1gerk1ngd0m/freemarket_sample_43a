@@ -1,7 +1,7 @@
 .signup-container.signup-container__user
   %header.signup-header
     %h1
-      %a{ href: "/" }
+      = link_to root_path
         = image_tag("logo_signup_top.svg", alt: :"mercari" ,class: "signup-header__logo")
       .signup-header__progress
         .progress
