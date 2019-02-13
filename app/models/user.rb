@@ -46,7 +46,6 @@ class User < ApplicationRecord
   reg_intger_10or11_characters = /\A[0-9]{10,11}+\z/
   reg_intger_14or16_characters = /\A[0-9]{14,16}+\z/
   reg_intger_3or4_characters = /\A[0-9]{3,4}+\z/
-  reg_intger = /\A[0-9]+\z/
 
   with_options presence: true do
     validates :nickname
@@ -99,6 +98,5 @@ class User < ApplicationRecord
     inclusion: { in: %w(facebook google_oauth2) }
   validates :uid,
     allow_blank: true,
-    format: { with: reg_intger }
-
+    numericality: { only_integer: true }
 end
