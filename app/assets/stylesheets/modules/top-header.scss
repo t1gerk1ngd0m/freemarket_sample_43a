@@ -1,4 +1,16 @@
-
+.bread-crumbs {
+  position: relative;
+  background-color: white;
+  padding: 17px 0 16px;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  border-top: 1px solid #eee;
+  margin: 0 auto;
+  &__box {
+    width: 1020px;
+    font-size: 14px;
+    margin: 0 auto;
+  }
+}
 
 .top-header{
   width: 1020px;
