@@ -38,15 +38,6 @@ class User < ApplicationRecord
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
   }
 
-  reg_mail_address = /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/
-  reg_alphanumeric_6characters = /\A[a-zA-Z0-9]{6,}+\z/
-  reg_prefecture_choce = /\A(?!.*--未選択--).*\z/
-  reg_only_kana = /\A[ァ-ヴ]+\z/
-  reg_zip_code = /\A[0-9]{3}\-[0-9]{4}+\z/
-  reg_intger_10or11_characters = /\A[0-9]{10,11}+\z/
-  reg_intger_14or16_characters = /\A[0-9]{14,16}+\z/
-  reg_intger_3or4_characters = /\A[0-9]{3,4}+\z/
-
   with_options presence: true do
     validates :nickname
     validates :email
@@ -73,26 +64,26 @@ class User < ApplicationRecord
     validates :card_number
   end
 
-  with_options format: { with: reg_only_kana } do
+  with_options format: { with: /\A[ァ-ヴ]+\z/ } do
     validates :first_name_kana
     validates :last_name_kana
   end
 
   validates :email,
-    format: { with: reg_mail_address }
+    format: { with: /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/ }
   validates :password,
     confirmation: true,
-    format: { with: reg_alphanumeric_6characters }
+    format: { with: /\A[a-zA-Z0-9]{6,}+\z/ }
   validates :tel_confirmation,
-    format: { with: reg_intger_10or11_characters }
+    format: { with: /\A[0-9]{10,11}+\z/ }
   validates :zip,
-    format: { with: reg_zip_code }
+    format: { with: /\A[0-9]{3}\-[0-9]{4}+\z/ }
   validates :prefecture,
-    format: { with: reg_prefecture_choce }
+    format: { with: /\A(?!.*--未選択--).*\z/ }
   validates :card_number,
-    format: { with: reg_intger_14or16_characters }
+    format: { with: /\A[0-9]{14,16}+\z/ }
   validates :security_code,
-    format: { with: reg_intger_3or4_characters }
+    format: { with: /\A[0-9]{3,4}+\z/ }
   validates :provider,
     allow_blank: true,
     inclusion: { in: %w(facebook google_oauth2) }
