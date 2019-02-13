@@ -287,7 +287,7 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
-  config.secret_key = '662b97eaa8f12a9efb7d53f817c5101651aeebed363c883f56be35264d501fad9a06764ac4ee8665a07b0c3923c5425693403d2051c49f00e29ae590011ae567'
+
   config.omniauth :facebook ,ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
   config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], scope: 'email'
 end
