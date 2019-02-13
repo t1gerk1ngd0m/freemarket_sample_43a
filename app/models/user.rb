@@ -38,52 +38,61 @@ class User < ApplicationRecord
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
   }
 
-  with_options presence: true do
-    validates :nickname
-    validates :email
-    validates :password
-    validates :tel_confirmation
-    validates :first_name
-    validates :last_name
-    validates :first_name_kana
-    validates :last_name_kana
-    validates :zip
-    validates :prefecture
-    validates :city
-    validates :block
-    validates :card_number
-    validates :expiration_month
-    validates :expiration_year
-    validates :security_code
-    end
+  reg_mail_address = /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/
+  reg_alphanumeric_6characters = /\A[a-zA-Z0-9]{6,}+\z/
+  reg_prefecture_choce = /\A(?!.*--未選択--).*\z/
+  reg_only_kana = /\A[ァ-ヴ]+\z/
+  reg_zip_code = /\A[0-9]{3}\-[0-9]{4}+\z/
+  reg_intger_10or11_characters = /\A[0-9]{10,11}+\z/
+  reg_intger_14or16_characters = /\A[0-9]{14,16}+\z/
+  reg_intger_3or4_characters = /\A[0-9]{3,4}+\z/
 
-  with_options uniqueness: true do
-    validates :nickname
-    validates :email
-    validates :tel_confirmation
-    validates :card_number
-  end
-
-  with_options format: { with: /\A[ァ-ヴ]+\z/ } do
-    validates :first_name_kana
-    validates :last_name_kana
-  end
-
+  validates :nickname,
+    presence: true,
+    uniqueness: true
   validates :email,
-    format: { with: /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/ }
+    presence: true,
+    uniqueness: true,
+    format: { with: reg_mail_address }
   validates :password,
+    presence: true,
     confirmation: true,
-    format: { with: /\A[a-zA-Z0-9]{6,}+\z/ }
+    format: { with: reg_alphanumeric_6characters }
   validates :tel_confirmation,
-    format: { with: /\A[0-9]{10,11}+\z/ }
+    presence: true,
+    uniqueness: true,
+    format: { with: reg_intger_10or11_characters }
+  validates :first_name,
+    presence: true
+  validates :last_name,
+    presence: true
+  validates :first_name_kana,
+    presence: true,
+    format: { with: reg_only_kana }
+  validates :last_name_kana,
+    presence: true,
+    format: { with: reg_only_kana }
   validates :zip,
-    format: { with: /\A[0-9]{3}\-[0-9]{4}+\z/ }
+    presence: true,
+    format: { with: reg_zip_code }
   validates :prefecture,
-    format: { with: /\A(?!.*--未選択--).*\z/ }
+    presence: true,
+    format: { with: reg_prefecture_choce }
+  validates :city,
+    presence: true
+  validates :block,
+    presence: true
   validates :card_number,
-    format: { with: /\A[0-9]{14,16}+\z/ }
+    presence: true,
+    uniqueness: true,
+    format: { with: reg_intger_14or16_characters }
+  validates :expiration_month,
+    presence: true
+  validates :expiration_year,
+    presence: true
   validates :security_code,
-    format: { with: /\A[0-9]{3,4}+\z/ }
+    presence: true,
+    format: { with: reg_intger_3or4_characters }
   validates :provider,
     allow_blank: true,
     inclusion: { in: %w(facebook google_oauth2) }
