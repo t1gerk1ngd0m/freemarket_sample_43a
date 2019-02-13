@@ -1,0 +1,21 @@
+ $(function(){
+   $(".tab1").on("click",function(){
+     $(".my-profile-container-all1").removeClass("active");
+     $(".my-profile-container-all2").addClass("active");
+     $(".my-profile-purchase__content__data.hidden").addClass("active");
+    });
+  $(".tab2").on("click",function(){
+     $(".my-profile-container-all1").addClass("active");
+     $(".my-profile-container-all2").removeClass("active");
+     $(".my-profile-purchase__content__data.hidden").removeClass("active");
+   });
+
+  $(".my-profile-purchase__transacation__tab").on("click",function(){
+    $(".my-profile-purchase-all1").removeClass("active");
+    $(".my-profile-purchase-all2").addClass("active");
+  });
+  $(".my-profile-purchase__transacation__tab2").on("click",function(){
+    $(".my-profile-purchase-all2").removeClass("active");
+    $(".my-profile-purchase-all1").addClass("active");
+  });
+ });
