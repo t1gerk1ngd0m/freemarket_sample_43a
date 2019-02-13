@@ -32,14 +32,29 @@
   &__category-name{
     margin: 25px 0 15px;
   }
-  &__all-product-link{
-    font-size: 14px;
-    font-weight: normal;
-    padding: 15px 0 65px;
-    text-align: right;
+}
+.items-box-container {
+  height: 442px;
+  width: 100%;
+  background-color: #F5F5F5;
+  margin: 0 auto;
+  box-sizing: border-box;
+  h3.text-center {
+    height: 22px;
+    width: 95%;
+    margin: 26px auto;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #0099e8;
   }
 }
-
+.view-all{
+  font-size: 14px;
+  font-weight: normal;
+  padding: 15px 0 65px;
+  text-align: right;
+}
 .top__app-introduction{
   background-color: #212121;
   &__image{

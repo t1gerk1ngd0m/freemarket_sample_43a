@@ -50,6 +50,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'rails-controller-testing'
+  gem 'capybara'
 end
 
 group :development do
@@ -84,4 +85,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'dotenv-rails'
-
+gem 'gretel'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'

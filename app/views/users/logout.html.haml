@@ -1,5 +1,8 @@
 = render "layouts/top-header"
-
+.bread-crumbs
+  .bread-crumbs__box
+    - breadcrumb :logout
+    = breadcrumbs separator: " &rsaquo; "
 .gray-background
   .user-page
     .user-page__content
