@@ -281,7 +281,7 @@ describe User do
     it "is invalid with a uid includes non-integer characters" do
       user = build(:user, uid: "123r4567890")
       user.valid?
-      expect(user.errors[:uid][0]).to include("is invalid")
+      expect(user.errors[:uid][0]).to include("is not a number")
     end
 
   end
