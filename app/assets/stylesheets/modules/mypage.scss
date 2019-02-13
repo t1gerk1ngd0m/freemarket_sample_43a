@@ -45,11 +45,6 @@
 }
 .active {
     background-color: white;
-     // width: 50%;
-     // display: inline-block;
-     // font-size: 16px;
-     // border-top: solid 2px red;
-     // line-height: 70px;
 }
 .tab {
       width: 50%;
@@ -58,7 +53,7 @@
       float: left;
       line-height: 70px;
 }
-.tab3 {
+.focus {
       width: 50%;
       display: inline-block;
       font-size: 16px;
@@ -137,7 +132,7 @@
   &__transacation {
     background: #eee;
     height: 74px;
-    &__tab {
+    &__traded {
       display: inline-block;
       width: 50%;
       text-align: center;
@@ -145,7 +140,7 @@
       line-height: 74px;
       font-weight: bold;
     }
-    &__tab1 {
+    &__trade {
       display: inline-block;
       width: 50%;
       text-align: center;
@@ -156,7 +151,7 @@
       float: left;
       border-top: solid 2px red;
     }
-    &__tab2 {
+    &__trading {
       display: inline-block;
       width: 50%;
       text-align: center;
