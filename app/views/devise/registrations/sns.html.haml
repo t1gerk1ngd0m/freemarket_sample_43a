@@ -1,4 +1,4 @@
-.signup-container.hidden.signup-container__user
+.signup-container.signup-container__user
   %header.signup-header
     %h1
       %a{ href: "/" }
@@ -38,7 +38,6 @@
         .signup-main__title.hidden.input-field__peymethod 支払い方法
         .signup-main__wrap
           = form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "new_user_signup"}) do |f|
-            = devise_error_messages!
             .input-field__main.hidden.active
               .field
                 .input-form__name ニックネーム
@@ -46,27 +45,29 @@
                 %br/
                 = f.text_field :nickname, autofocus: true, autocomplete: "name", placeholder: '例）ピコ太郎', class: "signup_input error-form"
                 .error.error--nickname.hidden ニックネームを入力してください
-              .field
-                .input-form__name メールアドレス
-                .input-form__icon 必須
-                %br/
-                = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'PC・携帯どちらでも可', class: "signup_input error-form"
-                .error.error--email-nil.hidden メールアドレスが入力されていません
-                .error.error--email-fomart.hidden フォーマットが不適切です
-              .field
-                .input-form__name パスワード
-                .input-form__icon 必須
-                %br/
-                = f.password_field :password, autocomplete: "new-password", placeholder: '6文字以上', class: "signup_input error-form"
-                .error.error--password-nil.hidden パスワードを入力してください
-                .error.error--password-fomart.hidden パスワードは6文字以上の英数字で入力してください
-              .field
-                .input-form__name パスワード（確認）
-                .input-form__icon 必須
-                %br/
-                = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '6文字以上', class: "signup_input error-form"
-                .error.error--password_confirmation-nil.hidden パスワード (確認) を入力してください
-                .error.error--password_confirmation-match.hidden パスワードとパスワード (確認) が一致しません
+                .hidden
+                  .field
+                    .input-form__name メールアドレス
+                    .input-form__icon 必須
+                    %br/
+                    = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'PC・携帯どちらでも可', class: "signup_input error-form"
+                    .error.error--email-nil.hidden メールアドレスが入力されていません
+                    .error.error--email-fomart.hidden フォーマットが不適切です
+
+                  .field
+                    .input-form__name パスワード
+                    .input-form__icon 必須
+                    %br/
+                    = f.text_field :password, autocomplete: "new-password", placeholder: '6文字以上', class: "signup_input error-form"
+                    .error.error--password-nil.hidden パスワードを入力してください
+                    .error.error--password-fomart.hidden パスワードは6文字以上の英数字で入力してください
+                  .field
+                    .input-form__name パスワード（確認）
+                    .input-form__icon 必須
+                    %br/
+                    = f.text_field :password_confirmation, autocomplete: "new-password", placeholder: '6文字以上', class: "signup_input error-form"
+                    .error.error--password_confirmation-nil.hidden パスワード (確認) を入力してください
+                    .error.error--password_confirmation-match.hidden パスワードとパスワード (確認) が一致しません
                 .g-recaptcha.signup-recaptcha{"data-sitekey" => "6Lcxpo4UAAAAALKIEWUEjHLN-12V1zAQHUQH7wZB"}
                 .error.error--recaptcha.hidden 選択してください
               .signup_button.signup_button--user 次へ進む
@@ -103,8 +104,8 @@
                 .input-form__name 郵便番号
                 .input-form__icon 必須
                 %br/
-                = f.text_field :zip, placeholder: '例）1234567', class: "signup_input error-form"
-                .error.error--zip.hidden 郵便番号を数字(7桁)で入力してください
+                = f.text_field :zip, placeholder: '例）123-4567', class: "signup_input error-form"
+                .error.error--zip.hidden 郵便番号を数字(例：123-4567)で入力してください
               .field
                 .input-form__name 都道府県
                 .input-form__icon 必須
