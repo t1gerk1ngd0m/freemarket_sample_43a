@@ -7,7 +7,7 @@
   .user-page
     .user-page__content
       .logout
-        = link_to "ログアウト",root_path, class: 'logout__button'
+        = link_to "ログアウト",destroy_user_session_path, method: :delete , class: 'logout__button'
 
     = render "layouts/side-bar"
 = render "layouts/top-footer"
