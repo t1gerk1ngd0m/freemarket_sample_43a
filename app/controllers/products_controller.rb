@@ -27,6 +27,21 @@ class ProductsController < ApplicationController
     @products =Product.includes(:item_images).limit(6)
   end
 
+  def buy
+    @product =Product.find(params[:id])
+    @products =Product.includes(:item_images).limit(6)
+  end
+
+  def pay
+      @product =Product.find(params[:id])
+      Payjp.api_key = ''
+      charge = Payjp::Charge.create(
+      :amount => @product.price,
+      :card => params['payjp-token'],
+      :currency => 'jpy',
+  )
+  end
+
   private
   def product_params
     params.require(:product).permit(
