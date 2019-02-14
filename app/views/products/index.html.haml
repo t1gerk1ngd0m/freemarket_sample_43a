@@ -8,13 +8,10 @@
     .top-main
       .top-main__title ピックアップカテゴリー
       .top-main__category
-        .top-main__category-name 商品一覧
-        .top-main__product-list
-          = render "product"
-          = render "product"
-          = render "product"
-          = render "product"
-      .top-main__all-product-link すべての商品を見る
+        = render "category_content"
+      .top-main__title ピックアップブランド
+      .top-main__category
+        = render "brand_content"
 
   = render "layouts/top-footer"
   = render "layouts/top-button"

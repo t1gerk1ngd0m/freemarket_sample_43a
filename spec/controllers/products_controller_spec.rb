@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 describe ProductsController do
+  describe 'GET #index' do
+    it "renders the :index template" do
+      get :index, params: { id: product }
+      expect(response).to render_template :index
+    end
+  end
+
   describe "#show" do
       it "assigns the requested product to @product" do
         product = create(:product)

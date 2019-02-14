@@ -17,6 +17,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def index
+    @product = Product.find(1)
+    @products = Product.order("id DESC").limit(4)
+  end
+
   def show
     @product =Product.find(params[:id])
     @products =Product.includes(:item_images).limit(6)

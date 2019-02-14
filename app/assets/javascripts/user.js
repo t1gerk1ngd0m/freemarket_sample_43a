@@ -1,6 +1,6 @@
 $(function(){
   var reg_not_nil = new RegExp('\\S');
-  var reg_mail_address = new RegExp("^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$");
+  var reg_mail_address = new RegExp("^[a-zA-Z0-9.!#$%&'*+\/=?^_'{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$");
   var reg_alphanumeric_6characters = new RegExp('[a-zA-Z0-9]{6,}');
   var reg_prefecture_choce = new RegExp("^(?!.*--未選択--).*$");
   var reg_only_kana = new RegExp("[ ァ-ヺ ]");
@@ -17,10 +17,9 @@ $(function(){
       user.removeClass('signup_input');
     }
   };
-  $('.signup-main__botton').on('click',function(){
-    $('.signup-container__user').addClass('active');
-    $('.signup-container__user').addClass('active');
-    $('.signup-container__main').removeClass('active');
+  $('.signin__no-account').on('click',function(){
+    $('.l-signup-container').addClass('active');
+    $('.signin-panel').removeClass('active');
   });
   $('.signup_button--user').on('click',function(e){
     e.preventDefault();
