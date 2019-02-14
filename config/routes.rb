@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     collection do
       get 'buy', to: 'products#buy', as: 'buy'
     end
+    member do
+      get :preview, to: 'products#preview', as: 'preview'
+      patch :preview, to: 'products#previewChange'
+    end
   end
 
 end
