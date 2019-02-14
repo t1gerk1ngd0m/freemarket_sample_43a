@@ -26,7 +26,10 @@ class ApplicationController < ActionController::Base
         :expiration_year,
         :security_code,
         :profile,
-        :birthday])
+        :birthday,
+        :provider,
+        :uid
+      ])
   end
 
   private

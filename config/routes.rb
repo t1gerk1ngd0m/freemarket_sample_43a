@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
- devise_for :users, controllers: { sessions: 'users/sessions' , registraions: 'users/registraions' }
-  resources :users do
+ devise_for :users,
+ controllers: {
+  sessions: 'users/sessions' ,
+  registrations: 'users/registrations' ,
+  omniauth_callbacks: 'users/omniauth_callbacks'
+  }
+
+  resources :users , :except => [:new, :create] do
     collection do
       get 'card', to: 'users#card', as: 'card'
       get 'logout', to: 'users#logout', as: 'logout'
@@ -9,11 +15,18 @@ Rails.application.routes.draw do
     end
   end
 
+  devise_scope :user do
+    get 'signup/sns', to: 'users/registrations#sns', as: 'new_user_registration_sns'
+  end
 
   root to:'products#index'
   resources :products do
     collection do
       get 'buy', to: 'products#buy', as: 'buy'
+    end
+    member do
+      get :preview, to: 'products#preview', as: 'preview'
+      patch :preview, to: 'products#previewChange'
     end
   end
 
