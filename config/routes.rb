@@ -25,6 +25,10 @@ Rails.application.routes.draw do
       get 'buy/:id', to: 'products#buy', as: 'buy'
       post 'pay/:id' => 'products#pay', as: 'pay'
     end
+    member do
+      get :preview, to: 'products#preview', as: 'preview'
+      patch :preview, to: 'products#previewChange'
+    end
   end
 
 end
