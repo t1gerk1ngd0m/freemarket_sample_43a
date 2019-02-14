@@ -21,7 +21,7 @@
         .buy-content__inner__buy-form
           %h4
             .buy-content__inner__buy-form__item-price
-              = @product.price
+              ="￥#{@product.price.to_s(:delimited)}"
             .buy-content__inner__buy-form__shipping-fee
               送料込み
       .buy-user-info

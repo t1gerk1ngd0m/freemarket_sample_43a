@@ -14,7 +14,7 @@
           .buy-content__inner__buy-form
             %h4
               .buy-content__inner__buy-form__item-price
-                = @product.price
+                ="￥#{@product.price.to_s(:delimited)}"
               .buy-content__inner__buy-form__shipping-fee
                 送料込み
             .buy-content__inner__buy-form__accordion
@@ -24,7 +24,7 @@
               .buy-content__inner__buy-form__buy-price-box-text
                 支払い金額
               .buy-content__inner__buy-form__buy-price-box-price
-                = @product.price
+                ="￥#{@product.price.to_s(:delimited)}"
             = form_tag(action: :pay, method: :post) do
               %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_cda320a64e52a163887c9c5f"}
       .buy-user-info
