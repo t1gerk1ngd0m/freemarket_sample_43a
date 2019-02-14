@@ -1,0 +1,37 @@
+.signup-container.signup-container__main
+  %header.signup-header
+    = render "devise/registrations/signup-header"
+  %main.signup-main
+    %section.l-signup-container
+      .waiting-header
+        .waiting-header__icon
+          .far.fa-clock
+        .waiting-header__title 発送をお待ちください
+        .waiting__messege 出品者からの発送通知をお待ちください
+      %h2.l-signup-head
+        購入完了しました
+      .buy-content
+        .buy-content__inner
+          .buy-content__inner__item-image
+            = image_tag @product.item_images.first.name, class:"item-photo"
+          .buy-content__inner__item-name
+            Supreamステッカー
+          .buy-content__inner__buy-form
+      .buy-content
+        .buy-content__inner__buy-form
+          %h4
+            .buy-content__inner__buy-form__item-price
+              @product.price
+            .buy-content__inner__buy-form__shipping-fee
+              送料込み
+      .buy-user-info
+        .buy-user-info-container
+          %h3
+            配送先
+          %addles
+            .buy-user-info-container-text
+              = @products
+              群馬県太田市新野町123
+              田中太郎
+  %footer.signup-footer
+    = render "devise/registrations/signup-footer"
