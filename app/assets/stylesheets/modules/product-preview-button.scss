@@ -1,0 +1,33 @@
+.btn-default{
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+}
+.f14{
+  font-size: 18px;
+}
+
+.edit-button{
+  margin: 24px 0 24px 0;
+  background: #fff;
+  padding: 8px 16px 8px 16px;
+  display: block;
+  .btn-default{
+    margin: 16px 0 16px 0;
+  }
+  p{
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+.description-preview{
+  padding: 32px 40px 40px;
+  line-height: 1.5;
+  &__text{
+    white-space: pre-wrap;
+  }
+}

@@ -28,17 +28,39 @@ class ProductsController < ApplicationController
   end
 
   def update
-    binding.pry
     product = Product.find(params[:id])
     if product.update(product_params)
-      if params[:item_images]['name']
+      if !(params[:item_images].nil?)
         params[:item_images]['name'].each do |a|
           @item_image = product.item_images.create!(name: a)
         end
       end
-      redirect_to root_path, notice: '変更しました。'
+      redirect_to root_path
     else
       render :edit
+    end
+  end
+
+  def destroy
+    product = Product.find(params[:id])
+    if product.destroy
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def preview
+    @product = Product.find(params[:id])
+    @item_images = @product.item_images
+  end
+
+  def previewChange
+    product = Product.new(status_params)
+    if product.update(status_params)
+      render :preview
+    else
+      render :preview
     end
   end
 
@@ -59,6 +81,12 @@ class ProductsController < ApplicationController
       :price,
       :condition,
       item_images_attributes: [:id, :name]
+    )
+  end
+
+  def status_params
+    params.require(:product).permit(
+      :status
     )
   end
 end
