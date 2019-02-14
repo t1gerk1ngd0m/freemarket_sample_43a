@@ -21,7 +21,7 @@
         .buy-content__inner__buy-form
           %h4
             .buy-content__inner__buy-form__item-price
-              @product.price
+              = @product.price
             .buy-content__inner__buy-form__shipping-fee
               送料込み
       .buy-user-info
@@ -30,8 +30,8 @@
             配送先
           %addles
             .buy-user-info-container-text
-              = @products
-              群馬県太田市新野町123
+              〒373-0032<br>
+              群馬県太田市新野町123<br>
               田中太郎
   %footer.signup-footer
     = render "devise/registrations/signup-footer"
