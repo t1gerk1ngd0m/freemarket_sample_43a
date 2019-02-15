@@ -13,9 +13,9 @@
             %ul.product-content__detail__summary__image__sub
               %li.product-content__detail__summary__image__sub
                 = image_tag @product.item_images.first.name,class: "product-content__detail__summary__image__sub1"
-                = image_tag @product.item_images.second.name,class: "product-content__detail__summary__image__sub1"
-                = image_tag @product.item_images.third.name,class: "product-content__detail__summary__image__sub1"
-                = image_tag @product.item_images.fourth.name,class: "product-content__detail__summary__image__sub1"
+                = image_tag @product.item_images.first.name,class: "product-content__detail__summary__image__sub1"
+                = image_tag @product.item_images.first.name,class: "product-content__detail__summary__image__sub1"
+                = image_tag @product.item_images.first.name,class: "product-content__detail__summary__image__sub1"
           .table
             .table__box
               .table__box__title
@@ -88,7 +88,7 @@
           .my-info__box 500Pあります
           .i.fas.fa-sort-down.my-info__font
         .purchase
-          %a{ href: "", class: "purchase__btn"} 購入画面に進む
+          = link_to "購入画面に進む",buy_products_path, class: "purchase__btn"
         .description
           .description__text
             =@product.description

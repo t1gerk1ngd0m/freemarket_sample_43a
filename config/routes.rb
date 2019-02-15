@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   root to:'products#index'
   resources :products do
     collection do
-      get 'buy', to: 'products#buy', as: 'buy'
+      get 'buy/:id', to: 'products#buy', as: 'buy'
+      post 'pay/:id' => 'products#pay', as: 'pay'
     end
     member do
       get :preview, to: 'products#preview', as: 'preview'
