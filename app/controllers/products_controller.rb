@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+   before_action :set_product, only: [:show, :buy, :pay, :edit, :update, :destroy, :preview]
 
   def new
     @product = Product.new
@@ -23,17 +24,14 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product =Product.find(params[:id])
     @products =Product.includes(:item_images).limit(6)
   end
 
   def buy
-    @product =Product.find(params[:id])
     @products =Product.includes(:item_images).limit(6)
   end
 
   def pay
-      @product =Product.find(params[:id])
       Payjp.api_key = 'sk_test_cbbb0d17e82b02a644fa9341'
       charge = Payjp::Charge.create(
       :amount => @product.price,
@@ -45,16 +43,14 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
     @item_images = @product.item_images
   end
 
   def update
-    product = Product.find(params[:id])
-    if product.update(product_params)
+    if @product.update(product_params)
       if !(params[:item_images].nil?)
         params[:item_images]['name'].each do |a|
-          @item_image = product.item_images.create!(name: a)
+          item_image = @product.item_images.create!(name: a)
         end
       end
       redirect_to root_path
@@ -64,8 +60,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    product = Product.find(params[:id])
-    if product.destroy
+    if @product.destroy
       redirect_to root_path
     else
       render :edit
@@ -73,7 +68,6 @@ class ProductsController < ApplicationController
   end
 
   def preview
-    @product = Product.find(params[:id])
     @item_images = @product.item_images
   end
 
@@ -104,6 +98,10 @@ class ProductsController < ApplicationController
       :condition,
       item_images_attributes: [:id, :name]
     )
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 
   def status_params
