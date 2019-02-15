@@ -22,4 +22,11 @@ describe ProductsController do
         expect(response).to render_template :show
      end
   end
+  describe "POST #pay" do
+     it "renders the :show template" do
+        product = create(:product)
+        post :pay, params: { id: product }
+        expect(response).to render_template :show
+     end
+  end
 end
