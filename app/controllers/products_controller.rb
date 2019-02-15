@@ -50,7 +50,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       if !(params[:item_images].nil?)
         params[:item_images]['name'].each do |a|
-          item_image = @product.item_images.create!(name: a)
+          @item_image = @product.item_images.create!(name: a)
         end
       end
       redirect_to root_path
