@@ -70,6 +70,6 @@ class Product < ApplicationRecord
 
   enum status: {
    "出品中": 0, "取引中": 1, "売却済み": 2, "公開停止中": 3
-  }, _suffix: true
+  }
 
 end

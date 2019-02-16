@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     end
     member do
       get :preview, to: 'products#preview', as: 'preview'
-      patch :preview, to: 'products#previewChange'
+      get :previewChange, to: 'products#previewChange', as: 'previewChange'
     end
   end
 
