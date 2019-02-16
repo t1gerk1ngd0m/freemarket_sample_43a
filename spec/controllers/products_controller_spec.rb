@@ -25,7 +25,7 @@ describe ProductsController do
   end
   describe "#search" do
     it "assigns the requested product to @product" do
-      product = FactoryGirl.create_list(:product,2)
+      product = create_list(:product,2)
       get :search, params: { keyword: "ネコ" }
       expect(assigns(:products).length).to eq 2
     end
