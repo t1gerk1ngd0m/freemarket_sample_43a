@@ -2,7 +2,11 @@
   .item-box
     - link_to "item-box"
     .item-box__image
-      = image_tag product.item_images.first.name,class: "product-image__user-otherwise__list__item__image"
+      - if product.item_images.present?
+        = image_tag product.item_images.first.name,class: "product-image__user-otherwise__list__item__image"
+      - else
+        = image_tag("no_image.png", class: "product-image__user-otherwise__list__item__image")
     .product-image__user-otherwise__list__item__text
       = product.name
       .item-box__tax 税込
+

@@ -3,6 +3,7 @@ require 'rails_helper'
 describe ProductsController do
   describe 'GET #index' do
     it "renders the :index template" do
+      product = create(:product)
       get :index, params: { id: product }
       expect(response).to render_template :index
     end
@@ -22,6 +23,15 @@ describe ProductsController do
         expect(response).to render_template :show
      end
   end
+
+  describe "#search" do
+    it "assigns the requested product to @product" do
+      create_list(:product,2)
+      get :search, params: { keyword: "ネコ" }
+      expect(assigns(:products).length).to eq 2
+    end
+  end
+
   describe "POST #pay" do
      it "renders the :show template" do
         product = create(:product)
@@ -30,3 +40,4 @@ describe ProductsController do
      end
   end
 end
+
