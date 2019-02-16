@@ -1,6 +1,7 @@
 .top-header
   .clearfix
-    = image_tag("logo.svg", class: :"top-header__logo")
+    = link_to root_path do
+      = image_tag("logo.svg", class: :"top-header__logo")
     .top-header__form
       = form_tag(root_path, method: :get)
       = text_field_tag :text, '', placeholder: 'キーワードから探す', class: 'form__input'
