@@ -83,10 +83,10 @@
         = link_to edit_product_path(@product.id), class: "btn-default btn-red" do
           商品の編集
         %p or
-        - if @product.status == "出品中"
+        - if @product.exhibition?
           = link_to previewChange_product_path(@product.id), class: "btn-default btn-gray" do
             出品を一旦停止する
-        - elsif @product.status == "公開停止中"
+        - elsif @product.stopped?
           = link_to previewChange_product_path(@product.id), class: "btn-default btn-red" do
             出品を再開する
         = link_to "/products/#{@product.id}", class: "btn-default btn-gray", method: :delete do

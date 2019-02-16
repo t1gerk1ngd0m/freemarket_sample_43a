@@ -72,10 +72,10 @@ class ProductsController < ApplicationController
 
   def previewChange
     @item_images = @product.item_images
-    if @product[:status] == "出品中"
+    if @product.exhibition?
       @product[:status] = 3
       @product.save
-    elsif @product[:status] == "公開停止中"
+    elsif @product.stopped?
       @product[:status] = 0
       @product.save
     end
