@@ -1,0 +1,96 @@
+= render "layouts/top-header"
+
+.gray-background
+  .user-page
+    .product-content
+      .product-content__detail
+        .product-content__detail--title
+          =@product.name
+        .product-content__detail__summary
+          .product-content__detail__summary__image
+            .product-content__detail__summary__image__main
+              = image_tag @product.item_images.first.name,class: "product-content__detail__summary__image__main1"
+            %ul.product-content__detail__summary__image__sub
+              %li.product-content__detail__summary__image__sub
+                - @item_images.each do |item_image|
+                  = image_tag @product.item_images.first.name,class: "product-content__detail__summary__image__sub1"
+          .table
+            .table__box
+              .table__box__title
+                %h3.table__box__title--text 出品者
+              .table__box__item
+                %a{ href: "",class: "table__box__item--text"}
+                  = @product.name
+            .table__box
+              .table__box__title
+                %h3.table__box__title--text カテゴリー
+              .table__box__item
+                .table__box__item__detail
+                  %h3.table__box__item__detail--text
+                    =@product.category_large
+                  .table__box__item__detail--text
+                    %i.fas.fa-angle-right
+                      =@product.category_middle
+                  .table__box__item__detail--text
+                    %i.fas.fa-angle-right
+                      =@product.category_small
+            .table__box
+              .table__box__title
+                %h3.table__box__title--text ブランド
+              .table__box__item
+                .table__box__item__blue-text
+                  =@product.brand
+            .table__box
+              .table__box__title
+                %h3.table__box__title--text 商品の状態
+              .table__box__item
+                %h4.table__box__item__info
+                =@product.condition
+            .table__box
+              .table__box__title
+                %h3.table__box__title--text 配送料の負担
+              .table__box__item
+                %h4.table__box__item__info
+                =@product.shipping_charges_burden
+            .table__box
+              .table__box__title
+                %h3.table__box__title--text 配送方法
+              .table__box__item
+                %h4.table__box__item__info
+                =@product.shipping_method
+            .table__box
+              .table__box__title
+                %h3.table__box__title--text 配送元地域
+              .table__box__item
+                .table__box__item__blue-text
+                  =@product.dispatch_area
+            .table__box
+              .table__box__title
+                %h3.table__box__title--text 発送日の目安
+              .table__box__item
+                %h4.table__box__item__info
+                =@product.number_of_the_days_to_ship
+        .price
+          .price__box
+            %span.price__box__mark ¥
+            %h2.price__box__detail=@product.price.to_s(:delimited)
+            %h6.price__box__tax （税込）
+            %h4.price__box__postage 送料込み
+        .description-preview.f14
+          %p.description-preview__text
+            =@product.description
+      .edit-button
+        = link_to edit_product_path(@product.id), class: "btn-default btn-red" do
+          商品の編集
+        %p or
+        = form_for @product, url: {action: :previewChange} do |f|
+          - if @product.status == "出品中"
+            = f.hidden_field :status, value: 3
+            = f.button "出品を一旦停止する", type: "submit", class: "btn-default btn-gray"
+          - else @product.status == "公開停止中"
+            = f.hidden_field :status, value: 0
+            = f.button "出品を再開する", type: "submit", class: "btn-default btn-red"
+        = link_to "/products/#{@product.id}", class: "btn-default btn-gray", method: :delete do
+          この商品を削除する
+= render "layouts/top-footer"
+= render "layouts/top-button"

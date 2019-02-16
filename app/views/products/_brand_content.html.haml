@@ -1,38 +1,30 @@
 %section.items-box-container.clearfix
   %h3.text-center
     シャネル 新着アイテム
-  = render "product"
-  = render "product"
-  = render "product"
-  = render "product"
+  - @products.each do |p|
+    = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images }
   .view-all
     %a 全ての商品を見る
 %section.items-box-container.clearfix
   %h3.text-center
     ヴィトン 新着アイテム
-  = render "product"
-  = render "product"
-  = render "product"
-  = render "product"
+  - @products.each do |p|
+    = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images }
   .view-all
     %a 全ての商品を見る
 
 %section.items-box-container.clearfix
   %h3.text-center
     シュプリーム 新着アイテム
-  = render "product"
-  = render "product"
-  = render "product"
-  = render "product"
+  - @products.each do |p|
+    = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images }
   .view-all
     %a 全ての商品を見る
 
 %section.items-box-container.clearfix
   %h3.text-center
     ナイキ 新着アイテム
-  = render "product"
-  = render "product"
-  = render "product"
-  = render "product"
+  - @products.each do |p|
+    = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images }
   .view-all
     %a 全ての商品を見る
