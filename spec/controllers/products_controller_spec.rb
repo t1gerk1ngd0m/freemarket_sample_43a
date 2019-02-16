@@ -28,7 +28,6 @@ describe ProductsController do
       product = FactoryGirl.create_list(:product,2)
       get :search, params: { keyword: "ネコ" }
       expect(assigns(:products).length).to eq 2
-      binding.pry
     end
   end
 end
