@@ -27,6 +27,10 @@ class ProductsController < ApplicationController
     @products =Product.includes(:item_images).limit(6)
   end
 
+  def search
+    @products = Product.where("name Like(?)","%#{params[:keyword]}%").all
+  end
+
   private
   def product_params
     params.require(:product).permit(
