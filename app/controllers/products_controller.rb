@@ -26,6 +26,11 @@ class ProductsController < ApplicationController
     @products =Product.includes(:item_images).limit(6)
   end
 
+
+  def search
+    @products = Product.where("name Like(?)","%#{params[:keyword]}%")
+  end
+
   def buy
     @products =Product.includes(:item_images).limit(6)
   end
@@ -106,3 +111,4 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 end
+

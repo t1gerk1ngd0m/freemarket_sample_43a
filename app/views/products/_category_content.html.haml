@@ -2,7 +2,7 @@
   %h3.text-center
     レディース 新着アイテム
   - @products.each do |p|
-    = render :partial => "product-test", :locals => { product_name: p.name , product_price: p.price , product_image: p.item_images.first.name }
+    = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images }
   .view-all
     %a 全ての商品を見る
 
@@ -10,7 +10,7 @@
   %h3.text-center
     メンズ 新着アイテム
   - @products.each do |p|
-    = render :partial => "product-test", :locals => { product_name: p.name , product_price: p.price , product_image: p.item_images.first.name }
+    = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images }
   .view-all
     %a 全ての商品を見る
 
@@ -18,7 +18,7 @@
   %h3.text-center
     ベビー・キッズ 新着アイテム
   - @products.each do |p|
-    = render :partial => "product-test", :locals => { product_name: p.name , product_price: p.price , product_image: p.item_images.first.name }
+    = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images }
   .view-all
     %a 全ての商品を見る
 
@@ -26,7 +26,7 @@
   %h3.text-center
     コスメ・香水・美容 新着アイテム
   - @products.each do |p|
-    = render :partial => "product-test", :locals => { product_name: p.name , product_price: p.price , product_image: p.item_images.first.name }
+    = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images }
   .view-all
     %a 全ての商品を見る
 
