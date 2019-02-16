@@ -1,0 +1,28 @@
+.search__result {
+  font-size: 20px;
+  &--text {
+    display: inline-block;
+    margin-top: 20px;
+  }
+  &--num {
+    display: inline-block;
+  }
+  &--matter {
+    display: inline-block;
+  }
+}
+.search__box {
+  padding-bottom: 20px;
+  &__card {
+  width: 20%;
+  margin: 20px 20px 10px 0;
+  display: inline-block;
+  &__text {
+    background: white;
+  }
+ }
+}
+.search-image {
+  width: 100%;
+}
+
