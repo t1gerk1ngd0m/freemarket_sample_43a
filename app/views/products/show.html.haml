@@ -99,9 +99,6 @@
             %h2.price__box__detail=@product.price.to_s(:delimited)
             %h6.price__box__tax （税込）
             %h4.price__box__postage 送料込み
-        .my-info
-          .my-info__box 500Pあります
-          .i.fas.fa-sort-down.my-info__font
         .purchase
           = link_to "購入画面に進む",buy_products_path, class: "purchase__btn"
         .description
