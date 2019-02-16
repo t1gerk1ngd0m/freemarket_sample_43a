@@ -74,7 +74,6 @@ class ProductsController < ApplicationController
     @item_images = @product.item_images
     if @product[:status] == "出品中"
       @product[:status] = 3
-      binding.pry
       @product.save
     elsif @product[:status] == "公開停止中"
       @product[:status] = 0
