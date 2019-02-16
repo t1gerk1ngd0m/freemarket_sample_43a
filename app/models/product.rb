@@ -1,8 +1,10 @@
 class Product < ApplicationRecord
   has_many :item_images, :dependent => :destroy
+  belongs_to :user
   accepts_nested_attributes_for :item_images, allow_destroy: true
   with_options presence: true do
     validates :name
+    validates :user_id
     validates :description
     validates :category_large
     validates :category_middle
@@ -37,7 +39,7 @@ class Product < ApplicationRecord
   }, _suffix: true
 
   enum shipping_method: {
-   "---": 0, "未定": 1, "らくらくメルカリ便": 2, "ゆうメール": 3, "レターパック": 4, "普通郵便(定形、定形外)": 5, "普通郵便(定形、定形外)": 6, "クロネコヤマト": 7, "ゆうパック": 8, "クリックポスト": 9, "ゆうパケット": 10
+   "---": 0, "未定": 1, "らくらくメルカリ便": 2, "ゆうメール": 3, "レターパック": 4, "普通郵便(定形、定形外)": 5, "クロネコヤマト": 6, "ゆうパック": 7, "クリックポスト": 8, "ゆうパケット": 9
   }, _suffix: true
 
   enum number_of_the_days_to_ship: {
@@ -68,8 +70,8 @@ class Product < ApplicationRecord
    "スカジャン": 20, "その他": 21
   }, _suffix: true
 
-  enum status: {
-   "出品中": 0, "取引中": 1, "売却済み": 2, "公開停止中": 3
-  }, _suffix: true
+  enum status: [
+   :exhibition, :trading, :sold, :stopped
+  ]
 
 end

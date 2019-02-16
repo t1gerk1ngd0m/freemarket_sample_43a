@@ -3,8 +3,8 @@
     = link_to root_path do
       = image_tag("logo.svg", class: :"top-header__logo")
     .top-header__form
-      = form_tag(root_path, method: :get)
-      = text_field_tag :text, '', placeholder: 'キーワードから探す', class: 'form__input'
+      = form_tag(" /products/search", method: :get)
+      = text_field_tag :text, '', placeholder: 'キーワードから探す', name: 'keyword',class: 'form__input'
       = button_tag '', class: "form__button fas fa-search", value: "&#xf002"
   .clearfix
     .top-header__search-link
@@ -13,7 +13,7 @@
     .top-header__user-info
       .user-info__mypage
         = image_tag("member_photo_noimage_thumb.png", class: :"mypage__image", value: "マイページ")
-        = link_to "マイページ", users_path, class: "mypage__title"
+        / = link_to "マイページ", users_path, class: "mypage__title"
       .user-info__notice
         .far.fa-bell
         .notice__text お知らせ
