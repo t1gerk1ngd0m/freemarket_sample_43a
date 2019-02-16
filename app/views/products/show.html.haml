@@ -9,26 +9,26 @@
         .product-content__detail__summary
           .product-content__detail__summary__image
             .product-content__detail__summary__image__main
-            - if @product.item_images.present?
+            - if @product.item_images.first.present?
               = image_tag @product.item_images.first.name,class: "product-content__detail__summary__image__main1"
             - else
               = image_tag("no_image.png", class: "product-content__detail__summary__image__main1")
             %ul.product-content__detail__summary__image__sub
               %li.product-content__detail__summary__image__sub
-              - if @product.item_images.present?
+              - if @product.item_images.first.present?
                 = image_tag @product.item_images.first.name,class: "product-content__detail__summary__image__sub1"
               - else
                 = image_tag("no_image.png", class: "product-content__detail__summary__image__sub1")
-              - if @product.item_images.present?
+              - if @product.item_images.second.present?
                 = image_tag @product.item_images.second.name,class: "product-content__detail__summary__image__sub1"
               - else
                 = image_tag("no_image.png", class: "product-content__detail__summary__image__sub1")
-              - if @product.item_images.present?
+              - if @product.item_images.third.present?
                 = image_tag @product.item_images.third.name,class: "product-content__detail__summary__image__sub1"
               - else
                 = image_tag("no_image.png", class: "product-content__detail__summary__image__sub1")
-              - if @product.item_images.present?
-                = image_tag @product.item_images.forth.name,class: "product-content__detail__summary__image__sub1"
+              - if @product.item_images.fourth.present?
+                = image_tag @product.item_images.fourth.name,class: "product-content__detail__summary__image__sub1"
               - else
                 = image_tag("no_image.png", class: "product-content__detail__summary__image__sub1")
           .table
