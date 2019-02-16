@@ -1,8 +1,8 @@
 FactoryGirl.define do
 
   factory :product do
-    name "ネコ"
-    description "猫じゃらし"
+    sequence(:name) { |n| "ネコ #{n}"}
+    sequence(:description) { |n| "ネコじゃらし #{n}"}
     category_large 1
     category_middle 1
     category_small 1

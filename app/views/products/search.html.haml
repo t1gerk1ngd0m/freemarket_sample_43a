@@ -1,0 +1,24 @@
+= render "layouts/top-header"
+
+.gray-background
+  .user-page
+    .user-page__content
+      .search
+        .search__result
+          .search__result--text 検索結果 1-
+          .search__result--num
+            =@products.length
+          .search__result--matter 件
+        .search__box
+          - @products.each do |product|
+            = link_to "/products/#{product.id}",class: "search__box__card" do
+              .search__box__card__image
+                = image_tag product.item_images.first.name,class: "search-image"
+              .search__box__card__text
+                = product.name
+                .search__box__card__text--price
+                %span ¥
+                = product.price.to_s(:delimited)
+                .search__box__card__text--tax 税込
+= render "layouts/top-footer"
+= render "layouts/top-button"
