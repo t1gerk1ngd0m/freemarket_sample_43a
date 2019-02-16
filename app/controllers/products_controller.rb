@@ -32,7 +32,6 @@ class ProductsController < ApplicationController
   end
 
   def buy
-    @products =Product.includes(:item_images).limit(6)
   end
 
   def pay

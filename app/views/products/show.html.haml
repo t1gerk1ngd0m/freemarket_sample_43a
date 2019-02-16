@@ -99,9 +99,6 @@
             %h2.price__box__detail=@product.price.to_s(:delimited)
             %h6.price__box__tax （税込）
             %h4.price__box__postage 送料込み
-        .my-info
-          .my-info__box 500Pあります
-          .i.fas.fa-sort-down.my-info__font
         .purchase
           = link_to "購入画面に進む",buy_products_path, class: "purchase__btn"
         .description
@@ -120,13 +117,6 @@
               %a{ href: "",class: "tag__content__message__show"}
                 %i.fas.fa-lock
                 %span 安心、安全への取り組み
-      .product-other
-        %a{ href: "",class: "product-other__left" }
-          %i.fas.fa-chevron-left
-          %span.product-other__left__text ショール
-        %a{ href: "",class: "product-other__right"}
-          %span.product-other__right__text 鏡
-          %i.fas.fa-chevron-right
       .icon-content
         .icon-content__menu
           %a{ href: "",class: "icon-content__menu__facebook"}
