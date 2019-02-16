@@ -83,13 +83,12 @@
         = link_to edit_product_path(@product.id), class: "btn-default btn-red" do
           商品の編集
         %p or
-        = form_for @product, url: {action: :previewChange} do |f|
-          - if @product.status == "出品中"
-            = f.hidden_field :status, value: 3
-            = f.button "出品を一旦停止する", type: "submit", class: "btn-default btn-gray"
-          - else @product.status == "公開停止中"
-            = f.hidden_field :status, value: 0
-            = f.button "出品を再開する", type: "submit", class: "btn-default btn-red"
+        - if @product.exhibition?
+          = link_to previewChange_product_path(@product.id), class: "btn-default btn-gray" do
+            出品を一旦停止する
+        - elsif @product.stopped?
+          = link_to previewChange_product_path(@product.id), class: "btn-default btn-red" do
+            出品を再開する
         = link_to "/products/#{@product.id}", class: "btn-default btn-gray", method: :delete do
           この商品を削除する
 = render "layouts/top-footer"

@@ -1,8 +1,10 @@
 class Product < ApplicationRecord
   has_many :item_images, :dependent => :destroy
+  belongs_to :user
   accepts_nested_attributes_for :item_images, allow_destroy: true
   with_options presence: true do
     validates :name
+    validates :user_id
     validates :description
     validates :category_large
     validates :category_middle
@@ -68,8 +70,8 @@ class Product < ApplicationRecord
    "スカジャン": 20, "その他": 21
   }, _suffix: true
 
-  enum status: {
-   "出品中": 0, "取引中": 1, "売却済み": 2, "公開停止中": 3
-  }, _suffix: true
+  enum status: [
+   :exhibition, :trading, :sold, :stopped
+  ]
 
 end
