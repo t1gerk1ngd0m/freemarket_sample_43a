@@ -1,13 +1,16 @@
 .product
-  = image_tag @product.item_images.first.name, class: "product__image"
+  - if product_name.present?
+    = image_tag product_image.first.name,class: "product__image"
+  - else
+    = image_tag("no_image.png", class: "product__image")
   .product__title
     .product__name
-      = @product.name
+      = product_name
     .product__name--fade-out
   .product__price
     .price__yen
       ¥
-      = @product.price
+      = product_price
     .price__tax (税込)
   .product__like
     .like__heart.far.fa-heart
