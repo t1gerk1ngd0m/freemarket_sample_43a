@@ -1,5 +1,5 @@
 =link_to "/products/#{product_id}" , class: "product" do
-  - if product_name.present?
+  - if product_image.first.present?
     = image_tag product_image.first.name,class: "product__image"
   - else
     = image_tag("no_image.png", class: "product__image")

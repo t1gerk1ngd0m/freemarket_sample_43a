@@ -13,7 +13,10 @@
       .buy-content
         .buy-content__inner
           .buy-content__inner__item-image
-            = image_tag @product.item_images.first.name, class:"item-photo"
+            - if @product.item_images.first.present?
+              = image_tag @product.item_images.first.name,class: "item-photo"
+            - else
+              = image_tag("no_image.png", class: "item-photo")
           .buy-content__inner__item-name
             Supreamステッカー
           .buy-content__inner__buy-form

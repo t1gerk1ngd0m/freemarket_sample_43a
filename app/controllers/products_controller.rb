@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-   before_action :set_product, only: [:show, :buy, :pay, :edit, :update, :destroy, :preview]
+   before_action :set_product, only: [:show, :buy, :pay, :edit, :update, :destroy, :preview, :previewChange]
 
   def new
     @product = Product.new
@@ -32,7 +32,6 @@ class ProductsController < ApplicationController
   end
 
   def buy
-    @products =Product.includes(:item_images).limit(6)
   end
 
   def pay
@@ -76,12 +75,15 @@ class ProductsController < ApplicationController
   end
 
   def previewChange
-    product = Product.new(status_params)
-    if product.update(status_params)
-      render :preview
-    else
-      render :preview
+    @item_images = @product.item_images
+    if @product.exhibition?
+      @product[:status] = 3
+      @product.save
+    elsif @product.stopped?
+      @product[:status] = 0
+      @product.save
     end
+    render :preview
   end
 
   private
@@ -101,17 +103,11 @@ class ProductsController < ApplicationController
       :price,
       :condition,
       item_images_attributes: [:id, :name]
-    )
+    ).merge(user_id: current_user.id)
   end
 
   def set_product
     @product = Product.find(params[:id])
-  end
-
-  def status_params
-    params.require(:product).permit(
-      :status
-    )
   end
 end
 
