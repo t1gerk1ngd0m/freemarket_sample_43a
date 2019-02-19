@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   end
 
   root to:'products#index'
+  post '/like/:product_id' => 'likes#like', as: 'like'
+  delete '/like/:product_id' => 'likes#unlike', as: 'unlike'
   resources :products do
     collection do
 
