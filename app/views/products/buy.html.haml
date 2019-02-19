@@ -36,9 +36,11 @@
             配送先
           %addles
             .buy-user-info-container-text
-              〒373-0032<br>
-              群馬県太田市新野町123<br>
-              田中太郎
+              = "〒#{@product.user.zip}"
+              %br
+              = "#{@product.user.prefecture}#{@product.user.city}#{@product.user.block}#{@product.user.building}"
+              %br
+              = @product.user.nickname
           .buy-user-info-container__angle-right
             =link_to "#", class: "angle-right" do
               変更する
@@ -48,9 +50,9 @@
           %h3
             支払い方法
           .buy-user-info-container-text
-            ************4019
+            =@product.user.card_number.gsub(/\d(?=(\D*\d){4})/, '*')
             %br
-            04 / 20
+            = "#{@product.user.expiration_month.strftime("%m")} / #{@product.user.expiration_year.strftime("%y")}"
           .buy-user-info-container-visa
             = image_tag "visa.svg", alt: "写真", class:"visa"
           .buy-user-info-container__angle-right
