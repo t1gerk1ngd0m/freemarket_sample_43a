@@ -18,7 +18,7 @@
             - else
               = image_tag("no_image.png", class: "item-photo")
           .buy-content__inner__item-name
-            Supreamステッカー
+            = @product.name
           .buy-content__inner__buy-form
       .buy-content
         .buy-content__inner__buy-form
@@ -33,8 +33,10 @@
             配送先
           %addles
             .buy-user-info-container-text
-              〒373-0032<br>
-              群馬県太田市新野町123<br>
-              田中太郎
+              = "〒#{@product.user.zip}"
+              %br
+              = "#{@product.user.prefecture}#{@product.user.city}#{@product.user.block}#{@product.user.building}"
+              %br
+              = @product.user.nickname
   %footer.signup-footer
     = render "devise/registrations/signup-footer"
