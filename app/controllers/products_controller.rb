@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @products =Product.includes(:item_images).limit(6)
+    @products =Product.where(user_id: Product.find(params[:id]).user_id).includes(:item_images).order("id DESC").limit(6)
   end
 
 
