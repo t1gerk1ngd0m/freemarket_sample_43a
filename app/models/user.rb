@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   has_many :products, :dependent => :destroy
-
+  has_many :likes, dependent: :destroy
+  has_many :like_products, through: :likes,source: :product
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
 
