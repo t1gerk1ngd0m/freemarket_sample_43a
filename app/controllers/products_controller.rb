@@ -20,6 +20,9 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.includes(:item_images).order("id DESC").limit(4)
+    @products_women = Product.where(category_large: 1).includes(:item_images).order("id DESC").limit(4)
+    @products_men = Product.where(category_large: 2).includes(:item_images).order("id DESC").limit(4)
+    @products_baby = Product.where(category_large: 3).includes(:item_images).order("id DESC").limit(4)
   end
 
   def show
