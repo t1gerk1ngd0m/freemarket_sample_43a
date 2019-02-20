@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   end
 
   root to:'products#index'
+  get '/like/:id', to: 'likes#like', as: 'like'
+  delete '/like/:id', to: 'likes#unlike', as: 'unlike'
   resources :products do
     collection do
       get 'search'

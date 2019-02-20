@@ -26,5 +26,26 @@
       width: 25%;
       text-align: center;
     }
+    &__gooded {
+      background: white;
+      border: solid red 2px;
+      border-radius: 35%;
+      height: 30px;
+      width: 100px;
+      text-align: center;
+      line-height: 30px;
+      &--rogo {
+        color: red;
+      }
+      &--text {
+        color: red;
+      }
+      &--num {
+        color: red;
+      }
+    }
+    &__message__show {
+      color: #0099e8;
+    }
   }
 }

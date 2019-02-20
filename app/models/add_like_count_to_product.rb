@@ -1,0 +1,2 @@
+class AddLikeCountToProduct < ApplicationRecord
+end
