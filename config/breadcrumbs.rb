@@ -38,6 +38,6 @@ crumb :trading do
 end
 
 crumb :sold do
-  link "品した商品-売却済み", sold_users_path
+  link "出品した商品-売却済み", sold_users_path
   parent :mypage
 end
