@@ -1,0 +1,17 @@
+=link_to "/products/#{product_id}/edit" , class: "product" do
+  - if product_image.first.present?
+    = image_tag product_image.first.name,class: "product__image"
+  - else
+    = image_tag("no_image.png", class: "product__image")
+  .product__title
+    .product__name
+      = product_name
+    .product__name--fade-out
+  .product__price
+    .price__yen
+      ¥
+      = product_price
+    .price__tax (税込)
+  .product__like
+    .like__heart.far.fa-heart
+    .like__number 19
