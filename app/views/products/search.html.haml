@@ -13,7 +13,10 @@
           - @products.each do |product|
             = link_to "/products/#{product.id}",class: "search__box__card" do
               .search__box__card__image
-                = image_tag product.item_images.first.name,class: "search-image"
+                - if product.item_images.present?
+                  = image_tag product.item_images.first.name,class: "search-image"
+                - else
+                  = image_tag("no_image.png", class: "search-image")
               .search__box__card__text
                 = product.name
                 .search__box__card__text--price
