@@ -163,7 +163,7 @@ $(function(){
     var test_nil_expiration_year = reg_not_nil.test(expiration_year);
     var test_nil_security_code = reg_not_nil.test(security_code);
     var test_fomart_security_code = reg_intger_3or4_characters.test(security_code);
-    var test_all_card_infomation = ( test_nil_card_number && test_fomart_card_number && test_nil_expiration_month && test_nil_expiration_year && test_nil_security_code && test_fomart_security_code );
+    var test_all_card_information = ( test_nil_card_number && test_fomart_card_number && test_nil_expiration_month && test_nil_expiration_year && test_nil_security_code && test_fomart_security_code );
     vadication( test_nil_card_number , $('.error--card_number-nil') , $('#user_nickname') );
     vadication( test_fomart_card_number , $('.error--card_number-fomart') , $('#user_card_number') );
     if( test_nil_expiration_month ){
@@ -182,7 +182,7 @@ $(function(){
     }
     vadication( test_nil_security_code , $('.error--security_code-nil') , $('#user_security_code') );
     vadication( test_fomart_security_code , $('.error--security_code-fomart') , $('#user_security_code') );
-    if( test_all_card_infomation ){
+    if( test_all_card_information ){
       this.submit();
     }else{
       return false;
