@@ -19,7 +19,7 @@
       = link_to "出品した商品-出品中", auction_products_path, class: "side-bar__name"
       .side-bar__greater-than.fas.fa-greater-than
     .side-bar__list
-      .side-bar__name 出品した商品-取引中
+      = link_to "出品した商品-取引中", dealing_products_path, class: "side-bar__name"
       .side-bar__greater-than.fas.fa-greater-than
     .side-bar__list
       .side-bar__name 出品した商品-売却済み
