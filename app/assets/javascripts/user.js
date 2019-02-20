@@ -66,6 +66,11 @@ $(function(){
       $('.input-field__main').removeClass('active');
     }
   });
+  $('#user_tel_confirmation').on('keyup',function(){
+    var tel_confirmation = document.getElementById('user_tel_confirmation').value;
+    var test_fomart_tel_confirmation = reg_intger_10or11_characters.test(tel_confirmation);
+    vadication( test_fomart_tel_confirmation , $('.error--tel_confirmation-fomart') , $('#user_tel_confirmation') );
+  });
   $('.signup_button--tel').on('click',function(e){
     e.preventDefault(e);
     var tel_confirmation = document.getElementById('user_tel_confirmation').value;
