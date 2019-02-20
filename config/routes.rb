@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       get 'buy/:id', to: 'products#buy', as: 'buy'
       post 'pay/:id' => 'products#pay', as: 'pay'
       get 'exhibition', to: 'products#exhibition', as: 'exhibition'
-      get 'dealing', to: 'products#dealing', as: 'dealing'
+      get 'trading', to: 'products#trading', as: 'trading'
       get 'sold', to: 'products#sold', as: 'sold'
     end
     member do
