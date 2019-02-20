@@ -12,6 +12,9 @@ Rails.application.routes.draw do
       get 'logout', to: 'users#logout', as: 'logout'
       get 'identification', to: 'users#identification', as: 'identification'
       get 'profile', to: 'users#profile', as: 'profile'
+      get 'exhibition', to: 'users#exhibition', as: 'exhibition'
+      get 'trading', to: 'users#trading', as: 'trading'
+      get 'sold', to: 'users#sold', as: 'sold'
     end
   end
 
@@ -22,7 +25,6 @@ Rails.application.routes.draw do
   root to:'products#index'
   resources :products do
     collection do
-
       get 'search'
       get 'buy/:id', to: 'products#buy', as: 'buy'
       post 'pay/:id' => 'products#pay', as: 'pay'

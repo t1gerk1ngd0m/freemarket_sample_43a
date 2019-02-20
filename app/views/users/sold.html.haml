@@ -1,0 +1,14 @@
+= render "layouts/top-header"
+.bread-crumbs
+  .bread-crumbs__box
+    - breadcrumb :sold
+    = breadcrumbs separator: " &rsaquo; "
+.gray-background.clearfix
+  .user-page
+    .user-page__content
+      - @products.each do |p|
+        = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images }
+
+    = render "layouts/side-bar"
+= render "layouts/top-footer"
+= render "layouts/top-button"

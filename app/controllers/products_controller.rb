@@ -29,12 +29,8 @@ class ProductsController < ApplicationController
     @products =Product.where(user_id: Product.find(params[:id]).user_id).includes(:item_images).order("id DESC").limit(6)
   end
 
-
   def search
     @products = Product.where("name Like(?)","%#{params[:keyword]}%")
-  end
-
-  def buy
   end
 
   def pay
