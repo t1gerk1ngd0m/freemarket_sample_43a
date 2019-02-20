@@ -87,6 +87,21 @@ $(function(){
       $('#user_tel_confirmation').removeClass('signup_input');
     }
   });
+  $('#user_first_name_kana').on('keyup',function(){
+    var first_name_kana = document.getElementById('user_first_name_kana').value;
+    var test_fomart_first_name_kana = reg_only_kana.test(first_name_kana);
+    vadication( test_fomart_first_name_kana , $('.error--first_name_kana') , $('#user_first_name_kana') );
+  });
+  $('#user_last_name_kana').on('keyup',function(){
+    var last_name_kana = document.getElementById('user_last_name_kana').value;
+    var test_fomart_last_name_kana = reg_only_kana.test(last_name_kana);
+    vadication( test_fomart_last_name_kana , $('.error--last_name_kana') , $('#user_last_name_kana') );
+  });
+  $('#user_zip').on('keyup',function(){
+    var zip = document.getElementById('user_zip').value;
+    var test_fomart_zip = reg_zip_code.test(zip);
+    vadication( test_fomart_zip , $('.error--zip') , $('#user_zip') );
+  });
   $('.signup_button--address').on('click',function(e){
     e.preventDefault(e);
     var first_name = document.getElementById('user_first_name').value;
