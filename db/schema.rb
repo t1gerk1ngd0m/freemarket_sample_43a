@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190219080547) do
+ActiveRecord::Schema.define(version: 20190219104338) do
+
+  create_table "add_like_count_to_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "like_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       default: "", null: false
@@ -57,6 +63,7 @@ ActiveRecord::Schema.define(version: 20190219080547) do
     t.datetime "updated_at",                              null: false
     t.integer  "status",                     default: 0,  null: false
     t.integer  "size"
+    t.integer  "like_count"
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 
