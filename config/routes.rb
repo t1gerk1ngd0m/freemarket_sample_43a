@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       get 'search'
       get 'buy/:id', to: 'products#buy', as: 'buy'
       post 'pay/:id' => 'products#pay', as: 'pay'
-      get 'auction', to: 'products#auction', as: 'auction'
+      get 'exhibition', to: 'products#exhibition', as: 'exhibition'
       get 'dealing', to: 'products#dealing', as: 'dealing'
       get 'sold', to: 'products#sold', as: 'sold'
     end
