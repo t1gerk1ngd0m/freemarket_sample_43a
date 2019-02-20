@@ -13,7 +13,7 @@
       .side-bar__name いいね！一覧
       .side-bar__greater-than.fas.fa-greater-than
     .side-bar__list
-      .side-bar__name 出品する
+      = link_to "出品する", new_product_path, class: "side-bar__name"
       .side-bar__greater-than.fas.fa-greater-than
     .side-bar__list
       .side-bar__name 出品した商品-出品中
