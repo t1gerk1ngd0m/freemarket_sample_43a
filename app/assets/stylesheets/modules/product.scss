@@ -22,7 +22,7 @@
   }
   &__name--fade-out{
     float: right;
-    // position: absolute;
+    position: absolute;
     width: 100px;
     height: 20px;
     background: linear-gradient(to right , #00000000, white);
@@ -34,19 +34,19 @@
     .price__yen{
       font-weight: bold;
       line-height: 10px;
-      // position: absolute;
+      position: absolute;
       bottom: 22px;
       left: 10px;
     }
     .price__tax{
       font-size: 10px;
-      // position: absolute;
+      position: absolute;
       bottom: 5px;
       left: 10px;
     }
   }
   &__like{
-    // position: absolute;
+    position: absolute;
     bottom: 15px;
     right: 15px;
     .like__heart{

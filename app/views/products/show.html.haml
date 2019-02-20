@@ -138,6 +138,6 @@
           %a{ href: "",class: "product-image__user-otherwise__title"} #{@product.user.nickname}さんのその他の出品
           .product-image__user-otherwise__list
             - @products.each do |p|
-              = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images }
+              = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images , like_count: p.like_count}
 = render "layouts/top-footer"
 = render "layouts/top-button"

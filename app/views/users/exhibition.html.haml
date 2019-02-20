@@ -7,7 +7,7 @@
   .user-page
     .user-page__content
       - @products.each do |p|
-        = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images }
+        = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images , like_count: p.like_count}
 
     = render "layouts/side-bar"
 = render "layouts/top-footer"
