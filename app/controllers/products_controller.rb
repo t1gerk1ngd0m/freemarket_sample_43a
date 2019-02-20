@@ -20,19 +20,19 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.includes(:item_images).order("id DESC").limit(4)
+    @products_women = Product.where(category_large: 1).includes(:item_images).order("id DESC").limit(4)
+    @products_men = Product.where(category_large: 2).includes(:item_images).order("id DESC").limit(4)
+    @products_baby = Product.where(category_large: 3).includes(:item_images).order("id DESC").limit(4)
   end
 
   def show
     @products =Product.includes(:item_images).limit(6)
     @current_user_already_like = Like.exists?(user_id: current_user.id,product_id: @product.id)
+    @products =Product.where(user_id: Product.find(params[:id]).user_id).includes(:item_images).order("id DESC").limit(6)
   end
-
 
   def search
     @products = Product.where("name Like(?)","%#{params[:keyword]}%")
-  end
-
-  def buy
   end
 
   def pay

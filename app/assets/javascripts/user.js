@@ -21,6 +21,22 @@ $(function(){
     $('.l-signup-container').addClass('active');
     $('.signin-panel').removeClass('active');
   });
+  $('#user_email').on('keyup',function(){
+    var email = document.getElementById('user_email').value;
+    var test_fomart_email = reg_mail_address.test(email);
+    vadication( test_fomart_email , $('.error--email-fomart') , $('#user_email') );
+  });
+  $('#user_password').on('keyup',function(){
+    var password = document.getElementById('user_password').value;
+    var test_fomart_password = reg_alphanumeric_6characters.test(password);
+    vadication( test_fomart_password , $('.error--password-fomart') , $('#user_password') );
+  });
+  $('#user_password_confirmation').on('keyup',function(){
+    var password = document.getElementById('user_password').value;
+    var password_confirmation = document.getElementById('user_password_confirmation').value;
+    var test_match_password_confirmation = ( password == password_confirmation );
+    vadication( test_match_password_confirmation , $('.error--password_confirmation-match') , $('#user_password_confirmation') );
+  });
   $('.signup_button--user').on('click',function(e){
     e.preventDefault();
     var nickname = document.getElementById('user_nickname').value;
@@ -43,13 +59,17 @@ $(function(){
     vadication( test_match_password_confirmation , $('.error--password_confirmation-match') , $('#user_password_confirmation') );
     vadication( test_nil_password , $('.error--password_confirmation-nil') , $('#user_password_confirmation') );
     vadication( test_fomart_password , $('.error--password-fomart') , $('#user_password') );
-
     vadication( test_checked_recaptcha , $('.error--recaptcha') , $('#user_recaptcha') );
     if( test_all_member_information ){
       $('.input-field__tel').addClass('active');
       $('.progress__user').addClass('progress--done');
       $('.input-field__main').removeClass('active');
     }
+  });
+  $('#user_tel_confirmation').on('keyup',function(){
+    var tel_confirmation = document.getElementById('user_tel_confirmation').value;
+    var test_fomart_tel_confirmation = reg_intger_10or11_characters.test(tel_confirmation);
+    vadication( test_fomart_tel_confirmation , $('.error--tel_confirmation-fomart') , $('#user_tel_confirmation') );
   });
   $('.signup_button--tel').on('click',function(e){
     e.preventDefault(e);
@@ -66,6 +86,21 @@ $(function(){
       $('.error--tel_confirmation-fomart').addClass('active');
       $('#user_tel_confirmation').removeClass('signup_input');
     }
+  });
+  $('#user_first_name_kana').on('keyup',function(){
+    var first_name_kana = document.getElementById('user_first_name_kana').value;
+    var test_fomart_first_name_kana = reg_only_kana.test(first_name_kana);
+    vadication( test_fomart_first_name_kana , $('.error--first_name_kana') , $('#user_first_name_kana') );
+  });
+  $('#user_last_name_kana').on('keyup',function(){
+    var last_name_kana = document.getElementById('user_last_name_kana').value;
+    var test_fomart_last_name_kana = reg_only_kana.test(last_name_kana);
+    vadication( test_fomart_last_name_kana , $('.error--last_name_kana') , $('#user_last_name_kana') );
+  });
+  $('#user_zip').on('keyup',function(){
+    var zip = document.getElementById('user_zip').value;
+    var test_fomart_zip = reg_zip_code.test(zip);
+    vadication( test_fomart_zip , $('.error--zip') , $('#user_zip') );
   });
   $('.signup_button--address').on('click',function(e){
     e.preventDefault(e);
@@ -106,6 +141,16 @@ $(function(){
       $('.input-field__address').removeClass('active');
     }
   });
+  $('#user_card_number').on('keyup',function(){
+    var card_number = document.getElementById('user_card_number').value;
+    var test_fomart_card_number = reg_intger_14or16_characters.test(card_number);
+    vadication( test_fomart_card_number , $('.error--card_number-fomart') , $('#user_card_number') );
+  });
+  $('#user_security_code').on('keyup',function(){
+    var security_code = document.getElementById('user_security_code').value;
+    var test_fomart_security_code = reg_intger_3or4_characters.test(security_code);
+    vadication( test_fomart_security_code , $('.error--security_code-fomart') , $('#user_security_code') );
+  });
   $('.new_user_signup').submit(function(e){
     e.preventDefault(e);
     var card_number = document.getElementById('user_card_number').value;
@@ -118,7 +163,7 @@ $(function(){
     var test_nil_expiration_year = reg_not_nil.test(expiration_year);
     var test_nil_security_code = reg_not_nil.test(security_code);
     var test_fomart_security_code = reg_intger_3or4_characters.test(security_code);
-    var test_all_address = ( test_nil_card_number && test_fomart_card_number && test_nil_expiration_month && test_nil_expiration_year && test_nil_security_code && test_fomart_security_code );
+    var test_all_card_information = ( test_nil_card_number && test_fomart_card_number && test_nil_expiration_month && test_nil_expiration_year && test_nil_security_code && test_fomart_security_code );
     vadication( test_nil_card_number , $('.error--card_number-nil') , $('#user_nickname') );
     vadication( test_fomart_card_number , $('.error--card_number-fomart') , $('#user_card_number') );
     if( test_nil_expiration_month ){
@@ -137,11 +182,10 @@ $(function(){
     }
     vadication( test_nil_security_code , $('.error--security_code-nil') , $('#user_security_code') );
     vadication( test_fomart_security_code , $('.error--security_code-fomart') , $('#user_security_code') );
-    if( test_all_address ){
+    if( test_all_card_information ){
       this.submit();
     }else{
       return false;
     }
   });
-
 });

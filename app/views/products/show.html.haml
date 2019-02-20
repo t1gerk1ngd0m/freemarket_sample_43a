@@ -135,8 +135,9 @@
             %i.icon-content__menu__pinterest--color.fab.fa-pinterest-square.fa-3x
       .product-image
         .product-image__user-otherwise
-          %a{ href: "",class: "product-image__user-otherwise__title"} TOさんのその他の出品
+          %a{ href: "",class: "product-image__user-otherwise__title"} #{@product.user.nickname}さんのその他の出品
           .product-image__user-otherwise__list
-            =render partial: "product-image",collections: @products
+            - @products.each do |p|
+              = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images }
 = render "layouts/top-footer"
 = render "layouts/top-button"
