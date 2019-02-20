@@ -21,6 +21,22 @@ $(function(){
     $('.l-signup-container').addClass('active');
     $('.signin-panel').removeClass('active');
   });
+  $('#user_email').on('keyup',function(){
+    var email = document.getElementById('user_email').value;
+    var test_fomart_email = reg_mail_address.test(email);
+    vadication( test_fomart_email , $('.error--email-fomart') , $('#user_email') );
+  });
+  $('#user_password').on('keyup',function(){
+    var password = document.getElementById('user_password').value;
+    var test_fomart_password = reg_alphanumeric_6characters.test(password);
+    vadication( test_fomart_password , $('.error--password-fomart') , $('#user_password') );
+  });
+  $('#user_password_confirmation').on('keyup',function(){
+    var password = document.getElementById('user_password').value;
+    var password_confirmation = document.getElementById('user_password_confirmation').value;
+    var test_match_password_confirmation = ( password == password_confirmation );
+    vadication( test_match_password_confirmation , $('.error--password_confirmation-match') , $('#user_password_confirmation') );
+  });
   $('.signup_button--user').on('click',function(e){
     e.preventDefault();
     var nickname = document.getElementById('user_nickname').value;
@@ -43,7 +59,6 @@ $(function(){
     vadication( test_match_password_confirmation , $('.error--password_confirmation-match') , $('#user_password_confirmation') );
     vadication( test_nil_password , $('.error--password_confirmation-nil') , $('#user_password_confirmation') );
     vadication( test_fomart_password , $('.error--password-fomart') , $('#user_password') );
-
     vadication( test_checked_recaptcha , $('.error--recaptcha') , $('#user_recaptcha') );
     if( test_all_member_information ){
       $('.input-field__tel').addClass('active');
