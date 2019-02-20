@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
 
   def show
     @products =Product.includes(:item_images).limit(6)
+    @current_user_already_like = Like.exists?(user_id: current_user.id,product_id: @product.id)
   end
 
 
