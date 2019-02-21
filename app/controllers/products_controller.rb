@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
    before_action :set_product, only: [:show, :buy, :pay, :edit, :update, :destroy, :preview, :previewChange]
+   before_action :set_category, only: [:show, :preview,]
 
   def new
     @product = Product.new
@@ -128,6 +129,15 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def set_category
+    @category_large = Category.find_by(id: @product.category_large)
+    @category_middle = Category.find_by(id: @product.category_middle)
+    @category_small = Category.find_by(id: @product.category_small)
+    @category_large ||= Category.new
+    @category_middle ||= Category.new
+    @category_small ||= Category.new
   end
 
   def category_large_params
