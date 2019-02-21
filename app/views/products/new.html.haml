@@ -49,15 +49,9 @@
                   カテゴリー
                   %span.form-require
                     必須
-                %div
+                %div#category_select
                   .select-wrap
-                    = f.select :category_large, Product.category_larges.keys, {}, class: "select-default"
-                    %i.icon-arrow-bottom
-                  .select-wrap
-                    = f.select :category_middle, Product.category_middles.keys, {}, class: "select-default hidden"
-                    %i.icon-arrow-bottom
-                  .select-wrap
-                    = f.select :category_small, Product.category_smalls.keys, {}, class: "select-default hidden"
+                    = f.collection_select :category_large, @category_larges, :id, :name, { include_blank: "---" }, class: "select-default"
                     %i.icon-arrow-bottom
               #size.form-group.hidden
                 %label
