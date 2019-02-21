@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @item_image = @product.item_images.build
+    @category_larges = Category.roots
   end
 
   def create
@@ -41,7 +42,7 @@ class ProductsController < ApplicationController
       :amount => @product.price,
       :card => params['payjp-token'],
       :currency => 'jpy',
-  )
+      )
       @product[:status] = 1
       @product.save
   end
@@ -87,28 +88,55 @@ class ProductsController < ApplicationController
     render :preview
   end
 
+  def getCategory_middles
+    @category_middles = Category.find(category_large_params).children
+    respond_to do |format|
+      format.json
+    end
+  end
+
+  def getCategory_smalls
+    @category_smalls = Category.find(category_middle_params).children
+    respond_to do |format|
+      format.json
+    end
+  end
+
   private
   def product_params
-    params.require(:product).permit(
-      :name,
-      :description,
-      :category_large,
-      :category_middle,
-      :category_small,
-      :brand,
-      :size,
-      :shipping_charges_burden,
-      :dispatch_area,
-      :shipping_method,
-      :number_of_the_days_to_ship,
-      :price,
-      :condition,
-      item_images_attributes: [:id, :name]
-    ).merge(user_id: current_user.id)
+    a = params.require(:product).permit(
+          :name,
+          :description,
+          :category_large,
+          :category_middle,
+          :category_small,
+          :brand,
+          :size,
+          :shipping_charges_burden,
+          :dispatch_area,
+          :shipping_method,
+          :number_of_the_days_to_ship,
+          :price,
+          :condition,
+          item_images_attributes: [:id, :name]
+        ).merge(user_id: current_user.id)
+    a[:category_large] = a[:category_large].to_i
+    a[:category_middle] = a[:category_middle].to_i
+    a[:category_small] = a[:category_small].to_i
+    return a
   end
 
   def set_product
     @product = Product.find(params[:id])
   end
-end
 
+  def category_large_params
+    b = params[:category_large].to_i
+    return b
+  end
+
+  def category_middle_params
+    c = params[:category_middle].to_i
+    return c
+  end
+end
