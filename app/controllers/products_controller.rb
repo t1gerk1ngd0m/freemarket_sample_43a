@@ -8,7 +8,6 @@ class ProductsController < ApplicationController
   end
 
   def create
-    binding.pry
     @product = Product.new(product_params)
     if @product.save
       params[:item_images]['name'].each do |a|
@@ -123,7 +122,6 @@ class ProductsController < ApplicationController
     a[:category_large] = a[:category_large].to_i
     a[:category_middle] = a[:category_middle].to_i
     a[:category_small] = a[:category_small].to_i
-    binding.pry
     return a
   end
 
