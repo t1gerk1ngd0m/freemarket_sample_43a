@@ -1,32 +1,18 @@
 %section.items-box-container.clearfix
   %h3.text-center
     レディース 新着アイテム
-  - @products.each do |p|
-    = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images }
-  .view-all
-    %a 全ての商品を見る
+  - @products_women.each do |p|
+    = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images , like_count: p.like_count}
 
 %section.items-box-container.clearfix
   %h3.text-center
     メンズ 新着アイテム
-  - @products.each do |p|
-    = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images }
-  .view-all
-    %a 全ての商品を見る
+  - @products_men.each do |p|
+    = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images , like_count: p.like_count}
 
 %section.items-box-container.clearfix
   %h3.text-center
     ベビー・キッズ 新着アイテム
-  - @products.each do |p|
-    = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images }
-  .view-all
-    %a 全ての商品を見る
-
-%section.items-box-container.clearfix
-  %h3.text-center
-    コスメ・香水・美容 新着アイテム
-  - @products.each do |p|
-    = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images }
-  .view-all
-    %a 全ての商品を見る
+  - @products_baby.each do |p|
+    = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images , like_count: p.like_count}
 

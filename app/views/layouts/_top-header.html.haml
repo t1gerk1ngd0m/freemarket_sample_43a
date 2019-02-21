@@ -12,8 +12,9 @@
       .search-link--brand ブランドから探す
     .top-header__user-info
       .user-info__mypage
-        = image_tag("member_photo_noimage_thumb.png", class: :"mypage__image", value: "マイページ")
-        / = link_to "マイページ", users_path, class: "mypage__title"
+        = link_to users_path do
+          = image_tag("member_photo_noimage_thumb.png", class: :"mypage__image")
+          .mypage__title マイページ
       .user-info__notice
         .far.fa-bell
         .notice__text お知らせ

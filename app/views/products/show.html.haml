@@ -106,10 +106,18 @@
             =@product.description
         .tag
           .tag__content
-            %a{ href: "",class: "tag__content__good" }
-              %i.tag__content__good--rogo.far.fa-heart
-              %span いいね!
-              %span 0
+            -if !@current_user_already_like
+              = link_to like_path, class: "tag__content__good" do
+                %i.tag__content__good--rogo.far.fa-heart
+                %span いいね!
+                %span
+                =@product.like_count
+            - else
+              = link_to unlike_path, class: "tag__content__gooded",method: :delete do
+                %i.tag__content__gooded--rogo.far.fa-heart
+                %span.tag__content__gooded--text いいね!
+                %span.tag__content__gooded--num
+                  =@product.like_count
             %a{ href: "",class: "tag__content__report" }
               %i.tag__content__report--rogo.far.fa-flag
               %span 不適切な商品の報告
@@ -127,8 +135,9 @@
             %i.icon-content__menu__pinterest--color.fab.fa-pinterest-square.fa-3x
       .product-image
         .product-image__user-otherwise
-          %a{ href: "",class: "product-image__user-otherwise__title"} TOさんのその他の出品
+          %a{ href: "",class: "product-image__user-otherwise__title"} #{@product.user.nickname}さんのその他の出品
           .product-image__user-otherwise__list
-            =render partial: "product-image",collections: @products
+            - @products.each do |p|
+              = render :partial => "product", :locals => { product_id: p.id , product_name: p.name , product_price: p.price , product_image: p.item_images , like_count: p.like_count}
 = render "layouts/top-footer"
 = render "layouts/top-button"

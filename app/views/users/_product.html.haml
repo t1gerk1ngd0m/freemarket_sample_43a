@@ -1,4 +1,4 @@
-=link_to "/products/#{product_id}" , class: "product" do
+=link_to "/products/#{product_id}/preview" , class: "product product__user" do
   - if product_image.first.present?
     = image_tag product_image.first.name,class: "product__image"
   - else

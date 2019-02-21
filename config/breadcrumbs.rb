@@ -26,3 +26,18 @@ crumb :logout do
   link "ログアウト", logout_users_path
   parent :mypage
 end
+
+crumb :exhibition do
+  link "出品した商品-出品中", exhibition_users_path
+  parent :mypage
+end
+
+crumb :trading do
+  link "出品した商品-取引中", trading_users_path
+  parent :mypage
+end
+
+crumb :sold do
+  link "出品した商品-売却済み", sold_users_path
+  parent :mypage
+end

@@ -6,7 +6,24 @@
         = image_tag product.item_images.first.name,class: "product-image__user-otherwise__list__item__image"
       - else
         = image_tag("no_image.png", class: "product-image__user-otherwise__list__item__image")
-    .product-image__user-otherwise__list__item__text
-      = product.name
-      .item-box__tax 税込
+      .product__title
+        .product__name
+          = product.name
+        .product__name--fade-out
+        .product__price
+          .price__yen
+            ¥
+            = product.price
+          .price__tax (税込)
+        .product__like
+          .like__heart.far.fa-heart
+          .like__number 19
 
+
+
+    / .product-image__user-otherwise__list__item__text
+    /   = product.name
+    /   .item-box__tax 税込
+    /   .product__like
+    /     .like__heart.far.fa-heart
+    /     .like__number 19
