@@ -50,6 +50,12 @@ class ProductsController < ApplicationController
 
   def edit
     @item_images = @product.item_images
+    @category_larges = Category.roots
+    @category_large = Category.find(@product.category_large)
+    @category_middles = @category_large.children
+    @category_middle = Category.find(@product.category_middle)
+    @category_smalls = @category_middle.children
+    @category_small = Category.find(@product.category_small)
   end
 
   def update
@@ -75,6 +81,9 @@ class ProductsController < ApplicationController
 
   def preview
     @item_images = @product.item_images
+    @category_large = Category.find(@product.category_large).name
+    @category_middle = Category.find(@product.category_middle).name
+    @category_small = Category.find(@product.category_small).name
   end
 
   def previewChange

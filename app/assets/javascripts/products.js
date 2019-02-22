@@ -123,6 +123,7 @@ $(function() {
     e.preventDefault();
 
     $("#product_category_middle").remove();
+    $("#product_category_small").remove();
 
     var selectData = $(this).val();
     if (selectData != "") {
